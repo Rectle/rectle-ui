@@ -1,1 +1,2 @@
 - `0.0.2` - Add PWA
+- `0.0.3` - Add Local & Session Storage plugins
