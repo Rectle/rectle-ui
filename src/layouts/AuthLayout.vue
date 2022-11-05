@@ -6,7 +6,7 @@
 
     <q-footer>
         <q-toolbar>
-          <q-toolbar-title class="text-center">{{ appName }} &copy; 2022</q-toolbar-title>
+          <q-toolbar-title class="text-center">{{ appName }} &copy; {{ currYear }}</q-toolbar-title>
         </q-toolbar>
     </q-footer>
   </q-layout>
