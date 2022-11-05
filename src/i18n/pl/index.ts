@@ -2,11 +2,11 @@
 // so you can safely delete all default props below
 
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful',
+  failed: 'Niepowodzenie',
+  success: 'Akcja powiodła się',
   auth: {
     signin: {
-      title: 'Sign in with'
+      title: 'Zaloguj się przy użyciu'
     }
   }
 };
