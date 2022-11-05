@@ -55,6 +55,10 @@ module.exports = configure(function (/* ctx */) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
+      alias: {
+        '@': path.join(__dirname, '/src/')
+      },
+
       target: {
         browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
         node: 'node16'
@@ -69,7 +73,9 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        APP_NAME: 'Rectle'
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -111,7 +117,9 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Meta'
+      ]
     },
 
     // animations: 'all', // --- includes all animations

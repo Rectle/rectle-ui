@@ -1,2 +1,3 @@
 - `0.0.2` - Add PWA
 - `0.0.3` - Turn on dark mode
+- `0.0.4` - Add Meta plugin
