@@ -2,8 +2,7 @@
   <q-item
     clickable
     tag="a"
-    target="_blank"
-    :href="link"
+    :to="{ name: link }"
   >
     <q-item-section
       v-if="icon"
@@ -32,3 +31,10 @@ withDefaults(defineProps<EssentialLinkProps>(), {
   icon: '',
 });
 </script>
+<style lang="scss">
+.q-router-link--active {
+  .body--dark {
+    color: white !important;
+  }
+}
+</style>

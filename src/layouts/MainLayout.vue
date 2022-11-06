@@ -1,30 +1,64 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="'lHh Lpr lFf'">
+    <q-header elevated v-if="$q.platform.is.mobile">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> Rectle </q-toolbar-title>
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            @click="toggleLeftDrawer"
+          />
+          <q-toolbar-title> Rectle </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered :mini="miniState">
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <!-- <q-item-label header> {{$t('dashboard.title')}} </q-item-label> -->
+        <q-item clickable>
+          <q-item-section avatar>
+            <q-icon
+              name="menu"
+              aria-label="Menu"
+              @click="toggleFun"/>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label class="text-h6" v-if="!$q.platform.is.mobile">Rectle</q-item-label>
+          </q-item-section>
+
+        </q-item>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in links"
           :key="link.title"
           v-bind="link"
         />
+
+        <div v-if="!miniState" class="fixed-bottom q-mb-xl">
+          <q-item-label header> {{$t('dashboard.setting.title')}} </q-item-label>
+          <q-item>
+            <q-item-section avatar>
+              <q-icon name="dark_mode" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label class="text-subtitle1">{{ $t('dashboard.setting.darkmode') }}
+
+                <q-toggle
+                  @click="changeDarkmode"
+                  v-model="dark"
+                  val="darkmode"
+                  size="lg"
+              /></q-item-label>
+            </q-item-section>
+          </q-item>
+      </div>
+
       </q-list>
+
+      <span v-if="!miniState" class="text-center fixed-bottom text-body2 q-pa-md q-mt-md">{{ appName }} &copy; {{ currYear }}</span>
     </q-drawer>
 
     <q-page-container>
@@ -35,58 +69,49 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useQuasar, LocalStorage  } from 'quasar';
+import moment from 'moment'
 import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
 
-const essentialLinks: EssentialLinkProps[] = [
+const $q = useQuasar();
+
+const links: EssentialLinkProps[] = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
+    title: 'Home',
+    caption: 'home page',
+    icon: 'home',
+    link: 'home',
+  }
 ];
 
-const leftDrawerOpen = ref(false);
+const dark = ref($q.dark.isActive)
 
-function toggleLeftDrawer() {
+function changeDarkmode(){
+  $q.dark.set(dark.value);
+  LocalStorage.set('darkmode', dark.value);
+}
+
+const appName = process.env.APP_NAME
+const currYear = moment().format('YYYY')
+
+const miniState = ref($q.platform.is.mobile ? false : true)
+
+const leftDrawerOpen = ref($q.platform.is.mobile ? false : true);
+
+
+function toggleFun(){
+ $q.platform.is.mobile ? toggleLeftDrawer() : toggleMiniState()
+}
+
+function toggleMiniState() {
+  miniState.value = !miniState.value;
+}
+
+function toggleLeftDrawer(){
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+
+
 </script>

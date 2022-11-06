@@ -3,5 +3,12 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+  dashboard: {
+    title: 'Links',
+    setting: {
+      title: 'Settings',
+      darkmode: 'Darkmode'
+    }
+  }
 };
