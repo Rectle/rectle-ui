@@ -11,6 +11,7 @@
           <q-space />
           <q-toggle 
             v-model="darkMode"
+            @update:model-value="updateDarkMode"
             color="dark"
             checked-icon="fa-solid fa-moon"
             unchecked-icon="fa-solid fa-sun"
@@ -32,8 +33,8 @@ const currYear = moment().format('YYYY')
 
 const darkMode = ref($q.dark.isActive);
 
-watch(darkMode, (value) => {
+const updateDarkMode = (value: boolean) => {
   $q.dark.set(value);
   LocalStorage.set('darkmode', value);
-});
+}
 </script>
