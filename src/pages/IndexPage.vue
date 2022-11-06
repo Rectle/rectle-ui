@@ -6,4 +6,10 @@
 
 <script setup lang="ts">
 import ExampleComponent from 'components/ExampleComponent.vue';
+import { useMeta } from 'quasar';
+import metaData from '@/utils/configs/meta.ts';
+useMeta({
+  ...metaData,
+  title: 'Home page'
+})
 </script>
