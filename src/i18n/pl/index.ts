@@ -6,7 +6,10 @@ export default {
   success: 'Akcja powiodła się',
   auth: {
     signin: {
-      title: 'Zaloguj się przy użyciu'
+      title: 'Zaloguj się przy użyciu',
+      meta: {
+        title: 'Logowanie'
+      }
     }
   }
 };
