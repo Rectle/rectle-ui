@@ -17,12 +17,12 @@
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered :mini="miniState">
       <q-list>
         <!-- <q-item-label header> {{$t('dashboard.title')}} </q-item-label> -->
-        <q-item clickable>
+        <q-item clickable @click="toggleFun">
           <q-item-section avatar>
             <q-icon
               name="menu"
               aria-label="Menu"
-              @click="toggleFun"/>
+            />
           </q-item-section>
 
           <q-item-section>
