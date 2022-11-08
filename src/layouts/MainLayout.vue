@@ -14,7 +14,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="showDrawer"  bordered :mini="miniMode && $q.screen.gt.sm">
+    <q-drawer v-model="showDrawer"  bordered :mini="miniMode && $q.screen.gt.sm" :breakpoint="500" >
       <q-list>
         <!-- <q-item-label header> {{$t('dashboard.title')}} </q-item-label> -->
         <q-item clickable @click="toggleNavigationDrawer">
@@ -26,7 +26,7 @@
           </q-item-section>
 
           <q-item-section>
-            <q-item-label class="text-h6" v-if="$q.screen.lt.md">{{appName}}</q-item-label>
+            <q-item-label class="text-h6" v-if="!miniMode">{{appName}}</q-item-label>
           </q-item-section>
 
         </q-item>
@@ -77,6 +77,8 @@ import EssentialLink, {
 const $q = useQuasar();
 const { t } = useI18n();
 
+$q.screen.setSizes({ sm: 300, md: 500})
+
 const links: EssentialLinkProps[] = [
   {
     title: t('dashboard.links.home.title'),
@@ -103,7 +105,6 @@ const showDrawer = ref(!isMobile);
 
 
 function toggleNavigationDrawer(){
-  console.log( Screen.lt.md)
   Screen.lt.md ? toggleDrawer() : toggleMiniMode()
 }
 
@@ -127,3 +128,4 @@ watch(() => Screen.lt.md,
 })
 
 </script>
+
