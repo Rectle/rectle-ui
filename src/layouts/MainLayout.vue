@@ -1,32 +1,32 @@
 <template>
-  <q-layout view="'lHh Lpr lFf'">
-    <q-header elevated v-if="$q.platform.is.mobile">
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated v-if="$q.screen.lt.md">
       <q-toolbar>
           <q-btn
             flat
             dense
             round
             icon="menu"
-            aria-label="Menu"
-            @click="toggleLeftDrawer"
+            :aria-label="$t('dashboard.icons.labels.menu')"
+            @click="toggleDrawer"
           />
-          <q-toolbar-title> Rectle </q-toolbar-title>
+          <q-toolbar-title> {{appName}} </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered :mini="miniState">
+    <q-drawer v-model="showDrawer"  bordered :mini="miniMode && $q.screen.gt.sm">
       <q-list>
         <!-- <q-item-label header> {{$t('dashboard.title')}} </q-item-label> -->
-        <q-item clickable @click="toggleFun">
+        <q-item clickable @click="toggleNavigationDrawer">
           <q-item-section avatar>
             <q-icon
               name="menu"
-              aria-label="Menu"
+              :aria-label="$t('dashboard.icons.labels.menu')"
             />
           </q-item-section>
 
           <q-item-section>
-            <q-item-label class="text-h6" v-if="!$q.platform.is.mobile">Rectle</q-item-label>
+            <q-item-label class="text-h6" v-if="$q.screen.lt.md">{{appName}}</q-item-label>
           </q-item-section>
 
         </q-item>
@@ -37,28 +37,26 @@
           v-bind="link"
         />
 
-        <div v-if="!miniState" class="fixed-bottom q-mb-xl">
+        <div v-if="!miniMode" class="fixed-bottom q-mb-xl">
           <q-item-label header> {{$t('dashboard.setting.title')}} </q-item-label>
           <q-item>
             <q-item-section avatar>
-              <q-icon name="dark_mode" />
+              <q-icon :name="dark ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" />
             </q-item-section>
             <q-item-section>
-              <q-item-label class="text-subtitle1">{{ $t('dashboard.setting.darkmode') }}
 
-                <q-toggle
-                  @click="changeDarkmode"
-                  v-model="dark"
-                  val="darkmode"
-                  size="lg"
-              /></q-item-label>
+            <q-toggle
+              v-model="dark"
+              @click="changeDarkmode"
+              size="lg"
+            />
             </q-item-section>
           </q-item>
       </div>
 
       </q-list>
 
-      <span v-if="!miniState" class="text-center fixed-bottom text-body2 q-pa-md q-mt-md">{{ appName }} &copy; {{ currYear }}</span>
+      <span v-if="!miniMode" class="text-center fixed-bottom text-body2 q-pa-md q-mt-md">{{ appName }} &copy; {{ currYear }}</span>
     </q-drawer>
 
     <q-page-container>
@@ -68,21 +66,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useQuasar, LocalStorage  } from 'quasar';
+import { useI18n } from 'vue-i18n';
+import { ref, watch } from 'vue';
+import { useQuasar, LocalStorage, Screen  } from 'quasar';
 import moment from 'moment'
 import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
 
 const $q = useQuasar();
+const { t } = useI18n();
 
 const links: EssentialLinkProps[] = [
   {
-    title: 'Home',
-    caption: 'home page',
-    icon: 'home',
-    link: 'home',
+    title: t('dashboard.links.home.title'),
+    caption: t('dashboard.links.home.caption'),
+    icon: t('dashboard.links.home.icon'),
+    link: t('dashboard.links.home.link'),
   }
 ];
 
@@ -96,22 +96,34 @@ function changeDarkmode(){
 const appName = process.env.APP_NAME
 const currYear = moment().format('YYYY')
 
-const miniState = ref($q.platform.is.mobile ? false : true)
+const isMobile = Screen.lt.md
 
-const leftDrawerOpen = ref($q.platform.is.mobile ? false : true);
+const miniMode = ref(!isMobile)
+const showDrawer = ref(!isMobile);
 
 
-function toggleFun(){
- $q.platform.is.mobile ? toggleLeftDrawer() : toggleMiniState()
+function toggleNavigationDrawer(){
+  console.log( Screen.lt.md)
+  Screen.lt.md ? toggleDrawer() : toggleMiniMode()
 }
 
-function toggleMiniState() {
-  miniState.value = !miniState.value;
+function toggleMiniMode() {
+  miniMode.value = !miniMode.value;
 }
 
-function toggleLeftDrawer(){
-  leftDrawerOpen.value = !leftDrawerOpen.value;
+function toggleDrawer(){
+  showDrawer.value = !showDrawer.value;
 }
 
+watch(() => Screen.lt.md,
+  ()=> {
+    if(Screen.lt.md){
+    showDrawer.value = !miniMode.value
+    miniMode.value = false
+    }else{
+      miniMode.value = !showDrawer.value
+      showDrawer.value = true
+    }
+})
 
 </script>

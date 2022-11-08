@@ -31,10 +31,3 @@ withDefaults(defineProps<EssentialLinkProps>(), {
   icon: '',
 });
 </script>
-<style lang="scss">
-.q-router-link--active {
-  .body--dark {
-    color: white !important;
-  }
-}
-</style>

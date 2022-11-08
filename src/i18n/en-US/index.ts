@@ -9,6 +9,19 @@ export default {
     setting: {
       title: 'Settings',
       darkmode: 'Darkmode'
+    },
+    links: {
+      home: {
+        title: 'Home',
+        caption: 'home page',
+        icon: 'home',
+        link: 'home',
+      }
+    },
+    icons: {
+      labels: {
+        menu: 'Menu'
+      }
     }
   }
 };
