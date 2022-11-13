@@ -6,9 +6,15 @@ export default {
   success: 'Action was successful',
   auth: {
     signin: {
-      title: 'Sign in with',
+      title: 'Sign in',
       meta: {
         title: 'Login'
+      }
+    },
+    signup: {
+      title: 'Sign up',
+      meta: {
+        title: 'Register'
       }
     }
   }
