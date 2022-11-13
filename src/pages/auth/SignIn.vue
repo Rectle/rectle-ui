@@ -53,9 +53,3 @@ const handleLoginError = () => {
   console.error("Login failed");
 };
 </script>
-
-<style scoped lang="scss">
-.google-button {
-    width: 100%;
-}
-</style>
