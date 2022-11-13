@@ -12,7 +12,7 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "build:pwa": "quasar build -m pwa",
-    "firebase": "firebase init hosting"
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
