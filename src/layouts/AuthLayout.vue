@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import moment from 'moment'
 import { useQuasar, LocalStorage } from 'quasar';
 
@@ -31,10 +31,12 @@ const $q = useQuasar();
 const appName = process.env.APP_NAME
 const currYear = moment().format('YYYY')
 
+
 const darkMode = ref($q.dark.isActive);
 
 const updateDarkMode = (value: boolean) => {
   $q.dark.set(value);
   LocalStorage.set('darkmode', value);
 }
+
 </script>
