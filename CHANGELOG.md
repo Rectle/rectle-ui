@@ -2,3 +2,6 @@
 - `0.0.3` - Turn on dark mode
 - `0.0.4` - Add Local & Session Storage plugins
 - `0.0.5` - Add Meta plugin
+- `0.0.6` - Change Vue router mode
+- `0.0.7` - Add outlined icons
+- `0.0.7` - Add Notify, Dialog, Loading plugins
