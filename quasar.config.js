@@ -120,7 +120,10 @@ module.exports = configure(function (/* ctx */) {
       plugins: [
         'Meta',
         'LocalStorage',
-        'SessionStorage'
+        'SessionStorage',
+        'Notify',
+        'Dialog',
+        'Loading'
       ]
     },
 
