@@ -2,3 +2,4 @@
 - `0.0.3` - Turn on dark mode
 - `0.0.4` - Add Local & Session Storage plugins
 - `0.0.5` - Add Meta plugin
+- `0.0.6` - Change Vue router mode
