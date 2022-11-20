@@ -47,7 +47,7 @@ const userStore = useUserStore();
 
 const handleRegisterSuccess = async (response: CredentialResponse) => {
   await userStore.signIn(response);
-  router.push({ path: route.query.next as string || '/' })
+  router.push({ path: decodeURIComponent(route.query.next as string) || '/' });
 };
 
 // handle an error event
