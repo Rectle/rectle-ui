@@ -3,9 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar, LocalStorage } from 'quasar';
-const $q = useQuasar();
-const isDarkMode: boolean = LocalStorage.getItem('darkmode') ?? false
+import { useQuasar } from 'quasar';
 
-$q.dark.set(isDarkMode);
+// TODO: Remove this logic when creating target solution
+const $q = useQuasar();
+// set dark mode as default
+$q.dark.set(true);
 </script>
