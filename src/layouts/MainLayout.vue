@@ -1,6 +1,7 @@
 <template>
-  <q-layout view="hHh Lpr lff">
-      <q-header elevated v-if="$q.screen.lt.md">
+
+<q-layout view="hHh Lpr lff">
+      <q-header elevated v-if="$q.screen.lt.sm">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu"></q-btn>
           <q-toolbar-title>{{appName}} </q-toolbar-title>
@@ -14,12 +15,11 @@
         @mouseover="miniState = false"
         @mouseout="miniState = true"
         mini-to-overlay
-        :breakpoint="500"
+        :breakpoint="599"
         bordered
-        class="bg-white"
       >
       <q-list>
-          <q-item-label header> {{$t('dashboard.title')}} </q-item-label>
+         <q-item-label header> {{$t('dashboard.title')}} </q-item-label>
 
 
         <EssentialLink
@@ -68,8 +68,6 @@ import EssentialLink, {
 const $q = useQuasar();
 const { t } = useI18n();
 
-$q.screen.setSizes({ sm: 300, md: 501})
-
 const links: EssentialLinkProps[] = [
   {
     title: t('dashboard.links.home.title'),
@@ -92,22 +90,23 @@ function changeDarkmode(){
 const appName = process.env.APP_NAME
 const currYear = moment().format('YYYY')
 
-const isMobile = Screen.lt.md
+const isMobile = Screen.lt.sm
 
 const miniMode = ref(!isMobile)
 const showDrawer = ref(!isMobile);
 
 function changeLayout(){
-  if(Screen.lt.md){
+  if(Screen.lt.sm){
     showDrawer.value = !miniMode.value
     miniMode.value = false
   }else{
       miniMode.value = !showDrawer.value
       showDrawer.value = true
   }
+    
 }
 
-watch(() => Screen.lt.md,()=> changeLayout())
+watch(() => Screen.lt.sm,()=> changeLayout())
 
 </script>
 
