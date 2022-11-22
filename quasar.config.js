@@ -49,11 +49,7 @@ module.exports = configure(function (/* ctx */) {
       // 'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
-<<<<<<< HEAD
-      // 'roboto-font', // optional, you are not bound to it
-=======
       'roboto-font', // optional, you are not bound to it
->>>>>>> fd06802307164f9e021870e282daae3ae48f6351
       'material-icons-outlined',
       'material-icons', // optional, you are not bound to it
     ],
@@ -65,7 +61,7 @@ module.exports = configure(function (/* ctx */) {
       },
 
       target: {
-        browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
+        browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
         node: 'node16'
       },
 
@@ -112,10 +108,7 @@ module.exports = configure(function (/* ctx */) {
       config: {},
 
       iconSet: 'material-icons-outlined', // Quasar icon set
-<<<<<<< HEAD
-=======
       // iconSet: 'material-icons', // Quasar icon set
->>>>>>> fd06802307164f9e021870e282daae3ae48f6351
       // lang: 'en-US', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
@@ -155,7 +148,7 @@ module.exports = configure(function (/* ctx */) {
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {
       // ssrPwaHtmlFilename: 'offline.html', // do NOT use index.html as name!
-                                          // will mess up SSR
+      // will mess up SSR
 
       // extendSSRWebserverConf (esbuildConf) {},
       // extendPackageJson (json) {},
@@ -166,7 +159,7 @@ module.exports = configure(function (/* ctx */) {
       // manualPostHydrationTrigger: true,
 
       prodPort: 3000, // The default port that the production server should use
-                      // (gets superseded if process.env.PORT is specified at runtime)
+      // (gets superseded if process.env.PORT is specified at runtime)
 
       maxAge: 1000 * 60 * 60 * 24 * 30,
       // Tell browser when a file from the server should expire from cache
