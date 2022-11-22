@@ -1,13 +1,12 @@
 <template>
 
 <q-layout view="hHh Lpr lff">
-      <q-header elevated v-if="$q.screen.lt.sm">
+      <q-header elevated v-if="!$q.screen.gt.xs">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu"></q-btn>
           <q-toolbar-title>{{appName}} </q-toolbar-title>
         </q-toolbar>
       </q-header>
-
       <q-drawer
         v-model="drawer"
         show-if-above
@@ -15,9 +14,10 @@
         @mouseover="miniState = false"
         @mouseout="miniState = true"
         mini-to-overlay
-        :breakpoint="599"
+        :breakpoint="$q.screen.sizes.sm - 1"
         bordered
       >
+
       <q-list>
          <q-item-label header> {{$t('dashboard.title')}} </q-item-label>
 
@@ -82,7 +82,7 @@ const miniState = ref(true)
 
 const dark = ref($q.dark.isActive)
 
-function changeDarkmode(){
+const changeDarkmode = () => {
   $q.dark.set(dark.value);
   LocalStorage.set('darkmode', dark.value);
 }
@@ -95,7 +95,7 @@ const isMobile = Screen.lt.sm
 const miniMode = ref(!isMobile)
 const showDrawer = ref(!isMobile);
 
-function changeLayout(){
+const changeLayout = () => {
   if(Screen.lt.sm){
     showDrawer.value = !miniMode.value
     miniMode.value = false
