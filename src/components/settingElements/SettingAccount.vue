@@ -9,7 +9,9 @@
           v-model="buttonJWT"
           :label="buttonJWT"
           :false-value="$t('accountSettings.toggleJWT.falseValue')"
-          :true-value="$t('accountSettings.toggleJWT.trueValue')"/>
+          :true-value="$t('accountSettings.toggleJWT.trueValue')"
+          @click="changeJWT"
+          />
       </q-card>
       </div>
     </q-page>
@@ -18,7 +20,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n';
+import { LocalStorage  } from 'quasar';
 const { t } = useI18n();
 
-const buttonJWT = ref(t('accountSettings.toggleJWT.trueValue'))
+const buttonJWT: string = ref(LocalStorage.getItem('JWT') ? t('accountSettings.toggleJWT.trueValue') : t('accountSettings.toggleJWT.falseValue'))
+
+function changeJWT(){
+  if(buttonJWT.value ===  t('accountSettings.toggleJWT.trueValue'))
+    LocalStorage.set('JWT', true);
+  else
+    LocalStorage.set('JWT', false)
+}
+
+
+
 </script>
