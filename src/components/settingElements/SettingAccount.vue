@@ -10,7 +10,7 @@
           :label="buttonJWT"
           :false-value="$t('accountSettings.toggleJWT.falseValue')"
           :true-value="$t('accountSettings.toggleJWT.trueValue')"
-          @click="changeJWT"
+          @update:model-value="changeJWT"
           />
       </q-card>
       </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n';
 import { LocalStorage  } from 'quasar';
 const { t } = useI18n();
@@ -31,7 +31,5 @@ function changeJWT(){
   else
     LocalStorage.set('JWT', false)
 }
-
-
 
 </script>
