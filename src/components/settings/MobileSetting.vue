@@ -4,7 +4,7 @@
   </div>
   <q-separator/>
   <q-list class="text-h6" separator>
-    <q-item class="q-py-lg" v-for="item of settings" v-bind:key="item.title">
+    <q-item class="q-py-lg cursor-pointer" v-for="item of settings" v-bind:key="item.title"  @click="$router.push({path: item.to ?? '/setting' })" v-ripple.early>
       <q-item-section avatar>
         <q-icon :name="item.icon" />
       </q-item-section>
@@ -17,6 +17,7 @@
   <q-separator/>
 </template>
 <script setup lang="ts">
+
 const props = defineProps({
   settings: {
     type: Array,
