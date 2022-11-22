@@ -9,7 +9,6 @@ const routes: RouteRecordRaw[] = [
       { path: '/setting', component: () => import('pages/SettingPage.vue') }
     ],
   },
-  
 
   // Always leave this as last one,
   // but you can also remove it

@@ -9,27 +9,27 @@ export default {
     list: {
       account: {
         title: 'Account',
-        icon: 'person'
+        icon: 'o_person'
       },
       notification: {
         title: 'Notification',
-        icon: 'notifications'
+        icon: 'o_notifications'
       },
       privacy: {
         title: 'Privacy & Security',
-        icon: 'lock'
+        icon: 'o_lock'
       },
       help: {
         title: 'Help and Support',
-        icon: 'headphones'
+        icon: 'o_headphones'
       },
       about: {
         title: 'About',
-        icon: 'info'
+        icon: 'o_info'
       },
       logout: {
         title: 'Logout',
-        icon: 'logout'
+        icon: 'o_logout'
       }
 
     }
