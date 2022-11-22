@@ -49,19 +49,27 @@ module.exports = configure(function (/* ctx */) {
       // 'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
+<<<<<<< HEAD
       // 'roboto-font', // optional, you are not bound to it
+=======
+      'roboto-font', // optional, you are not bound to it
+>>>>>>> fd06802307164f9e021870e282daae3ae48f6351
       'material-icons-outlined',
       'material-icons', // optional, you are not bound to it
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
+      alias: {
+        '@': path.join(__dirname, '/src/')
+      },
+
       target: {
         browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
         node: 'node16'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -70,7 +78,9 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        APP_NAME: 'Rectle'
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -102,6 +112,10 @@ module.exports = configure(function (/* ctx */) {
       config: {},
 
       iconSet: 'material-icons-outlined', // Quasar icon set
+<<<<<<< HEAD
+=======
+      // iconSet: 'material-icons', // Quasar icon set
+>>>>>>> fd06802307164f9e021870e282daae3ae48f6351
       // lang: 'en-US', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
@@ -112,7 +126,14 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Meta',
+        'LocalStorage',
+        'SessionStorage',
+        'Notify',
+        'Dialog',
+        'Loading'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
@@ -139,13 +160,18 @@ module.exports = configure(function (/* ctx */) {
       // extendSSRWebserverConf (esbuildConf) {},
       // extendPackageJson (json) {},
 
-      pwa: false,
+      pwa: true,
 
       // manualStoreHydration: true,
       // manualPostHydrationTrigger: true,
 
       prodPort: 3000, // The default port that the production server should use
                       // (gets superseded if process.env.PORT is specified at runtime)
+
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+      // Tell browser when a file from the server should expire from cache
+      // (the default value, in ms)
+      // Has effect only when server.static() is used
 
       middlewares: [
         'render' // keep this as last one
