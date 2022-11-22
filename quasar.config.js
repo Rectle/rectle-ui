@@ -50,6 +50,7 @@ module.exports = configure(function (/* ctx */) {
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
+      'material-icons-outlined',
       'material-icons', // optional, you are not bound to it
     ],
 
@@ -64,7 +65,7 @@ module.exports = configure(function (/* ctx */) {
         node: 'node16'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -106,6 +107,7 @@ module.exports = configure(function (/* ctx */) {
     framework: {
       config: {},
 
+      iconSet: 'material-icons-outlined', // Quasar icon set
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
 
@@ -120,7 +122,10 @@ module.exports = configure(function (/* ctx */) {
       plugins: [
         'Meta',
         'LocalStorage',
-        'SessionStorage'
+        'SessionStorage',
+        'Notify',
+        'Dialog',
+        'Loading'
       ]
     },
 
