@@ -2,7 +2,7 @@
   <q-page>
    <div class="q-pa-md row justify-center full-width">
       <div
-        :style="{'max-width':`${maxCardSize}px`, 'min-width': `${$q.screen.width < maxCardSize ? 150 : maxCardSize}px`}"
+        :style="{'max-width':`${$q.screen.sizes.sm}px`, 'min-width': `${$q.screen.width < $q.screen.sizes.sm - 100 ? 150 : $q.screen.sizes.sm}px`}"
       >
         <code-component/>
       </div>
@@ -18,7 +18,4 @@ useMeta({
   ...metaData,
   title: 'Code'
 })
-
-const maxCardSize = 600;
-
 </script>
