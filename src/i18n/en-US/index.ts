@@ -23,5 +23,10 @@ export default {
         menu: 'Menu'
       }
     }
+  },
+  codePage: {
+    title: 'Code',
+    uploadLabel: 'Upload file',
+    emptyData: 'Submitted form contains empty formData!'
   }
 };

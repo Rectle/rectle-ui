@@ -9,6 +9,11 @@ const routes: RouteRecordRaw[] = [
         path: '',
         name: 'home',
         component: () => import('pages/IndexPage.vue')
+      },
+      {
+        path: '/code',
+        name: 'code',
+        component: () => import('pages/CodePage.vue')
       }
     ],
   },
@@ -20,5 +25,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/ErrorNotFound.vue'),
   },
 ];
+
 
 export default routes;
