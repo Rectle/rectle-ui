@@ -37,6 +37,11 @@ const routes: RouteRecordRaw[] = [
       }
     ],
   },
+  {
+    path: '/setting',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: 'account', name: 'accountSetting', component: () => import('pages/settings/AccountPage.vue') }],
+  },
 
   // Always leave this as last one,
   // but you can also remove it

@@ -9,3 +9,4 @@
 - `0.0.10` - Fixed name of github actions secret
 - `0.0.11` - Prepare dashboard layout
 - `0.0.12` - Create setting page
+- `0.0.13` - Create account setting page
