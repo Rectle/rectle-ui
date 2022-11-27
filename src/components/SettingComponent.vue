@@ -10,7 +10,7 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
 const listOfSettings = [
-  {title: t('settingPage.list.account.title'), icon: t('settingPage.list.account.icon')},
+  {title: t('settingPage.list.account.title'), icon: t('settingPage.list.account.icon'), to: '/setting/account'},
   {title: t('settingPage.list.notification.title'), icon: t('settingPage.list.notification.icon')},
   {title: t('settingPage.list.privacy.title'), icon: t('settingPage.list.privacy.icon')},
   {title: t('settingPage.list.help.title'), icon: t('settingPage.list.help.icon')},
