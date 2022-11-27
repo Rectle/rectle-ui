@@ -43,8 +43,14 @@ export default {
       home: {
         title: 'Home',
         caption: 'home page',
-        icon: 'home',
+        icon: 'o_home',
         link: 'home',
+      },
+      setting: {
+        title: 'Setting',
+        caption: 'more settigns',
+        icon: 'o_settings',
+        link: 'setting',
       }
     },
     icons: {

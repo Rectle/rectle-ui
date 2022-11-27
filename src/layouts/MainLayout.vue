@@ -30,6 +30,24 @@
 
         <div class="fixed-bottom q-mb-xl">
           <q-item-label header> {{$t('dashboard.setting.title')}} </q-item-label>
+          <q-item
+            clickable
+            tag="a"
+            :to="{ name: $t('dashboard.links.setting.link')}"
+          >
+            <q-item-section
+              v-if="$t('dashboard.links.setting.icon')"
+              avatar
+            >
+              <q-icon :name="$t('dashboard.links.setting.icon')" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>{{ $t('dashboard.links.setting.title') }}</q-item-label>
+              <q-item-label caption>{{ $t('dashboard.links.setting.caption') }}</q-item-label>
+            </q-item-section>
+          </q-item>
+
           <q-item>
             <q-item-section avatar>
               <q-icon :name="dark ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" />
@@ -74,7 +92,7 @@ const links: EssentialLinkProps[] = [
     caption: t('dashboard.links.home.caption'),
     icon: t('dashboard.links.home.icon'),
     link: t('dashboard.links.home.link'),
-  }
+  },
 ];
 
 const drawer = ref(false)
