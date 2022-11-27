@@ -75,7 +75,8 @@ module.exports = configure(function (/* ctx */) {
       // publicPath: '/',
       // analyze: true,
       env: {
-        APP_NAME: 'Rectle'
+        APP_NAME: 'Rectle',
+        GOOGLE_IDENTITY_CLIENT_ID: '680414393195-ikkj5vafetq5q67t499k60n7b1hpiuaf.apps.googleusercontent.com'
       },
       // rawDefine: {}
       // ignorePublicFolder: true,
