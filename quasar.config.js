@@ -62,7 +62,7 @@ module.exports = configure(function (/* ctx */) {
       },
 
       target: {
-        browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
+        browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
         node: 'node16'
       },
 
@@ -150,7 +150,7 @@ module.exports = configure(function (/* ctx */) {
     // https://v2.quasar.dev/quasar-cli-vite/developing-ssr/configuring-ssr
     ssr: {
       // ssrPwaHtmlFilename: 'offline.html', // do NOT use index.html as name!
-                                          // will mess up SSR
+      // will mess up SSR
 
       // extendSSRWebserverConf (esbuildConf) {},
       // extendPackageJson (json) {},
@@ -161,7 +161,7 @@ module.exports = configure(function (/* ctx */) {
       // manualPostHydrationTrigger: true,
 
       prodPort: 3000, // The default port that the production server should use
-                      // (gets superseded if process.env.PORT is specified at runtime)
+      // (gets superseded if process.env.PORT is specified at runtime)
 
       maxAge: 1000 * 60 * 60 * 24 * 30,
       // Tell browser when a file from the server should expire from cache
