@@ -37,9 +37,6 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",
     "prettier": "^2.5.1",
-<<<<<<< HEAD
-    "typescript": "^4.5.4"
-=======
     "typescript": "^4.5.4",
     "workbox-build": "^6.5.4",
     "workbox-cacheable-response": "^6.5.4",
@@ -48,7 +45,6 @@
     "workbox-precaching": "^6.5.4",
     "workbox-routing": "^6.5.4",
     "workbox-strategies": "^6.5.4"
->>>>>>> 2af2921029da189a38789c29f1ac1d3e3b30535e
   },
   "engines": {
     "node": "^18 || ^16 || ^14.19",
