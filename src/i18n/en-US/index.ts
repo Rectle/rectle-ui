@@ -23,5 +23,19 @@ export default {
         menu: 'Menu'
       }
     }
+  },
+  auth: {
+    signin: {
+      title: 'Sign in',
+      meta: {
+        title: 'Login'
+      }
+    },
+    signup: {
+      title: 'Sign up',
+      meta: {
+        title: 'Register'
+      }
+    }
   }
 };
