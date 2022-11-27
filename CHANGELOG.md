@@ -5,3 +5,4 @@
 - `0.0.6` - Change Vue router mode
 - `0.0.7` - Add outlined icons
 - `0.0.8` - Add Notify, Dialog, Loading plugins
+- `0.0.9` - Login page logic

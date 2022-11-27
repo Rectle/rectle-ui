@@ -1,4 +1,5 @@
 import { route } from 'quasar/wrappers';
+import { useUserStore } from 'src/stores/user';
 import {
   createMemoryHistory,
   createRouter,
@@ -17,7 +18,8 @@ import routes from './routes';
  * with the Router instance.
  */
 
-export default route(function (/* { store, ssrContext } */) {
+
+export default route(function ({ store }) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);
@@ -31,6 +33,21 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
+
+  Router.beforeEach((to, from, next) => {
+    const userStore = useUserStore();
+    const { isSignedIn } = userStore
+
+    if (to.matched.some(record => record.meta.redirectAuth) && isSignedIn) {
+      next({ path: '/' })
+    }
+
+    if (to.matched.some(record => record.meta.requiresAuth) && !isSignedIn) {
+      next({ path: '/auth/login', query: { next: encodeURIComponent(to.fullPath) } })
+    }
+    
+    next()
+  })
 
   return Router;
 });

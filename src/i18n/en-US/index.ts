@@ -3,5 +3,19 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+  auth: {
+    signin: {
+      title: 'Sign in',
+      meta: {
+        title: 'Login'
+      }
+    },
+    signup: {
+      title: 'Sign up',
+      meta: {
+        title: 'Register'
+      }
+    }
+  }
 };
