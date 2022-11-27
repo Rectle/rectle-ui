@@ -1,3 +1,8 @@
 - `0.0.2` - Add PWA
 - `0.0.3` - Turn on dark mode
-- `0.0.4` - Add Meta plugin
+- `0.0.4` - Add Local & Session Storage plugins
+- `0.0.5` - Add Meta plugin
+- `0.0.6` - Change Vue router mode
+- `0.0.7` - Add outlined icons
+- `0.0.8` - Add Notify, Dialog, Loading plugins
+- `0.0.9` - Login page logic
