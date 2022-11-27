@@ -5,5 +5,7 @@
 - `0.0.6` - Change Vue router mode
 - `0.0.7` - Add outlined icons
 - `0.0.8` - Add Notify, Dialog, Loading plugins
-- `0.0.9` - Prepare dashboard layout
-- `0.0.10` - Create setting page
+- `0.0.9` - Login page logic
+- `0.0.10` - Fixed name of github actions secret
+- `0.0.11` - Prepare dashboard layout
+- `0.0.12` - Create setting page

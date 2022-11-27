@@ -31,7 +31,40 @@ export default {
         title: 'Logout',
         icon: 'o_logout'
       }
-
+    }
+  },
+  dashboard: {
+    title: 'Links',
+    setting: {
+      title: 'Settings',
+      darkmode: 'Darkmode'
+    },
+    links: {
+      home: {
+        title: 'Home',
+        caption: 'home page',
+        icon: 'home',
+        link: 'home',
+      }
+    },
+    icons: {
+      labels: {
+        menu: 'Menu'
+      }
+    }
+  },
+  auth: {
+    signin: {
+      title: 'Sign in',
+      meta: {
+        title: 'Login'
+      }
+    },
+    signup: {
+      title: 'Sign up',
+      meta: {
+        title: 'Register'
+      }
     }
   }
 };
