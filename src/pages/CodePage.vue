@@ -1,9 +1,7 @@
 <template>
   <q-page>
-   <div class="q-pa-md row justify-center full-width">
-      <div
-        :style="{'max-width':`${$q.screen.sizes.sm}px`, 'min-width': `${$q.screen.width < $q.screen.sizes.sm - 100 ? 150 : $q.screen.sizes.sm}px`}"
-      >
+   <div class="q-pa-md justify-center row" > 
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-6 col-xl-4">
         <code-component/>
       </div>
     </div>

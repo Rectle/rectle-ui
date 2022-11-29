@@ -35,7 +35,7 @@ const $q = useQuasar()
 const { t } = useI18n();
 
 
-function onSubmit (evt) {
+function onSubmit () {
   if(file.value)
     console.log('file was uploaded', file)
   else
