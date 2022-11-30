@@ -35,10 +35,8 @@ const $q = useQuasar()
 const { t } = useI18n();
 
 
-function onSubmit () {
-  if(file.value)
-    console.log('file was uploaded', file)
-  else
+const onSubmit = () => {
+  if(!file.value)
     $q.notify({
       type: 'negative',
       message: t('codePage.emptyData')
