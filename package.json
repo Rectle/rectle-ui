@@ -21,6 +21,7 @@
     "moment": "^2.29.4",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
+    "simple-code-editor": "^1.2.2",
     "vue": "^3.0.0",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.0",
@@ -50,5 +51,16 @@
     "node": "^18 || ^16 || ^14.19",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  }
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rectle/rectle-ui.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rectle/rectle-ui/issues"
+  },
+  "homepage": "https://github.com/Rectle/rectle-ui#readme"
 }

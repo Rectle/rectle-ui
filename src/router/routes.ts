@@ -17,6 +17,11 @@ const routes: RouteRecordRaw[] = [
         path: '/setting',
         name: 'setting',  
         component: () => import('pages/SettingPage.vue') 
+      },
+      {
+        path: '/codeEditor',
+        name: 'codeEditor',  
+        component: () => import('pages/CodeEditorPage.vue') 
       }
     ],
   },
