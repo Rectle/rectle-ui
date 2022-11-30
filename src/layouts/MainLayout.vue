@@ -1,13 +1,12 @@
 <template>
 
 <q-layout view="hHh Lpr lff">
-      <q-header elevated v-if="$q.screen.lt.sm">
+      <q-header elevated v-if="!$q.screen.gt.xs">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu"></q-btn>
           <q-toolbar-title>{{appName}} </q-toolbar-title>
         </q-toolbar>
       </q-header>
-
       <q-drawer
         v-model="drawer"
         show-if-above
@@ -15,9 +14,10 @@
         @mouseover="miniState = false"
         @mouseout="miniState = true"
         mini-to-overlay
-        :breakpoint="599"
+        :breakpoint="$q.screen.sizes.sm - 1"
         bordered
       >
+
       <q-list>
          <q-item-label header> {{$t('dashboard.title')}} </q-item-label>
 
@@ -30,6 +30,24 @@
 
         <div class="fixed-bottom q-mb-xl">
           <q-item-label header> {{$t('dashboard.setting.title')}} </q-item-label>
+          <q-item
+            clickable
+            tag="a"
+            :to="{ name: $t('dashboard.links.setting.link')}"
+          >
+            <q-item-section
+              v-if="$t('dashboard.links.setting.icon')"
+              avatar
+            >
+              <q-icon :name="$t('dashboard.links.setting.icon')" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>{{ $t('dashboard.links.setting.title') }}</q-item-label>
+              <q-item-label caption>{{ $t('dashboard.links.setting.caption') }}</q-item-label>
+            </q-item-section>
+          </q-item>
+
           <q-item>
             <q-item-section avatar>
               <q-icon :name="dark ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" />
@@ -74,7 +92,13 @@ const links: EssentialLinkProps[] = [
     caption: t('dashboard.links.home.caption'),
     icon: t('dashboard.links.home.icon'),
     link: t('dashboard.links.home.link'),
-  }
+  },
+  {
+    title: t('dashboard.links.code.title'),
+    caption: t('dashboard.links.code.caption'),
+    icon: t('dashboard.links.code.icon'),
+    link: t('dashboard.links.code.link'),
+  },
 ];
 
 const drawer = ref(false)
@@ -82,7 +106,7 @@ const miniState = ref(true)
 
 const dark = ref($q.dark.isActive)
 
-function changeDarkmode(){
+const changeDarkmode = () => {
   $q.dark.set(dark.value);
   LocalStorage.set('darkmode', dark.value);
 }
@@ -95,7 +119,7 @@ const isMobile = Screen.lt.sm
 const miniMode = ref(!isMobile)
 const showDrawer = ref(!isMobile);
 
-function changeLayout(){
+const changeLayout = () => {
   if(Screen.lt.sm){
     showDrawer.value = !miniMode.value
     miniMode.value = false
@@ -106,7 +130,7 @@ function changeLayout(){
     
 }
 
-watch(() => Screen.lt.sm,()=> changeLayout())
+watch(() => Screen.lt.sm, changeLayout)
 
 </script>
 
