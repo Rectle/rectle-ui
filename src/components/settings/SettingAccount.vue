@@ -18,12 +18,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n';
 import { LocalStorage  } from 'quasar';
 const { t } = useI18n();
 
-const buttonJWT: string = ref(LocalStorage.getItem('JWT') ? t('accountSettings.toggleJWT.trueValue') : t('accountSettings.toggleJWT.falseValue'))
+const buttonJWT = ref<string>(LocalStorage.getItem('JWT') ? t('accountSettings.toggleJWT.trueValue') : t('accountSettings.toggleJWT.falseValue'))
 
 function changeJWT(){
   if(buttonJWT.value ===  t('accountSettings.toggleJWT.trueValue'))

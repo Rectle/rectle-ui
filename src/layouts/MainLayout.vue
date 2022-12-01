@@ -93,6 +93,12 @@ const links: EssentialLinkProps[] = [
     icon: t('dashboard.links.home.icon'),
     link: t('dashboard.links.home.link'),
   },
+  {
+    title: t('dashboard.links.code.title'),
+    caption: t('dashboard.links.code.caption'),
+    icon: t('dashboard.links.code.icon'),
+    link: t('dashboard.links.code.link'),
+  },
 ];
 
 const drawer = ref(false)
@@ -124,7 +130,7 @@ const changeLayout = () => {
     
 }
 
-watch(() => Screen.lt.sm, changeLayout())
+watch(() => Screen.lt.sm, changeLayout)
 
 </script>
 

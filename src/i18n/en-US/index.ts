@@ -58,6 +58,12 @@ export default {
         caption: 'more settigns',
         icon: 'o_settings',
         link: 'setting',
+      },
+      code: {
+        title: 'Code',
+        caption: 'Rectle IDE',
+        icon: 'o_code',
+        link: 'code',
       }
     },
     icons: {
@@ -65,6 +71,11 @@ export default {
         menu: 'Menu'
       }
     }
+  },
+  codePage: {
+    title: 'Code',
+    uploadLabel: 'Upload file',
+    emptyData: 'Submitted form contains empty formData!'
   },
   auth: {
     signin: {
