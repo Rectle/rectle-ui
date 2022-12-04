@@ -15,16 +15,22 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "@dans98/vue-prism-editor": "^0.5.2",
     "@quasar/extras": "^1.0.0",
+    "ace-code": "^1.13.1",
+    "ace-editor-vue3": "^1.1.2",
     "axios": "^0.21.1",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "pinia": "^2.0.11",
+    "prismjs": "^1.29.0",
     "quasar": "^2.6.0",
     "simple-code-editor": "^1.2.2",
     "vue": "^3.0.0",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.0",
+    "vue3-ace-editor": "^2.2.2",
+    "vue3-code-editor": "^0.0.12",
     "vue3-google-signin": "^1.2.1"
   },
   "devDependencies": {
@@ -33,7 +39,7 @@
     "@types/node": "^12.20.21",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",

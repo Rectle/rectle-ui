@@ -124,7 +124,7 @@ const changeLayout = () => {
     
 }
 
-watch(() => Screen.lt.sm, changeLayout())
+watch(() => Screen.lt.sm, changeLayout)
 
 </script>
 
