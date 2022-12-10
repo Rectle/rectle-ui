@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import {
   type CredentialResponse,
 } from "vue3-google-signin";
+import { sendUserInformation } from 'src/api/userInformation';
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -20,6 +21,7 @@ export const useUserStore = defineStore('user', {
         jwt: data.credential,
         ..._user
       }
+      sendUserInformation(_user);
     },
     signOut() {
       this.user = {}
