@@ -36,16 +36,11 @@ const editor = ref();
 
 
  const setTheme = () => {
-  if(editor.value && editor.value.setTheme($q.dark.isActive ? "brace/theme/monokai" : "brace/theme/xcode")){
-    console.log(editor.value)
+  if(editor.value){
+    editor.value.setTheme($q.dark.isActive ? "brace/theme/monokai" : "brace/theme/xcode")
   }
-  console.log(editor.value)
  }
   
-
-
-
-
 watch(() => $q.dark.isActive, setTheme)
 
 
