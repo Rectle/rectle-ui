@@ -3,7 +3,7 @@ import { url } from '../shared/variable.shared';
 
 
 
-function getFile(file: any){
+const  getFile = (file: any) => {
     console.log(file)
     return {
         file: file
@@ -11,11 +11,11 @@ function getFile(file: any){
 }
 
 
-async function sendFile(file: any): Promise<boolean>{
+const sendFile = async (file: any): Promise<boolean> => {
     const information = getFile(file);
-    console.log('inf', information)
     let result = ''
-    if (url) 
+    if (url)
+    try{
         await axios.post(url+'/files', information, { headers: {
             'content-type': 'multipart/form-data'
         } })
@@ -25,6 +25,10 @@ async function sendFile(file: any): Promise<boolean>{
         .catch((err) => {
             console.log(err);
         });
+    }
+    catch(err: any) {
+        console.log(err);
+    }
     return result === ''
 }
 
