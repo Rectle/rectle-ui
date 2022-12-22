@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { url, headers } from '../shared/variable.shared';
+import { api } from 'boot/axios'
+import { url } from '../shared/variable.shared';
 
 
 
-function getInformation(user: any){
+const getInformation = (user: any) =>{
     return {
         email: user.email,
         password: "",
@@ -14,16 +14,16 @@ function getInformation(user: any){
 }
 
 
-async function sendUserInformation(user: any){
+const sendUserInformation = async (user: any) => {
     const information = getInformation(user);
-    let result = ''
     if (url) 
-        await axios.post(url+'/users', information, { headers })
+        await api.post('/users', information)
         .then((res) => {
-            result = res.data;
+           return res.data;
         })
         .catch((err) => {
             console.log(err);
+            return err
         });
 }
 
