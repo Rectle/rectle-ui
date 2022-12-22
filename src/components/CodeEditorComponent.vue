@@ -1,5 +1,6 @@
 <template>
     <AceEditor
+        ref="editor"
         v-model:codeContent="value" 
         v-model:editor="editor"
         :options="options"
@@ -29,15 +30,18 @@ let value = `console.log("hello ok.")`;
 let options = {"showPrintMargin": false};
 let lang = "javascript";
 let theme = $q.dark.isActive ? "monokai" : "xcode";
-const editor = ref(null);
+const editor = ref();
 
 
 
 
  const setTheme = () => {
-    editor.value.setTheme($q.dark.isActive ? "brace/theme/monokai" : "brace/theme/xcode");
-    console.log('tessst', editor.value.getTheme())
+  if(editor.value && editor.value.setTheme($q.dark.isActive ? "brace/theme/monokai" : "brace/theme/xcode")){
+    console.log(editor.value)
   }
+  console.log(editor.value)
+ }
+  
 
 
 
