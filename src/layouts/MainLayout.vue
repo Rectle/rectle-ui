@@ -93,6 +93,18 @@ const links: EssentialLinkProps[] = [
     icon: t('dashboard.links.home.icon'),
     link: t('dashboard.links.home.link'),
   },
+  {
+    title: t('dashboard.links.code.title'),
+    caption: t('dashboard.links.code.caption'),
+    icon: t('dashboard.links.code.icon'),
+    link: t('dashboard.links.code.link'),
+  },
+  {
+    title: t('dashboard.links.codeEditor.title'),
+    caption: t('dashboard.links.codeEditor.caption'),
+    icon: t('dashboard.links.codeEditor.icon'),
+    link: t('dashboard.links.codeEditor.link'),
+  },
 ];
 
 const drawer = ref(false)

@@ -6,5 +6,5 @@
   </q-page>
 </template>
 <script setup lang="ts">
-import SettingAccount from 'components/settingElements/SettingAccount.vue';
+import SettingAccount from 'src/components/settings/SettingAccount.vue';
 </script>

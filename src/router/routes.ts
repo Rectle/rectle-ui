@@ -20,8 +20,13 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/code',
-        name: 'code',  
-        component: () => import('pages/CodeEditorPage.vue') 
+        name: 'code',
+        component: () => import('pages/CodePage.vue')
+      },
+      {
+        path: '/codeEditor',
+        name: 'codeEditor',
+        component: () => import('pages/CodeEditorPage.vue')
       }
     ],
   },
@@ -55,5 +60,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/ErrorNotFound.vue'),
   },
 ];
+
 
 export default routes;

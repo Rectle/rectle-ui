@@ -23,7 +23,7 @@ import { useI18n } from 'vue-i18n';
 import { LocalStorage  } from 'quasar';
 const { t } = useI18n();
 
-const buttonJWT= ref<string>(LocalStorage.getItem('JWT') ? t('accountSettings.toggleJWT.trueValue') : t('accountSettings.toggleJWT.falseValue'))
+const buttonJWT = ref<string>(LocalStorage.getItem('JWT') ? t('accountSettings.toggleJWT.trueValue') : t('accountSettings.toggleJWT.falseValue'))
 
 function changeJWT(){
   if(buttonJWT.value ===  t('accountSettings.toggleJWT.trueValue'))
