@@ -1,50 +1,35 @@
 <template>
-    <AceEditor
-        ref="editor"
-        v-model:codeContent="value" 
-        v-model:editor="editor"
-        :options="options"
-        :theme= "theme"
+      <v-ace-editor
+        v-model:value="content"
         :lang="lang"
-        width="100%" 
-        height="300px" 
-      />
+        :theme="theme"
+        style="height: 300px" />
+
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from 'quasar';
-import AceEditor from "ace-editor-vue3";
+import { SessionStorage, useQuasar } from 'quasar';
+import { ref, watch } from 'vue'
+import { VAceEditor } from 'vue3-ace-editor';
 import "brace/mode/javascript";
 import "brace/theme/monokai";
 import "brace/theme/xcode";
-import { ref, watch, onMounted } from 'vue'
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
 
 const $q = useQuasar();
+let content = ref<string>(SessionStorage.getItem('code') ?? 'console.log("hello ok.")');
+let theme = ref<string>($q.dark.isActive ? "monokai" : "xcode");
+const lang = ref<string>('javascript');
 
+const setTheme = () => {
+  theme.value = $q.dark.isActive ? "monokai" : "xcode";
+}
 
-
-let value = `console.log("hello ok.")`;
-let options = {"showPrintMargin": false};
-let lang = "javascript";
-let theme = $q.dark.isActive ? "monokai" : "xcode";
-const editor = ref();
-
-
-
-
- const setTheme = () => {
-  if(editor.value){
-    editor.value.setTheme($q.dark.isActive ? "brace/theme/monokai" : "brace/theme/xcode")
-  }
- }
+const saveContentInStore = () => {
+  SessionStorage.set('code', content.value)
+}
   
 watch(() => $q.dark.isActive, setTheme)
-
-
-
+watch(() => content.value, saveContentInStore)
 
 </script>
 <style scoped>
