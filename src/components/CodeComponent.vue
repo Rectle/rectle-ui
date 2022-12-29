@@ -17,8 +17,6 @@
         </template>
         </q-file>
 
-      <input type="file" id="fileIndex" name="file"/>
-
       <div>
         <q-btn label="Submit" type="submit" color="primary" class="full-width" size="lg" />
       </div>
@@ -60,8 +58,6 @@ const result = (err: boolean) => {
 
 const onSubmit = async () => {
   let err = true; 
-  console.log('1',document.getElementById("fileIndex").files[0])
-  console.log('2',file.value)
   if(file.value){
     err = await sendFile(file.value)
     result(err)
