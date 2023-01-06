@@ -64,6 +64,18 @@ export default {
         caption: 'Rectle IDE',
         icon: 'o_code',
         link: 'code',
+      },
+      logs: {
+        title: 'Logi',
+        caption: 'Dziennik logów',
+        icon: 'o_monitor_heart',
+        link: 'logs',
+      },
+      codeEditor: {
+        title: 'Edytor',
+        caption: 'Edytor kodu',
+        icon: 'o_data_array',
+        link: 'codeEditor',
       }
     },
     icons: {
@@ -78,6 +90,9 @@ export default {
     emptyData: 'Przesłany formularz zawiera puste dane formularza!',
     successData: 'Plik został pomyślnie przesłany',
     errorData: 'Podczas przesyłania pliku wystąpił problem'
+  },
+  logsPage: {
+    title: 'Logi'
   },
   auth: {
     signin: {
