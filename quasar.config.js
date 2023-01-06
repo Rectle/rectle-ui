@@ -12,7 +12,7 @@
 const { configure } = require('quasar/wrappers');
 const path = require('path');
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function (ctx) {
   return {
     eslint: {
       // fix: true,
@@ -77,7 +77,8 @@ module.exports = configure(function (/* ctx */) {
       // analyze: true,
       env: {
         APP_NAME: 'Rectle',
-        GOOGLE_IDENTITY_CLIENT_ID: '680414393195-ikkj5vafetq5q67t499k60n7b1hpiuaf.apps.googleusercontent.com'
+        GOOGLE_IDENTITY_CLIENT_ID: '680414393195-ikkj5vafetq5q67t499k60n7b1hpiuaf.apps.googleusercontent.com',
+        BACKEND_URL: ctx.dev ? `http://localhost:8080/api/v1` : `https://rectle-service-dgcodfmmgq-lm.a.run.app/api/v1`
       },
       // rawDefine: {}
       // ignorePublicFolder: true,

@@ -13,3 +13,4 @@
 - `0.0.14` - Create code page
 - `0.0.15` - Create logs view
 - `0.0.16` - Add ace-editor to code page
+- `0.0.17` - Post user information
