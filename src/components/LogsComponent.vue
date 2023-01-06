@@ -25,17 +25,18 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { QTableColumn } from 'quasar'
 
 const selected = ref([]);
 
-const column = [
+const column: QTableColumn[] = [
   {
     name: 'name',
     required: true,
     label: 'Name_Log',
     align: 'left',
     field: (row: { name: any; }) => row.name,
-    format: (val: any) => `${val}`,
+    format: (val: any) => val,
     sortable: true
   },
   { name: 'date', label: 'date', field: 'date' },
