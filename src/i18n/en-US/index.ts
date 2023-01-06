@@ -64,6 +64,18 @@ export default {
         caption: 'Rectle IDE',
         icon: 'o_code',
         link: 'code',
+      },
+      logs: {
+        title: 'Logs',
+        caption: 'Audit logs',
+        icon: 'o_monitor_heart',
+        link: 'logs',
+      },
+      codeEditor: {
+        title: 'Code Editor',
+        caption: 'Editor for code',
+        icon: 'o_data_array',
+        link: 'codeEditor',
       }
     },
     icons: {
@@ -76,6 +88,9 @@ export default {
     title: 'Code',
     uploadLabel: 'Upload file',
     emptyData: 'Submitted form contains empty formData!'
+  },
+  logsPage: {
+    title: 'Logs'
   },
   auth: {
     signin: {
