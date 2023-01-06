@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, inject, watch } from 'vue';
 import { useMeta } from 'quasar';
 import { useI18n } from 'vue-i18n';
 import metaData from '@/utils/configs/meta.ts';

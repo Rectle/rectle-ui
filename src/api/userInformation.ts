@@ -1,7 +1,4 @@
-import axios from 'axios';
-import { url, headers } from '../shared/variable.shared';
-
-
+import { api } from 'boot/axios'
 
 const getInformation = (user: any) =>{
     return {
@@ -16,15 +13,12 @@ const getInformation = (user: any) =>{
 
 const sendUserInformation = async (user: any) => {
     const information = getInformation(user);
-    if (url) 
-        await axios.post(url+'/users', information, { headers })
-        .then((res) => {
-           return res.data;
-        })
-        .catch((err) => {
-            console.log(err);
-            return err
-        });
+    try{
+        await api.post('/users', information)
+    }catch(err) {
+        console.log(err);
+    }
+    
 }
 
 export { sendUserInformation };
