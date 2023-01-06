@@ -15,11 +15,10 @@ const sendFile = async (file: File): Promise<boolean> => {
         await axios.post(url+'/files', formData, { headers: {
             'Content-Type': `multipart/form-data`
         } })
-        console.log('true')
         return false;
     }
     catch(err: any) {
-        console.log(err);
+        console.error(err);
         return true;
     }
 }

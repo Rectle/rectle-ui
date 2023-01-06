@@ -38,7 +38,7 @@ const { t } = useI18n();
 const router = useRouter();
 
 
-const result = (err: boolean) => {
+const setResult = (err: boolean) => {
   if(err){
       $q.notify({
         type: 'negative',
@@ -57,10 +57,10 @@ const result = (err: boolean) => {
 
 
 const onSubmit = async () => {
-  let err = true; 
+  let result = true; 
   if(file.value){
-    err = await sendFile(file.value)
-    result(err)
+    result = await sendFile(file.value)
+    setResult(result)
   }
   else{
     $q.notify({
