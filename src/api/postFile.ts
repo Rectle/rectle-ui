@@ -11,23 +11,17 @@ const changeFileToFormData = (file: File): FormData => {
 
 const sendFile = async (file: File): Promise<boolean> => {
     const formData = changeFileToFormData(file);
-    let result = ''
-    if (url)
     try{
         await axios.post(url+'/files', formData, { headers: {
             'Content-Type': `multipart/form-data`
         } })
-        .then((res) => {
-            result = res.data;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        return true;
     }
     catch(err: any) {
         console.log(err);
     }
-    return result === ''
+ 
+    return false;
 }
 
 export { sendFile };
