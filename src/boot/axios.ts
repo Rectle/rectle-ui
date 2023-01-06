@@ -13,9 +13,7 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const headers = {
-  'Content-Type': 'application/json',
-}
+
 const api = axios.create({ baseURL: process.env.BACKEND_URL, headers: {
   'Content-Type': 'application/json',
 } });
