@@ -3,7 +3,7 @@
         v-model:value="content"
         :lang="lang"
         :theme="theme"
-        style="height: 300px" />
+        class="code-editor" />
 
 </template>
 
@@ -11,14 +11,14 @@
 import { SessionStorage, useQuasar } from 'quasar';
 import { ref, watch } from 'vue'
 import { VAceEditor } from 'vue3-ace-editor';
-import "brace/mode/javascript";
+import "brace/mode/python";
 import "brace/theme/monokai";
 import "brace/theme/xcode";
 
 const $q = useQuasar();
-let content = ref<string>(SessionStorage.getItem('code') ?? 'console.log("hello ok.")');
+let content = ref<string>(SessionStorage.getItem('code') ?? `#${process.env.APP_NAME}`);
 let theme = ref<string>($q.dark.isActive ? "monokai" : "xcode");
-const lang = ref<string>('javascript');
+const lang = ref<string>('python');
 
 const setTheme = () => {
   theme.value = $q.dark.isActive ? "monokai" : "xcode";
@@ -49,5 +49,8 @@ watch(() => content.value, saveContentInStore)
   /* optional class for removing the outline */
   .prism-editor__textarea:focus {
     outline: none;
+  }
+  .code-editor{
+    height: 300px;
   }
 </style>
