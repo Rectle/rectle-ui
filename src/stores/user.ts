@@ -4,10 +4,30 @@ import {
   type CredentialResponse,
 } from "vue3-google-signin";
 import { sendUserInformation } from 'src/api/userInformation';
+import { useSessionStorage } from '@vueuse/core';
+
+interface IUser {
+  aud?: string;
+  azp?:string;
+  client_id: string | undefined;
+  email?: string;
+  email_verified?: string;
+  exp?: string;
+  family_name?: string;
+  given_name?: string;
+  iat?: string;
+  iss?: string;
+  jti?: string;
+  jwt: string | undefined;
+  name?: string;
+  nbf?: string;
+  picture?: string;
+  sub?: string;
+}
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    user: {},
+    user: useSessionStorage('user', {} as IUser)
   }),
   getters: {
     getUser: (state) => state.user,
@@ -24,7 +44,7 @@ export const useUserStore = defineStore('user', {
       sendUserInformation(_user);
     },
     signOut() {
-      this.user = {}
+      this.user = {} as IUser
     }
   },
   
