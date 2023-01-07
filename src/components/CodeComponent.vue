@@ -38,20 +38,20 @@ const { t } = useI18n();
 const router = useRouter();
 
 
-const setResult = (err: boolean) => {
-  if(err){
-      $q.notify({
-        type: 'negative',
-        message: t('codePage.errorData')
-      })
-    }
-    else{
+const setResult = (result: boolean) => {
+  if(result){
       $q.notify({
         color: 'primary',
         message: t('codePage.successData'),
         timeout: 1000
       })
       router.push({ name: 'home' });
+    }
+    else{
+      $q.notify({
+        type: 'negative',
+        message: t('codePage.errorData')
+      })
     }
 }
 
