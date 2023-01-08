@@ -4,16 +4,17 @@ import { useUserStore } from 'src/stores/user';
 
 const changeFileToFormData = (file: File)=> {
     const formData = new FormData();
-    const userStore = useUserStore();
-    formData.append('email', userStore.getUser.email ?? '');
+    // const userStore = useUserStore();
+    // formData.append('email', userStore.getUser.email ?? '');
     formData.append('file', file, file.name);
     return formData
 }
 
 const sendFile = async (file: File): Promise<boolean> => {
     const formData = changeFileToFormData(file);
+    const userStore = useUserStore();
     try{
-        await axios.post(url+'/files', formData, { headers: {
+        await axios.post(url+'/files?email='+userStore.getUser.email ?? '', formData, { headers: {
             'Content-Type': `multipart/form-data`
         } })
         return true;
