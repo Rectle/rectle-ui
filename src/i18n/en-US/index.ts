@@ -87,7 +87,9 @@ export default {
   codePage: {
     title: 'Code',
     uploadLabel: 'Upload file',
-    emptyData: 'Submitted form contains empty formData!'
+    emptyData: 'Submitted form contains empty formData!',
+    successData: 'The file has been successfully uploaded',
+    errorData: 'There was a problem uploading the file'
   },
   logsPage: {
     title: 'Logs'
