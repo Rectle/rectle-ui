@@ -57,9 +57,8 @@ const setResult = (result: boolean) => {
 
 
 const onSubmit = async () => {
-  let result = true; 
   if(file.value){
-    result = await sendFile(file.value)
+    const result = await sendFile(file.value)
     setResult(result)
   }
   else{
