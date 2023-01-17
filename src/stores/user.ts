@@ -7,6 +7,8 @@ import { sendUserInformation } from 'src/api/userInformation';
 import { useSessionStorage } from '@vueuse/core';
 
 interface IUser {
+  id?: number;
+  provider?: string;
   aud?: string;
   azp?:string;
   client_id: string | undefined;
@@ -25,6 +27,13 @@ interface IUser {
   sub?: string;
 }
 
+
+interface IResponseData {
+  id: number;
+  provider: string;
+  email: string;
+}
+
 export const useUserStore = defineStore('user', {
   state: () => ({
     user: useSessionStorage('user', {} as IUser)
@@ -34,14 +43,20 @@ export const useUserStore = defineStore('user', {
     isSignedIn: (state) => !!Object.keys(state.user).length
   },
   actions: {
-    signIn(data: CredentialResponse) {
+    async signIn(data: CredentialResponse) {
       const _user: object = jwt_decode(data.credential!);
       this.user = {
         client_id: data.clientId,
         jwt: data.credential,
         ..._user
       }
-      sendUserInformation(_user);
+      const details = await sendUserInformation(_user);
+      if(details) this.setUserDetails(details);
+    },
+    setUserDetails(details: IResponseData){
+      this.user.id = details.id
+      this.user.provider = details.provider
+      this.user.email = details.email;
     },
     signOut() {
       this.user = {} as IUser

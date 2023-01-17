@@ -16,3 +16,4 @@
 - `0.0.17` - Post user information
 - `0.0.18` - Post file
 - `0.0.19` - Add email to post file, change user store
+- `0.0.20` - Change mechanism of saving user data

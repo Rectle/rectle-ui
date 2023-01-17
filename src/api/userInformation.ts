@@ -14,11 +14,11 @@ const getInformation = (user: any) =>{
 const sendUserInformation = async (user: any) => {
     const information = getInformation(user);
     try{
-        await api.post('/users', information)
+        return (await api.post('/users', information)).data
     }catch(err) {
-        console.log(err);
+        console.error(err);
+        return null
     }
-    
 }
 
 export { sendUserInformation };
