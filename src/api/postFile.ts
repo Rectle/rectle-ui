@@ -10,18 +10,21 @@ const changeFileToFormData = (file: File)=> {
     return formData
 }
 
-const sendFile = async (file: File): Promise<boolean> => {
+const sendFile = async (file: File): Promise<number> => {
     const formData = changeFileToFormData(file);
     const userStore = useUserStore();
     try{
-        await axios.post(url+'/files', formData, { params: {email: userStore.getUser.email ?? ''}, headers: {
+        let result = 0;
+        await axios.post(url+'/projects/'+userStore.getUser.id, formData, { headers: {
             'Content-Type': `multipart/form-data`
-        } })
-        return true;
+        } }).then((res: any)=> {
+            result = res.data.id;
+        })
+        return result;
     }
     catch(err: any) {
         console.error(err);
-        return false;
+        return 0;
     }
 }
 
