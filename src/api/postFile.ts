@@ -16,7 +16,8 @@ const sendFile = async (file: File): Promise<number> => {
     try{
         let result = 0;
         await axios.post(url+'/projects/'+userStore.getUser.id, formData, { headers: {
-            'Content-Type': `multipart/form-data`
+            'Content-Type': `multipart/form-data`,
+            'Authorization': `Bearer ${userStore.user.jwt}` 
         } }).then((res: any)=> {
             result = res.data.id;
         })

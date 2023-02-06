@@ -1,4 +1,6 @@
-import { api } from 'boot/axios'
+import { axios } from 'boot/axios'
+import { url } from '../shared/variable.shared';
+import { useUserStore } from 'src/stores/user';
 
 const getInformation = (user: any) =>{
     return {
@@ -12,9 +14,12 @@ const getInformation = (user: any) =>{
 
 
 const sendUserInformation = async (user: any) => {
+    const userStore = useUserStore();
     const information = getInformation(user);
     try{
-        return (await api.post('/users', information)).data
+        return (await axios.post(url+'/users', information,{ headers: {
+            'Authorization': `Bearer ${userStore.user.jwt}` 
+        } })).data
     }catch(err) {
         console.error(err);
         return null
