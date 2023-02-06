@@ -1,9 +1,12 @@
-import { api } from 'boot/axios'
+import { axios } from 'boot/axios'
 import { url } from '../shared/variable.shared';
-
+import { useUserStore } from 'src/stores/user';
 const compileFile = async (id: number): Promise<boolean> => {
+    const userStore = useUserStore();
     try{
-        return (await api.put(url+'/projects/'+id)).data
+        return (await axios.put(url+'/projects/'+id, { headers: {
+            'Authorization': `Bearer ${userStore.user.jwt}` 
+        } })).data
     }
     catch(err: any) {
         console.error(err);
