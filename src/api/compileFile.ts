@@ -4,7 +4,7 @@ import { useUserStore } from 'src/stores/user';
 const compileFile = async (id: number): Promise<boolean> => {
     const userStore = useUserStore();
     try{
-        return (await axios.put(url+'/projects/'+id, { headers: {
+        return (await axios.put(url+'/projects/'+id, null,{ headers: {
             'Authorization': `Bearer${userStore.user.jwt}` 
         } })).data
     }
