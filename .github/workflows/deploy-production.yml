@@ -18,5 +18,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECTLE_PLATFORM }}"
-          projectId: rectle-platform
+          projectId: rectle-app
           channelId: live

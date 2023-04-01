@@ -1,9 +1,9 @@
 {
   "name": "rectle",
-  "version": "0.0.22",
-  "description": "A Quasar Project",
+  "version": "0.1.0",
+  "description": "Portal for testing and evaluating machine learning algorithms",
   "productName": "Rectle",
-  "author": "Micha Jasiski <michaqu11@wp.pl>",
+  "author": "Rectle",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
