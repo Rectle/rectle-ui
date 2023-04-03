@@ -18,4 +18,5 @@
 - `0.0.19` - Add email to post file, change user store
 - `0.0.20` - Change mechanism of saving user data
 - `0.0.21` - Add button with compile project function
-- `0.0.22` - Add google token to headers in axios
+- `0.0.22` - Add google tokentoken to headers in axios
+- `0.1.0` - GCP project migration

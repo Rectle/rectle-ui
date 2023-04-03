@@ -77,7 +77,7 @@ module.exports = configure(function (ctx) {
       // analyze: true,
       env: {
         APP_NAME: 'Rectle',
-        GOOGLE_IDENTITY_CLIENT_ID: '680414393195-ikkj5vafetq5q67t499k60n7b1hpiuaf.apps.googleusercontent.com',
+        GOOGLE_IDENTITY_CLIENT_ID: '591314779637-vdhq6f1do84rgcf3fe18fg731me831q4.apps.googleusercontent.com',
         BACKEND_URL: ctx.dev ? `http://localhost:8080/api/v1` : `https://rectle-service-dgcodfmmgq-lm.a.run.app/api/v1`
       },
       // rawDefine: {}
@@ -102,7 +102,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
     devServer: {
-      // https: true
+      https: true,
       open: true // opens browser window automatically
     },
 
