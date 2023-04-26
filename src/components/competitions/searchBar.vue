@@ -8,7 +8,7 @@
           @update:model-value="emit('search', search)"
         >
           <template v-slot:append>
-            <q-icon name="clear" />
+            <q-icon name="clear" @click="clearSearch"/>
           </template>
         </q-input>
       </q-toolbar-title>
@@ -27,10 +27,10 @@
                   <q-item-section>
                     <q-item-label>
                       <q-toggle
-                        v-model="activ"
-                        val="activToggle"
-                        :label="$t('searchBar.filterBar.toggleActiv')"
-                        @update:model-value="emit('activ', activ)"
+                        v-model="active"
+                        val="activeToggle"
+                        :label="$t('searchBar.filterBar.toggleActive')"
+                        @update:model-value="emit('active', active)"
                       />
                     </q-item-label>
                   </q-item-section>
@@ -95,11 +95,16 @@
 import { defineEmits, ref } from 'vue'
 import {ISortMock} from 'src/mock/sort.mock'
 
-const emit = defineEmits(['sort', 'activ', 'finished', 'search'])
-const activ = ref<boolean>(true)
+const emit = defineEmits(['sort', 'active', 'finished', 'search'])
+const active = ref<boolean>(true)
 const finished =ref<boolean>(false)
 const search = ref<string>('')
 const sort = ref<ISort>(ISortMock)
+
+const clearSearch = () => {
+  search.value = ''
+  emit('search', search.value)
+}
 
 const sortByUploadDate = (change: boolean) => {
     if (change) {

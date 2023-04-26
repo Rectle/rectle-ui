@@ -99,7 +99,7 @@ export default {
       uploadDate: 'Upload date',
       active: 'Active',
       ended: 'Ended',
-      toggleActiv: 'Activ',
+      toggleActive: 'Active',
       toggleEnd: 'Finished',
     },
   },
