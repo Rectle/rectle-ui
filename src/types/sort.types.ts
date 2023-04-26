@@ -1,5 +1,5 @@
 interface ISort {
-  sortBy: string;
+  sortBy: number;
   sortOrder: number;
 }
 

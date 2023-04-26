@@ -1,5 +1,5 @@
 const ISortMock: ISort = {
- sortBy: '',
+ sortBy: 0,
  sortOrder: 0
 };
 

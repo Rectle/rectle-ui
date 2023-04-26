@@ -22,7 +22,7 @@ declare module 'vue-i18n' {
 /* eslint-enable @typescript-eslint/no-empty-interface */
 
 export default boot(({ app }) => {
-  
+
   const i18n = createI18n({
     fallbackLocale: 'en-US',
     globalInjection: true,

@@ -96,12 +96,17 @@ export default {
       sort: 'Sort by',
       filter: 'Filter by',
       date: 'Start date',
-      uploadDate: 'Upload date',
       active: 'Active',
       ended: 'Ended',
       toggleActive: 'Active',
       toggleEnd: 'Finished',
     },
+  },
+  projectCard:{
+    author: 'Author: ',
+    users: 'users',
+    date: 'Date: '
+
   },
   codePage: {
     title: 'Code',

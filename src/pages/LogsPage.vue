@@ -1,8 +1,8 @@
 <template>
   <q-page>
-   <div class="q-pa-md justify-center row" > 
+    <div class="q-pa-md justify-center row">
       <div class="col-xs-12 col-sm-12 col-md-10 col-lg-6 col-xl-4">
-        <logs-component/>
+        <logs-component />
       </div>
     </div>
   </q-page>
@@ -15,5 +15,5 @@ import metaData from '@/utils/configs/meta.ts';
 useMeta({
   ...metaData,
   title: 'Logs'
-})
+});
 </script>

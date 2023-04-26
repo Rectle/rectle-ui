@@ -1,6 +1,6 @@
 <template>
-   <div class="q-pa-md" style="width: 100%">
-    <q-toolbar class="bg-white" >
+  <div class="q-pa-md" style="width: 100%">
+    <q-toolbar class="bg-white">
       <q-toolbar-title>
         <q-input
           v-model="search"
@@ -8,7 +8,7 @@
           @update:model-value="emit('search', search)"
         >
           <template v-slot:append>
-            <q-icon name="clear" @click="clearSearch"/>
+            <q-icon name="clear" @click="clearSearch" />
           </template>
         </q-input>
       </q-toolbar-title>
@@ -21,7 +21,7 @@
         >
           <div class="row no-wrap q-py-sm q-px-lg">
             <div class="column items-center">
-              <div class="text-h6"> {{$t('searchBar.filterBar.filter')}}</div>
+              <div class="text-h6">{{ $t('searchBar.filterBar.filter') }}</div>
               <q-list>
                 <q-item clickable>
                   <q-item-section>
@@ -55,18 +55,18 @@
         <q-btn-dropdown flat round dropdown-icon="o_sort" class="q-px-sm">
           <div class="row no-wrap q-py-sm q-px-lg">
             <div class="column items-center">
-              <div class="text-h6">{{$t('searchBar.filterBar.sort')}}</div>
+              <div class="text-h6">{{ $t('searchBar.filterBar.sort') }}</div>
               <q-list separator>
                 <q-item
                   clickable
                   v-close-popup
                   @click="sortByUploadDate(true)"
-                  :class="sort.sortOrder ? 'bg-grey-2' : ''"
+                  :class="{ 'bg-grey-2': sort.sortOrder }"
                   aria-label="Sort"
                 >
                   <q-item-section>
                     <q-item-label
-                      >{{$t('searchBar.filterBar.uploadDate')}}
+                      >{{ $t('searchBar.filterBar.uploadDate') }}
                       <q-icon
                         class="q-ml-xs"
                         v-if="sort.sortOrder == 1"
@@ -74,7 +74,7 @@
                         size="xs"
                       />
                       <q-icon
-                      v-if="sort.sortOrder == 2"
+                        v-if="sort.sortOrder == 2"
                         class="q-ml-xs"
                         name="o_arrow_upward"
                         size="xs"
@@ -88,36 +88,32 @@
         </q-btn-dropdown>
       </div>
     </q-toolbar>
-
   </div>
 </template>
 <script setup lang="ts">
-import { defineEmits, ref } from 'vue'
-import {ISortMock} from 'src/mock/sort.mock'
+import { defineEmits, ref } from 'vue';
+import { ISortMock } from 'src/mock/sort.mock';
 
-const emit = defineEmits(['sort', 'active', 'finished', 'search'])
-const active = ref<boolean>(true)
-const finished =ref<boolean>(false)
-const search = ref<string>('')
-const sort = ref<ISort>(ISortMock)
+const emit = defineEmits(['sort', 'active', 'finished', 'search']);
+const active = ref<boolean>(true);
+const finished = ref<boolean>(false);
+const search = ref<string>('');
+const sort = ref<ISort>(ISortMock);
 
 const clearSearch = () => {
-  search.value = ''
-  emit('search', search.value)
-}
+  search.value = '';
+  emit('search', search.value);
+};
 
 const sortByUploadDate = (change: boolean) => {
-    if (change) {
-      sort.value.sortBy = "date";
-      sort.value.sortOrder += 1;
-    }
+  if (change) {
+    sort.value.sortBy = ESortTypes.Date;
+    sort.value.sortOrder += 1;
+  }
 
-    if ( sort.value.sortOrder == 3) {
-      sort.value.sortOrder = 0;
-    }
-    emit('sort', sort.value);
-}
-
-
-
+  if (sort.value.sortOrder == 3) {
+    sort.value.sortOrder = 0;
+  }
+  emit('sort', sort.value);
+};
 </script>

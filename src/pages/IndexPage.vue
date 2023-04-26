@@ -11,5 +11,5 @@ import metaData from '@/utils/configs/meta.ts';
 useMeta({
   ...metaData,
   title: 'Home page'
-})
+});
 </script>

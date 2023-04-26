@@ -7,7 +7,7 @@ import { useQuasar, LocalStorage } from 'quasar';
 
 const $q = useQuasar();
 
-const isDarkMode: boolean = LocalStorage.getItem('darkmode') ?? false
+const isDarkMode: boolean = LocalStorage.getItem('darkmode') ?? false;
 
 $q.dark.set(isDarkMode);
 </script>

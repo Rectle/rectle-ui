@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pa-md justify-center">
-      <CompetitionsComponent/>
+    <CompetitionsComponent />
   </q-page>
 </template>
 

@@ -84,6 +84,24 @@ export default {
       }
     }
   },
+  searchBar: {
+    search: 'Szukaj',
+    filterBar: {
+      sort: 'Sortuj',
+      filter: 'Filtruj',
+      date: 'Data',
+      active: 'Aktytwne',
+      ended: 'Zakończone',
+      toggleActive: 'Aktywne',
+      toggleEnd: 'Zakończone',
+    },
+  },
+  projectCard:{
+    author: 'Autor: ',
+    users: 'użytkowników',
+    date: 'Data: '
+
+  },
   codePage: {
     title: 'Code',
     uploadLabel: 'Wgraj plik',
