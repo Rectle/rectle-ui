@@ -71,6 +71,12 @@ export default {
         icon: 'o_monitor_heart',
         link: 'logs',
       },
+      competitions: {
+        title: 'Competitions',
+        caption: 'Competing in our competitions',
+        icon: 'o_emoji_events',
+        link: 'competitions',
+      },
       codeEditor: {
         title: 'Code Editor',
         caption: 'Editor for code',
@@ -83,6 +89,19 @@ export default {
         menu: 'Menu'
       }
     }
+  },
+  searchBar: {
+    search: 'Search',
+    filterBar: {
+      sort: 'Sort by',
+      filter: 'Filter by',
+      date: 'Start date',
+      uploadDate: 'Upload date',
+      active: 'Active',
+      ended: 'Ended',
+      toggleActiv: 'Activ',
+      toggleEnd: 'Finished',
+    },
   },
   codePage: {
     title: 'Code',

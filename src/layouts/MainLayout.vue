@@ -68,7 +68,7 @@
       <span v-show="!miniState" class="text-center fixed-bottom text-body2 q-pa-md q-mt-md">{{ appName }} &copy; {{ currYear }}</span>
 
     </q-drawer>
-    <q-page-container>
+    <q-page-container style="max-width: 1280px; margin: 0 auto;">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -110,6 +110,12 @@ const links: EssentialLinkProps[] = [
     caption: t('dashboard.links.logs.caption'),
     icon: t('dashboard.links.logs.icon'),
     link: t('dashboard.links.logs.link'),
+  },
+  {
+    title: t('dashboard.links.competitions.title'),
+    caption: t('dashboard.links.competitions.caption'),
+    icon: t('dashboard.links.competitions.icon'),
+    link: t('dashboard.links.competitions.link'),
   }
 ];
 
@@ -139,7 +145,7 @@ const changeLayout = () => {
       miniMode.value = !showDrawer.value
       showDrawer.value = true
   }
-    
+
 }
 
 watch(() => Screen.lt.sm, changeLayout)
