@@ -71,6 +71,12 @@ export default {
         icon: 'o_monitor_heart',
         link: 'logs',
       },
+      competitions: {
+        title: 'Competitions',
+        caption: 'Competing in our competitions',
+        icon: 'o_emoji_events',
+        link: 'competitions',
+      },
       codeEditor: {
         title: 'Code Editor',
         caption: 'Editor for code',
@@ -83,6 +89,24 @@ export default {
         menu: 'Menu'
       }
     }
+  },
+  searchBar: {
+    search: 'Search',
+    filterBar: {
+      sort: 'Sort by',
+      filter: 'Filter by',
+      date: 'Start date',
+      active: 'Active',
+      ended: 'Ended',
+      toggleActive: 'Active',
+      toggleEnd: 'Finished',
+    },
+  },
+  projectCard:{
+    author: 'Author: ',
+    users: 'users',
+    date: 'Date: '
+
   },
   codePage: {
     title: 'Code',

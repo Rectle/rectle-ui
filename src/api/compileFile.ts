@@ -5,7 +5,7 @@ const compileFile = async (id: number): Promise<boolean> => {
     const userStore = useUserStore();
     try{
         return (await axios.put(url+'/projects/'+id, null,{ headers: {
-            'Authorization': `Bearer${userStore.user.jwt}` 
+            'Authorization': `Bearer${userStore.user.jwt}`
         } })).data == 'Request succeeded, file is being compiled'
     }
     catch(err: any) {

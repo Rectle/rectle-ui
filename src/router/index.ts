@@ -45,7 +45,7 @@ export default route(function ({ store }) {
     if (to.matched.some(record => record.meta.requiresAuth) && !isSignedIn) {
       next({ path: '/auth/login', query: { next: encodeURIComponent(to.fullPath) } })
     }
-    
+
     next()
   })
 

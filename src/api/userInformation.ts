@@ -18,7 +18,7 @@ const sendUserInformation = async (user: any) => {
     const information = getInformation(user);
     try{
         return (await axios.post(url+'/users', information,{ headers: {
-            'Authorization': `Bearer${userStore.user.jwt}` 
+            'Authorization': `Bearer${userStore.user.jwt}`
         } })).data
     }catch(err) {
         console.error(err);

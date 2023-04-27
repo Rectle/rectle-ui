@@ -62,5 +62,5 @@ export const useUserStore = defineStore('user', {
       this.user = {} as IUser
     }
   },
-  
+
 });

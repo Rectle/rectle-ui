@@ -5,18 +5,18 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { 
+      {
         path: '',
-        name: 'home', 
-        component: () => import('pages/IndexPage.vue'), 
+        name: 'home',
+        component: () => import('pages/IndexPage.vue'),
         meta: {
-          requiresAuth: true
+          requiresAuth: false
         },
       },
-      { 
+      {
         path: '/setting',
-        name: 'setting',  
-        component: () => import('pages/SettingPage.vue') 
+        name: 'setting',
+        component: () => import('pages/SettingPage.vue')
       },
       {
         path: '/code',
@@ -32,6 +32,11 @@ const routes: RouteRecordRaw[] = [
         path: '/logs',
         name: 'logs',
         component: () => import('pages/LogsPage.vue')
+      },
+      {
+        path: '/competitions',
+        name: 'competitions',
+        component: () => import('pages/CompetitionsPage.vue')
       }
     ],
   },
@@ -42,12 +47,12 @@ const routes: RouteRecordRaw[] = [
       redirectAuth: true
     },
     children: [
-      { 
-        path: 'login', 
+      {
+        path: 'login',
         component: () => import('pages/auth/SignIn.vue')
       },
-      { 
-        path: 'register', 
+      {
+        path: 'register',
         component: () => import('pages/auth/SignUp.vue')
       }
     ],
