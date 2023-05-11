@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md" style="width: 100%">
+  <div style="width: 100%">
     <q-toolbar class="bg-white">
       <q-toolbar-title>
         <q-input
@@ -93,6 +93,7 @@
 <script setup lang="ts">
 import { defineEmits, ref } from 'vue';
 import { ISortMock } from 'src/mock/sort.mock';
+import { ESortTypes } from 'src/sort-types/sort.enum';
 
 const emit = defineEmits(['sort', 'active', 'finished', 'search']);
 const active = ref<boolean>(true);

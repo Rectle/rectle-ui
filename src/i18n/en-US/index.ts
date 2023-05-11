@@ -77,6 +77,12 @@ export default {
         icon: 'o_emoji_events',
         link: 'competitions',
       },
+      yourworkspace: {
+        title: 'Your Workspace',
+        caption: 'Yours projects',
+        icon: 'o_workspaces',
+        link: 'yourworkspace',
+      },
       codeEditor: {
         title: 'Code Editor',
         caption: 'Editor for code',
@@ -100,7 +106,12 @@ export default {
       ended: 'Ended',
       toggleActive: 'Active',
       toggleEnd: 'Finished',
+      uploadDate: 'Date'
     },
+  },
+  tabs:{
+    creator: 'Creator',
+    participant: 'Participant'
   },
   projectCard:{
     author: 'Author: ',
