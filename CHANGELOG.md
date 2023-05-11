@@ -20,3 +20,5 @@
 - `0.0.21` - Add button with compile project function
 - `0.0.22` - Add google tokentoken to headers in axios
 - `0.1.0` - GCP project migration
+- `0.1.1` - Added composition page
+- `0.1.2` - Added yourspace page
