@@ -109,6 +109,12 @@ const links: EssentialLinkProps[] = [
     caption: t('dashboard.links.competitions.caption'),
     icon: t('dashboard.links.competitions.icon'),
     link: t('dashboard.links.competitions.link')
+  },
+  {
+    title: t('dashboard.links.yourworkspace.title'),
+    caption: t('dashboard.links.yourworkspace.caption'),
+    icon: t('dashboard.links.yourworkspace.icon'),
+    link: t('dashboard.links.yourworkspace.link')
   }
 ];
 

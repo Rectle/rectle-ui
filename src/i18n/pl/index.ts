@@ -71,6 +71,18 @@ export default {
         icon: 'o_monitor_heart',
         link: 'logs',
       },
+      competitions: {
+        title: 'Zawody',
+        caption: 'Rywalizacja w naszych konkursach',
+        icon: 'o_emoji_events',
+        link: 'competitions',
+      },
+      yourworkspace: {
+        title: 'Twój Workspace',
+        caption: 'Twoje projekty',
+        icon: 'o_workspaces',
+        link: 'yourworkspace',
+      },
       codeEditor: {
         title: 'Edytor',
         caption: 'Edytor kodu',
@@ -94,7 +106,12 @@ export default {
       ended: 'Zakończone',
       toggleActive: 'Aktywne',
       toggleEnd: 'Zakończone',
+      uploadDate: 'Date'
     },
+  },
+  tabs:{
+    creator: 'Twórca',
+    participant: 'Uczestnik'
   },
   projectCard:{
     author: 'Autor: ',
