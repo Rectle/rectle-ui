@@ -12,12 +12,14 @@
         :title="item.title"
         :date="item.date"
         :users="item.users"
+        @click="displayProject(item)"
       />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import projectCard from './projectCard.vue';
+import { useRouter } from 'vue-router';
 
 interface IProjectCard {
   image: string;
@@ -26,6 +28,7 @@ interface IProjectCard {
   title: string;
   date: string;
   users: string;
+  id: string;
 }
 
 interface IList {
@@ -33,4 +36,21 @@ interface IList {
 }
 
 const props = defineProps<IList>();
+
+const router = useRouter();
+
+const displayProject = (item: IProjectCard) => {
+  debugger;
+  router.push({
+    path: `project-overview/${item.id}`,
+    query: {
+      item: item.image,
+      author: item.author,
+      avatar: item.avatar,
+      title: item.title,
+      date: item.date,
+      users: item.users
+    }
+  });
+};
 </script>

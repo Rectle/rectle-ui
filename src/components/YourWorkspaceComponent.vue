@@ -17,6 +17,7 @@ import projectsList from './projects/projectsList.vue';
 import tabsComponent from './workspace/tabsComponent.vue';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
+import { uuid } from 'vue-uuid';
 
 const active = ref<boolean>(true);
 const finished = ref<boolean>(false);
@@ -35,7 +36,8 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Flower Classification',
@@ -48,7 +50,8 @@ const listExamples = [
     date: '04.02.2022',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'date Science for Business',
@@ -60,7 +63,8 @@ const listExamples = [
     date: '04.13.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -73,7 +77,8 @@ const listExamples = [
     date: '04.20.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Healthcare',
@@ -86,7 +91,8 @@ const listExamples = [
     date: '04.25.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Marketing',
@@ -99,7 +105,8 @@ const listExamples = [
     date: '04.27.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Finance',
@@ -112,7 +119,8 @@ const listExamples = [
     date: '03.30.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Social Media',
@@ -125,7 +133,8 @@ const listExamples = [
     date: '05.03.2023',
     active: false,
     finished: true,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Education',
@@ -138,7 +147,8 @@ const listExamples = [
     date: '05.05.2023',
     active: true,
     finished: true,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for E-commerce',
@@ -151,7 +161,8 @@ const listExamples = [
     date: '05.08.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Learing Equality',
@@ -163,7 +174,8 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    Participant: 'Creator'
+    Participant: 'Creator',
+    id: uuid.v4()
   },
   {
     title: 'Flower Classification',
@@ -176,7 +188,8 @@ const listExamples = [
     date: '04.02.2022',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Applied Data Science',
@@ -189,7 +202,8 @@ const listExamples = [
     date: '04.22.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Healthcare',
@@ -202,7 +216,8 @@ const listExamples = [
     date: '04.25.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Marketing',
@@ -215,7 +230,8 @@ const listExamples = [
     date: '04.27.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Finance',
@@ -228,7 +244,8 @@ const listExamples = [
     date: '03.30.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Social Media',
@@ -241,7 +258,8 @@ const listExamples = [
     date: '05.03.2023',
     active: false,
     finished: true,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Education',
@@ -254,7 +272,8 @@ const listExamples = [
     date: '05.05.2023',
     active: true,
     finished: true,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   },
   {
     title: 'Data Science for E-commerce',
@@ -267,7 +286,8 @@ const listExamples = [
     date: '05.08.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4()
   }
 ];
 

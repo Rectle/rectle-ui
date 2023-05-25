@@ -13,6 +13,7 @@ import searchBar from './competitions/searchBar.vue';
 import projectsList from './projects/projectsList.vue';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
+import { uuid } from 'vue-uuid';
 
 const active = ref<boolean>(true);
 const finished = ref<boolean>(false);
@@ -29,7 +30,8 @@ const listExamples = [
     users: '2241',
     date: '03.23.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Flower Classification',
@@ -41,7 +43,8 @@ const listExamples = [
     users: '126',
     date: '04.02.2022',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'date Science for Business',
@@ -52,7 +55,8 @@ const listExamples = [
     users: '754',
     date: '04.13.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -64,7 +68,8 @@ const listExamples = [
     users: '875',
     date: '04.20.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Applied Data Science',
@@ -76,7 +81,8 @@ const listExamples = [
     users: '1,230',
     date: '04.22.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Healthcare',
@@ -88,7 +94,8 @@ const listExamples = [
     users: '645',
     date: '04.25.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Marketing',
@@ -100,7 +107,8 @@ const listExamples = [
     users: '1,532',
     date: '04.27.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Finance',
@@ -112,7 +120,8 @@ const listExamples = [
     users: '987',
     date: '03.30.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Social Media',
@@ -124,7 +133,8 @@ const listExamples = [
     users: '1,875',
     date: '05.03.2023',
     active: false,
-    finished: true
+    finished: true,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for Education',
@@ -136,7 +146,8 @@ const listExamples = [
     users: '345',
     date: '05.05.2023',
     active: true,
-    finished: true
+    finished: true,
+    id: uuid.v4()
   },
   {
     title: 'Data Science for E-commerce',
@@ -148,7 +159,8 @@ const listExamples = [
     users: '1,245',
     date: '05.08.2023',
     active: true,
-    finished: false
+    finished: false,
+    id: uuid.v4()
   }
 ];
 
