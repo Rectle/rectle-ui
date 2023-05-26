@@ -37,7 +37,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Flower Classification',
@@ -51,7 +52,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'date Science for Business',
@@ -64,7 +66,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -78,7 +81,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Healthcare',
@@ -92,7 +96,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Marketing',
@@ -106,7 +111,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Finance',
@@ -120,7 +126,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Social Media',
@@ -134,7 +141,8 @@ const listExamples = [
     active: false,
     finished: true,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Education',
@@ -148,7 +156,8 @@ const listExamples = [
     active: true,
     finished: true,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for E-commerce',
@@ -162,7 +171,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Learing Equality',
@@ -175,7 +185,8 @@ const listExamples = [
     active: true,
     finished: false,
     Participant: 'Creator',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Flower Classification',
@@ -189,7 +200,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Applied Data Science',
@@ -203,7 +215,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Healthcare',
@@ -217,7 +230,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Marketing',
@@ -231,7 +245,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Finance',
@@ -245,7 +260,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Social Media',
@@ -259,7 +275,8 @@ const listExamples = [
     active: false,
     finished: true,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Education',
@@ -273,7 +290,8 @@ const listExamples = [
     active: true,
     finished: true,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for E-commerce',
@@ -287,7 +305,8 @@ const listExamples = [
     active: true,
     finished: false,
     type: 'Participant',
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   }
 ];
 

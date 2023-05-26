@@ -8,11 +8,11 @@
   <div v-if="props.technologies && props.technologies.length" class="q-pa-none">
     <q-chip
       v-for="(technology, index) in props.technologies"
-      :key="technology.id"
+      :key="technology"
       outline
       :class="index == '0' ? 'q-ml-none' : ''"
     >
-      {{ technology.name }}
+      {{ technology }}
     </q-chip>
   </div>
 </template>

@@ -31,7 +31,8 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Flower Classification',
@@ -44,7 +45,8 @@ const listExamples = [
     date: '04.02.2022',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'date Science for Business',
@@ -56,7 +58,8 @@ const listExamples = [
     date: '04.13.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -69,7 +72,8 @@ const listExamples = [
     date: '04.20.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Applied Data Science',
@@ -82,7 +86,8 @@ const listExamples = [
     date: '04.22.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Healthcare',
@@ -95,7 +100,8 @@ const listExamples = [
     date: '04.25.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Marketing',
@@ -108,7 +114,8 @@ const listExamples = [
     date: '04.27.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Finance',
@@ -121,7 +128,8 @@ const listExamples = [
     date: '03.30.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Social Media',
@@ -134,7 +142,8 @@ const listExamples = [
     date: '05.03.2023',
     active: false,
     finished: true,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Education',
@@ -147,7 +156,8 @@ const listExamples = [
     date: '05.05.2023',
     active: true,
     finished: true,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for E-commerce',
@@ -160,7 +170,8 @@ const listExamples = [
     date: '05.08.2023',
     active: true,
     finished: false,
-    id: uuid.v4()
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   }
 ];
 

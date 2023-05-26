@@ -29,6 +29,7 @@ interface IProjectCard {
   date: string;
   users: string;
   id: string;
+  technologies: string[];
 }
 
 interface IList {
@@ -48,7 +49,8 @@ const displayProject = (item: IProjectCard) => {
       avatar: item.avatar,
       title: item.title,
       date: item.date,
-      users: item.users
+      users: item.users,
+      technologies: item.technologies
     }
   });
 };
