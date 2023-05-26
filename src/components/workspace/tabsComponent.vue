@@ -19,14 +19,17 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineEmits, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { defineEmits, ref, PropType, toRefs } from 'vue';
 
 const emit = defineEmits(['tab']);
-const { t } = useI18n();
-const tabs = [t('tabs.creator'), t('tabs.participant')];
 
-const tab = ref<string>(tabs[0]);
+const props = defineProps({
+  tabs: { type: Array as PropType<string[]>, required: true }
+});
+
+const { tabs } = toRefs(props);
+
+const tab = ref<string>(tabs.value[0]);
 </script>
 <style>
 .tabs .q-tab__label {

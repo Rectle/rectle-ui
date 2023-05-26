@@ -1,5 +1,5 @@
 <template>
-  <tabs-component @tab="(e: string) => type = e" />
+  <tabs-component :tabs="tabs" @tab="(e: string) => type = e" />
   <search-bar
     @search="(e: string) => search = e"
     @active="(e: boolean)=> active = e"
@@ -17,13 +17,18 @@ import projectsList from './projects/projectsList.vue';
 import tabsComponent from './workspace/tabsComponent.vue';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { uuid } from 'vue-uuid';
+
+const { t } = useI18n();
 
 const active = ref<boolean>(true);
 const finished = ref<boolean>(false);
 const search = ref<string>('');
 const sort = ref<ISort>(ISortMock);
-const type = ref<string>('Creator');
+
+const tabs = [t('tabs.creator'), t('tabs.participant')];
+const type = ref<string>(tabs[0]);
 
 const listExamples = [
   {
