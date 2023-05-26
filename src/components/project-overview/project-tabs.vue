@@ -1,5 +1,5 @@
 <template>
-  <div class="q-my-md tabs">
+  <div class="q-my-md project-tabs">
     <q-tabs
       v-model="tab"
       narrow-indicator
@@ -34,10 +34,10 @@ const tabs = [
 const tab = ref<string>(tabs[0]);
 </script>
 <style>
-.tabs .q-focus-helper {
+.project-tabs .q-focus-helper {
   visibility: hidden;
 }
-.tabs .q-tab__indicator {
+.project-tabs .q-tab__indicator {
   height: 1px;
 }
 </style>

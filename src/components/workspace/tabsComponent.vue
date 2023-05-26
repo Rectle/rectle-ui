@@ -9,23 +9,24 @@
       @update:model-value="emit('tab', tab)"
     >
       <q-tab
+        v-for="tab_ in tabs"
+        :key="tab_"
+        :name="tab_"
+        :label="tab_"
         :ripple="false"
-        :name="$t('tabs.creator')"
-        :label="$t('tabs.creator')"
-      />
-      <q-tab
-        :ripple="false"
-        :name="$t('tabs.participant')"
-        :label="$t('tabs.participant')"
       />
     </q-tabs>
   </div>
 </template>
 <script setup lang="ts">
 import { defineEmits, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits(['tab']);
-const tab = ref<string>('Creator');
+const { t } = useI18n();
+const tabs = [t('tabs.creator'), t('tabs.participant')];
+
+const tab = ref<string>(tabs[0]);
 </script>
 <style>
 .tabs .q-tab__label {
