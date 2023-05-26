@@ -1,6 +1,5 @@
 <template>
   <q-page class="q-pa-md justify-center">
-    <div>Overview Page</div>
     <ProjectOverviewComponent :project="route.query" />
   </q-page>
 </template>

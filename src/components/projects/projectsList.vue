@@ -40,7 +40,6 @@ const props = defineProps<IList>();
 const router = useRouter();
 
 const displayProject = (item: IProjectCard) => {
-  debugger;
   router.push({
     path: `project-overview/${item.id}`,
     query: {
