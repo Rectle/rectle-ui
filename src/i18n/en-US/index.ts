@@ -118,6 +118,12 @@ export default {
     users: 'users',
     date: 'Date: '
   },
+  projectTabs:{
+    overview: 'Overview',
+    code: 'Code',
+    approaches: 'Your Approaches',
+    leaderboard: 'Leaderboard'
+  },
   codePage: {
     title: 'Code',
     uploadLabel: 'Upload file',

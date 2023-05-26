@@ -118,6 +118,12 @@ export default {
     users: 'użytkowników',
     date: 'Data: '
   },
+  projectTabs:{
+    overview: 'Przegląd',
+    code: 'Kod',
+    approaches: 'Twoje podejście',
+    leaderboard: 'Tablica wyników'
+  },
   codePage: {
     title: 'Code',
     uploadLabel: 'Wgraj plik',
