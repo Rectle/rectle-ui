@@ -16,7 +16,17 @@
         handler: saveWork
       }
     }"
-    :toolbar="[['save', 'upload']]"
+    :toolbar="[
+      [
+        {
+          label: $q.lang.editor.formatting,
+          icon: $q.iconSet.editor.formatting,
+          list: 'no-icons',
+          options: ['code']
+        }
+      ],
+      ['save', 'upload']
+    ]"
     toolbar-bg="grey-1"
     min-height="5rem"
     style="white-space: break-spaces"
