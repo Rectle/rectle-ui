@@ -82,6 +82,7 @@
             times_new_roman: 'Times New Roman',
             verdana: 'Verdana'
           }"
+          toolbar-bg="grey-1"
         />
       </div>
     </q-scroll-area>

@@ -10,6 +10,10 @@
       <ProjectDetailsApproaches
         v-if="props.type === $t('projectTabs.approaches')"
       />
+
+      <ProjectDetailsLeaderboard
+        v-if="props.type === $t('projectTabs.leaderboard')"
+      />
     </q-card-section>
   </q-card>
 </template>
@@ -17,6 +21,7 @@
 <script setup lang="ts">
 import ProjectDetailsApproaches from './project-details-approaches.vue';
 import ProjectDetailsCode from './project-details-code.vue';
+import ProjectDetailsLeaderboard from './project-details-leaderboard.vue';
 import ProjectDetailsOverview from './project-details-overview.vue';
 
 const props = defineProps({
