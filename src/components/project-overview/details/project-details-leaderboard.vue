@@ -7,7 +7,13 @@
     flat
     bordered
     virtual-scroll
-  />
+  >
+    <template v-slot:body-cell-actions="props">
+      <q-td :props="props">
+        <q-btn icon="o_folder_zip" flat round></q-btn>
+      </q-td>
+    </template>
+  </q-table>
 </template>
 
 <script setup lang="ts">
@@ -54,7 +60,8 @@ const columns = [
     label: 'Entires',
     field: 'entires',
     sortable: true
-  }
+  },
+  { name: 'actions', label: 'Solution', field: 'actions' }
 ];
 
 const exampleLeaderboard = [
