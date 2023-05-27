@@ -2,7 +2,7 @@
   <q-card class="q-pa-md">
     <q-card-section horizontal>
       <q-list class="my-list q-mr-sm">
-        <q-item v-ripple>
+        <q-item>
           <q-item-section>
             <q-icon name="fingerprint" size="2em" />
           </q-item-section>
@@ -10,7 +10,7 @@
           <q-item-section>{{ props.points }}</q-item-section>
         </q-item>
 
-        <q-item v-ripple>
+        <q-item>
           <q-item-section>
             <q-icon name="o_analytics" size="2em" />
           </q-item-section>

@@ -25,7 +25,7 @@
 const columns = [
   {
     name: 'id',
-    label: 'Nr',
+    label: '#',
     field: 'id',
     sortable: true
   },
