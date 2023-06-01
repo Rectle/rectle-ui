@@ -1,9 +1,10 @@
 <template>
-  <q-page-sticky position="bottom-right" :offset="fabPos">
+  <q-page-sticky class="fab-page" position="bottom-right" :offset="fabPos">
     <q-fab
       icon="o_unfold_more"
       direction="up"
       :disable="draggingFab"
+      :outline="true"
       v-touch-pan.prevent.mouse="moveFab"
     >
       <q-fab-action
@@ -37,3 +38,8 @@ const moveFab = (ev: any) => {
   fabPos.value = [fabPos.value[0] - ev.delta.x, fabPos.value[1] - ev.delta.y];
 };
 </script>
+<style>
+.fab-page .q-btn--outline:before {
+  border: 1px solid #959595;
+}
+</style>
