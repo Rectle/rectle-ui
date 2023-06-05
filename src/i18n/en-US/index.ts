@@ -117,7 +117,12 @@ export default {
     author: 'Author: ',
     users: 'users',
     date: 'Date: '
-
+  },
+  projectTabs:{
+    overview: 'Overview',
+    code: 'Code',
+    approaches: 'Your Approaches',
+    leaderboard: 'Leaderboard'
   },
   codePage: {
     title: 'Code',
@@ -128,6 +133,11 @@ export default {
   },
   logsPage: {
     title: 'Logs'
+  },
+  projecOverviewTitle:{
+    author: 'Author: ',
+    users: 'users',
+    date: 'Date: '
   },
   auth: {
     signin: {

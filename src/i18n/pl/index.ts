@@ -117,7 +117,12 @@ export default {
     author: 'Autor: ',
     users: 'użytkowników',
     date: 'Data: '
-
+  },
+  projectTabs:{
+    overview: 'Przegląd',
+    code: 'Kod',
+    approaches: 'Twoje podejście',
+    leaderboard: 'Tablica wyników'
   },
   codePage: {
     title: 'Code',
@@ -128,6 +133,11 @@ export default {
   },
   logsPage: {
     title: 'Logi'
+  },
+  projecOverviewTitle:{
+    author: 'Autor: ',
+    users: 'użytkowników',
+    date: 'Data: '
   },
   auth: {
     signin: {

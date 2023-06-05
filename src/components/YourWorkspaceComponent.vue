@@ -1,5 +1,5 @@
 <template>
-  <tabs-component @tab="(e: string) => type = e" />
+  <tabs-component :tabs="tabs" @tab="(e: string) => type = e" />
   <search-bar
     @search="(e: string) => search = e"
     @active="(e: boolean)=> active = e"
@@ -17,12 +17,18 @@ import projectsList from './projects/projectsList.vue';
 import tabsComponent from './workspace/tabsComponent.vue';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { uuid } from 'vue-uuid';
+
+const { t } = useI18n();
 
 const active = ref<boolean>(true);
 const finished = ref<boolean>(false);
 const search = ref<string>('');
 const sort = ref<ISort>(ISortMock);
-const type = ref<string>('Creator');
+
+const tabs = [t('tabs.creator'), t('tabs.participant')];
+const type = ref<string>(tabs[0]);
 
 const listExamples = [
   {
@@ -35,7 +41,9 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Flower Classification',
@@ -48,7 +56,9 @@ const listExamples = [
     date: '04.02.2022',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'date Science for Business',
@@ -60,7 +70,9 @@ const listExamples = [
     date: '04.13.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -73,7 +85,9 @@ const listExamples = [
     date: '04.20.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Healthcare',
@@ -86,7 +100,9 @@ const listExamples = [
     date: '04.25.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Marketing',
@@ -99,7 +115,9 @@ const listExamples = [
     date: '04.27.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Finance',
@@ -112,7 +130,9 @@ const listExamples = [
     date: '03.30.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Social Media',
@@ -125,7 +145,9 @@ const listExamples = [
     date: '05.03.2023',
     active: false,
     finished: true,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Education',
@@ -138,7 +160,9 @@ const listExamples = [
     date: '05.05.2023',
     active: true,
     finished: true,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for E-commerce',
@@ -151,7 +175,9 @@ const listExamples = [
     date: '05.08.2023',
     active: true,
     finished: false,
-    type: 'Creator'
+    type: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Learing Equality',
@@ -163,7 +189,9 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    Participant: 'Creator'
+    Participant: 'Creator',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Flower Classification',
@@ -176,7 +204,9 @@ const listExamples = [
     date: '04.02.2022',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Applied Data Science',
@@ -189,7 +219,9 @@ const listExamples = [
     date: '04.22.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Healthcare',
@@ -202,7 +234,9 @@ const listExamples = [
     date: '04.25.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Marketing',
@@ -215,7 +249,9 @@ const listExamples = [
     date: '04.27.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Finance',
@@ -228,7 +264,9 @@ const listExamples = [
     date: '03.30.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Social Media',
@@ -241,7 +279,9 @@ const listExamples = [
     date: '05.03.2023',
     active: false,
     finished: true,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for Education',
@@ -254,7 +294,9 @@ const listExamples = [
     date: '05.05.2023',
     active: true,
     finished: true,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   },
   {
     title: 'Data Science for E-commerce',
@@ -267,7 +309,9 @@ const listExamples = [
     date: '05.08.2023',
     active: true,
     finished: false,
-    type: 'Participant'
+    type: 'Participant',
+    id: uuid.v4(),
+    technologies: ['Python', 'Learning', 'K-012']
   }
 ];
 

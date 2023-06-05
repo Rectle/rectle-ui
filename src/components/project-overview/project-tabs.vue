@@ -1,5 +1,5 @@
 <template>
-  <div class="q-my-md tabs">
+  <div class="q-my-md project-tabs">
     <q-tabs
       v-model="tab"
       narrow-indicator
@@ -26,19 +26,15 @@ const emit = defineEmits(['tab']);
 const props = defineProps({
   tabs: { type: Array as PropType<string[]>, required: true }
 });
-
 const { tabs } = toRefs(props);
 
 const tab = ref<string>(tabs.value[0]);
 </script>
 <style>
-.tabs .q-tab__label {
-  font-size: 2em;
-}
-.tabs .q-focus-helper {
+.project-tabs .q-focus-helper {
   visibility: hidden;
 }
-.tabs .q-tab__indicator {
+.project-tabs .q-tab__indicator {
   height: 1px;
 }
 </style>
