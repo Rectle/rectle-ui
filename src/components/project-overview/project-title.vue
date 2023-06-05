@@ -10,7 +10,7 @@
       v-for="(technology, index) in props.technologies"
       :key="technology"
       outline
-      :class="index == '0' ? 'q-ml-none' : ''"
+      :class="{ 'q-ml-none': index === 0 }"
     >
       {{ technology }}
     </q-chip>

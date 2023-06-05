@@ -21,8 +21,8 @@
 
       <q-icon
         class="q-ma-md q-ml-lg"
-        :name="status == 'done' ? 'o_check_circle' : 'o_pending'"
-        :color="status == 'done' ? 'green' : 'orange'"
+        :name="icons[status as keyof typeof icons]"
+        :color="colors[status as keyof typeof colors]"
         size="4rem"
       />
     </q-card-section>
@@ -30,10 +30,23 @@
 </template>
 
 <script setup lang="ts">
+enum colors {
+  pending = 'orange',
+  done = 'green'
+}
+
+enum icons {
+  pending = 'o_pending',
+  done = 'o_check_circle'
+}
+
 const props = defineProps({
   points: Number,
   score: Number,
-  status: String
+  status: {
+    type: String,
+    required: true
+  }
 });
 </script>
 <style>
