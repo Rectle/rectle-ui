@@ -3,6 +3,11 @@
   .q-router-link--active {
     color: white !important;
   }
+  .my-sticky-dynamic .q-table__top,
+  thead tr:first-child th {
+    background-color: --q-dark !important;
+  }
+
 }
 
 .body--light{
@@ -10,6 +15,12 @@
     border: 1px solid #e8e8e8;
     border-radius: 5px;
   }
+
+  .my-sticky-dynamic .q-table__top,
+thead tr:first-child th {
+  background-color: #fafafa !important;
+}
+
 }
 
 

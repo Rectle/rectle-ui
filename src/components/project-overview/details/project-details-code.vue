@@ -27,7 +27,7 @@
       ],
       ['save', 'upload']
     ]"
-    toolbar-bg="grey-1"
+    :toolbar-bg="!$q.dark.isActive ? 'grey-1' : 'grey-10'"
     min-height="5rem"
     style="white-space: break-spaces"
   />

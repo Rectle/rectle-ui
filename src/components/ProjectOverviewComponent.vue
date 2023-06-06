@@ -6,7 +6,11 @@
     :technologies="props.project?.technologies"
   />
   <ProjectTabs :tabs="tabs" @tab="(e: string) => type = e" />
-  <ProjectDetails :type="type" />
+  <ProjectDetails
+    :title="props.project?.title"
+    :type="type"
+    :id="props.project?.id"
+  />
   <ProjectDetailsFloatingButton :options="options" />
 </template>
 <script setup lang="ts">

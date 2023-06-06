@@ -134,10 +134,18 @@ export default {
   logsPage: {
     title: 'Logi'
   },
-  projecOverviewTitle:{
+  projectOverviewTitle:{
     author: 'Autor: ',
     users: 'użytkowników',
     date: 'Data: '
+  },
+  approcheStatusTitle:{
+    id: 'ID: ',
+    score: 'Wynik: '
+  },
+  logs:{
+    id: '#',
+    name: 'Logi'
   },
   auth: {
     signin: {

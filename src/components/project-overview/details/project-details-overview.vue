@@ -82,7 +82,7 @@
             times_new_roman: 'Times New Roman',
             verdana: 'Verdana'
           }"
-          toolbar-bg="grey-1"
+          :toolbar-bg="!$q.dark.isActive ? 'grey-1' : 'grey-10'"
         />
       </div>
     </q-scroll-area>
