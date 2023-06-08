@@ -82,7 +82,7 @@
             times_new_roman: 'Times New Roman',
             verdana: 'Verdana'
           }"
-          :toolbar-bg="!$q.dark.isActive ? 'grey-1' : 'grey-10'"
+          :toolbar-bg="toolbarColor"
         />
       </div>
     </q-scroll-area>
@@ -90,12 +90,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useQuasar } from 'quasar';
 
 // TODO: download overview text form databse by id
 // const props = defineProps({
 //   id: String
 // });
+
+const $q = useQuasar();
 
 const exampleText = `<p><strong>What is a Getting Started competition?</strong></p>
       <p>
@@ -170,6 +173,8 @@ const exampleText = `<p><strong>What is a Getting Started competition?</strong><
         If your problem persists or it seems to be effective all participants
         then please contact us.
       </p>`;
+
+const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 
 const editor = ref(exampleText);
 </script>
