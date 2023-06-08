@@ -26,6 +26,7 @@ const emit = defineEmits(['tab']);
 const props = defineProps({
   tabs: { type: Array as PropType<string[]>, required: true }
 });
+
 const { tabs } = toRefs(props);
 
 const tab = ref<string>(tabs.value[0]);

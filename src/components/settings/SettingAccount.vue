@@ -30,9 +30,9 @@ const buttonJWT = ref<string>(
     : t('accountSettings.toggleJWT.falseValue')
 );
 
-function changeJWT() {
+const changeJWT = () => {
   if (buttonJWT.value === t('accountSettings.toggleJWT.trueValue'))
     LocalStorage.set('JWT', true);
   else LocalStorage.set('JWT', false);
-}
+};
 </script>

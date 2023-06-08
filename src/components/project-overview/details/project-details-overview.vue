@@ -100,6 +100,8 @@ import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 
+const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
+
 const exampleText = `<p><strong>What is a Getting Started competition?</strong></p>
       <p>
         Getting Started competitions were created by Kaggle data scientists for
@@ -173,8 +175,6 @@ const exampleText = `<p><strong>What is a Getting Started competition?</strong><
         If your problem persists or it seems to be effective all participants
         then please contact us.
       </p>`;
-
-const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 
 const editor = ref(exampleText);
 </script>

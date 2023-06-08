@@ -39,6 +39,20 @@ import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 
+// TODO: download code text/ file form databse by id
+// const props = defineProps({
+//   id: String
+// });
+
+const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
+
+const exampleText = `# exampleProgram
+
+for x in range(5):
+    print("Rectle!")`;
+
+const editor = ref(exampleText);
+
 const saveWork = () => {
   $q.notify({
     message: 'Caming soon',
@@ -56,18 +70,4 @@ const uploadIt = () => {
     icon: 'warning'
   });
 };
-
-// TODO: download code text/ file form databse by id
-// const props = defineProps({
-//   id: String
-// });
-
-const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
-
-const exampleText = `# exampleProgram
-
-for x in range(5):
-    print("Rectle!")`;
-
-const editor = ref(exampleText);
 </script>

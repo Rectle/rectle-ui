@@ -8,7 +8,7 @@ import MobileSetting from 'components/settings/MobileSetting.vue';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-const listOfSettings = [
+const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.account.title'),
     icon: t('settingPage.list.account.icon'),

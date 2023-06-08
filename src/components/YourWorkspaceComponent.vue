@@ -30,7 +30,7 @@ const sort = ref<ISort>(ISortMock);
 const tabs = [t('tabs.creator'), t('tabs.participant')];
 const type = ref<string>(tabs[0]);
 
-const listExamples = [
+const listExamples: IWorkspace[] = [
   {
     title: 'Learing Equality',
     avatar: 'https://cdn-icons-png.flaticon.com/512/4185/4185714.png',
@@ -189,7 +189,7 @@ const listExamples = [
     date: '03.23.2023',
     active: true,
     finished: false,
-    Participant: 'Creator',
+    type: 'Creator',
     id: uuid.v4(),
     technologies: ['Python', 'Learning', 'K-012']
   },

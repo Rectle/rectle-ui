@@ -21,17 +21,6 @@
 import projectCard from './projectCard.vue';
 import { useRouter } from 'vue-router';
 
-interface IProjectCard {
-  image: string;
-  author: string;
-  avatar: string;
-  title: string;
-  date: string;
-  users: string;
-  id: string;
-  technologies: string[];
-}
-
 interface IList {
   list: IProjectCard[];
 }

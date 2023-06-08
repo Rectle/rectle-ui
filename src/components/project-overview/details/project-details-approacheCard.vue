@@ -43,6 +43,16 @@ const props = defineProps({
   title: String
 });
 
+enum colors {
+  pending = 'orange',
+  done = 'green'
+}
+
+enum icons {
+  pending = 'o_pending',
+  done = 'o_check_circle'
+}
+
 const routeToDetails = () => {
   router.push({
     path: `/project-overview/${props.projectId}/status/${props.approacheID}`,
@@ -56,16 +66,6 @@ const routeToDetails = () => {
     }
   });
 };
-
-enum colors {
-  pending = 'orange',
-  done = 'green'
-}
-
-enum icons {
-  pending = 'o_pending',
-  done = 'o_check_circle'
-}
 </script>
 <style>
 .my-list .q-item__section--main + .q-item__section--main {
