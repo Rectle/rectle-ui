@@ -8,6 +8,8 @@
       <ProjectDetailsCode v-if="props.type === $t('projectTabs.code')" />
 
       <ProjectDetailsApproaches
+        :id="props.id"
+        :title="props.title"
         v-if="props.type === $t('projectTabs.approaches')"
       />
 
@@ -25,6 +27,8 @@ import ProjectDetailsLeaderboard from './project-details-leaderboard.vue';
 import ProjectDetailsOverview from './project-details-overview.vue';
 
 const props = defineProps({
-  type: String
+  type: String,
+  id: String,
+  title: String
 });
 </script>

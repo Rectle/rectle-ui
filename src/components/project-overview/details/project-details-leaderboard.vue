@@ -107,9 +107,3 @@ const exampleLeaderboard = [
   }
 ];
 </script>
-<style>
-.my-sticky-dynamic .q-table__top,
-thead tr:first-child th {
-  background-color: #fafafa;
-}
-</style>

@@ -14,11 +14,11 @@
       <div class="details col-11">
         <q-card-section>
           <q-item-label class="text-h6">{{ props.title }}</q-item-label>
-          <q-item-label caption>
+          <q-item-label :caption="!$q.dark.isActive">
             {{ $t('projectCard.author') }} {{ props.author }} |
             {{ props.users }} {{ $t('projectCard.users') }}
           </q-item-label>
-          <q-item-label caption>
+          <q-item-label :caption="!$q.dark.isActive">
             {{ $t('projectCard.date') }} {{ formatDate(props.date) }}
           </q-item-label>
         </q-card-section>
@@ -33,6 +33,7 @@
 </template>
 <script setup lang="ts">
 import moment from 'moment';
+import { useQuasar } from 'quasar';
 
 const props = defineProps({
   image: String,
@@ -42,6 +43,8 @@ const props = defineProps({
   users: String,
   date: String
 });
+
+const $q = useQuasar();
 
 const formatDate = (date: string | undefined) => {
   return moment(date).format('DD.MM.YYYY');

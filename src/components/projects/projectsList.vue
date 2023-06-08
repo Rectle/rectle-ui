@@ -44,6 +44,7 @@ const displayProject = (item: IProjectCard) => {
   router.push({
     path: `project-overview/${item.id}`,
     query: {
+      id: item.id,
       item: item.image,
       author: item.author,
       avatar: item.avatar,

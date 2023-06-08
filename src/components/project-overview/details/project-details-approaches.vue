@@ -7,9 +7,12 @@
       class="example-item"
     >
       <ProjectDetailsApproacheCard
+        :projectId="props.id"
+        :approacheID="approache.id"
         :points="approache.points"
         :score="approache.score"
         :status="approache.status"
+        :title="props.title"
       />
     </q-intersection>
   </div>
@@ -17,39 +20,41 @@
 
 <script setup lang="ts">
 import ProjectDetailsApproacheCard from './project-details-approacheCard.vue';
+import { uuid } from 'vue-uuid';
 
 // TODO: download approaches form databse by id
-// const props = defineProps({
-//   id: String
-// });
+const props = defineProps({
+  id: String,
+  title: String
+});
 
 const exampleApproaches = [
   {
-    id: 1,
+    id: uuid.v4(),
     points: 123125,
     score: 0.86743,
     status: 'pending'
   },
   {
-    id: 2,
+    id: uuid.v4(),
     points: 132513,
     score: 0.24335,
     status: 'pending'
   },
   {
-    id: 3,
+    id: uuid.v4(),
     points: 125313,
     score: 0.6532,
     status: 'done'
   },
   {
-    id: 4,
+    id: uuid.v4(),
     points: 103125,
     score: 0.36743,
     status: 'done'
   },
   {
-    id: 5,
+    id: uuid.v4(),
     points: 532541,
     score: 0.1231,
     status: 'done'

@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-pa-md">
+  <q-card class="q-pa-md cursor-pointer q-hoverable" @click="routeToDetails()">
     <q-card-section horizontal>
       <q-list class="my-list q-mr-sm">
         <q-item>
@@ -30,6 +30,33 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const props = defineProps({
+  projectId: String,
+  approacheID: String,
+  points: Number,
+  score: Number,
+  status: String,
+  title: String
+});
+
+const routeToDetails = () => {
+  router.push({
+    path: `/project-overview/${props.projectId}/status/${props.approacheID}`,
+    query: {
+      id: props.approacheID,
+      projectId: props.projectId,
+      title: props.title,
+      points: props.points,
+      score: props.score,
+      status: props.status
+    }
+  });
+};
+
 enum colors {
   pending = 'orange',
   done = 'green'
@@ -39,15 +66,6 @@ enum icons {
   pending = 'o_pending',
   done = 'o_check_circle'
 }
-
-const props = defineProps({
-  points: Number,
-  score: Number,
-  status: {
-    type: String,
-    required: true
-  }
-});
 </script>
 <style>
 .my-list .q-item__section--main + .q-item__section--main {

@@ -1,9 +1,9 @@
 <template>
   <div class="text-h5">{{ props.title }}</div>
   <div class="text-h6 text-weight-thin">
-    {{ $t('projecOverviewTitle.author') }} {{ props.author }} |
+    {{ $t('projectOverviewTitle.author') }} {{ props.author }} |
     {{ props.users }}
-    {{ $t('projecOverviewTitle.users') }}
+    {{ $t('projectOverviewTitle.users') }}
   </div>
   <div v-if="props.technologies && props.technologies.length" class="q-pa-none">
     <q-chip

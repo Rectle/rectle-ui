@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%">
-    <q-toolbar class="bg-white">
+    <q-toolbar>
       <q-toolbar-title>
         <q-input
           v-model="search"

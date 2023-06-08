@@ -27,14 +27,14 @@
       ],
       ['save', 'upload']
     ]"
-    toolbar-bg="grey-1"
+    :toolbar-bg="toolbarColor"
     min-height="5rem"
     style="white-space: break-spaces"
   />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
@@ -61,6 +61,8 @@ const uploadIt = () => {
 // const props = defineProps({
 //   id: String
 // });
+
+const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 
 const exampleText = `# exampleProgram
 

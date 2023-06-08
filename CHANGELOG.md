@@ -23,3 +23,4 @@
 - `0.1.1` - Added composition page
 - `0.1.2` - Added yourspace page
 - `0.1.3` - Added project-overview components
+- `0.1.4` - Added logs page
