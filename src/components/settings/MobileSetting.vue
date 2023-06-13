@@ -6,7 +6,7 @@
   <q-list class="text-h6" separator>
     <q-item
       class="q-py-lg cursor-pointer"
-      v-for="item of settings"
+      v-for="item of (props.settings as ISetting[])"
       v-bind:key="item.title"
       @click="$router.push({ path: item.to ?? '/setting' })"
       v-ripple.early

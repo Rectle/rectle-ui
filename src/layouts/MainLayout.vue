@@ -87,24 +87,6 @@ const links: EssentialLinkProps[] = [
     link: t('dashboard.links.home.link')
   },
   {
-    title: t('dashboard.links.code.title'),
-    caption: t('dashboard.links.code.caption'),
-    icon: t('dashboard.links.code.icon'),
-    link: t('dashboard.links.code.link')
-  },
-  {
-    title: t('dashboard.links.codeEditor.title'),
-    caption: t('dashboard.links.codeEditor.caption'),
-    icon: t('dashboard.links.codeEditor.icon'),
-    link: t('dashboard.links.codeEditor.link')
-  },
-  {
-    title: t('dashboard.links.logs.title'),
-    caption: t('dashboard.links.logs.caption'),
-    icon: t('dashboard.links.logs.icon'),
-    link: t('dashboard.links.logs.link')
-  },
-  {
     title: t('dashboard.links.competitions.title'),
     caption: t('dashboard.links.competitions.caption'),
     icon: t('dashboard.links.competitions.icon'),
@@ -120,21 +102,17 @@ const links: EssentialLinkProps[] = [
 
 const drawer = ref(false);
 const miniState = ref(true);
-
 const dark = ref($q.dark.isActive);
+const appName = process.env.APP_NAME;
+const currYear = moment().format('YYYY');
+const isMobile = Screen.lt.sm;
+const miniMode = ref(!isMobile);
+const showDrawer = ref(!isMobile);
 
 const changeDarkmode = () => {
   $q.dark.set(dark.value);
   LocalStorage.set('darkmode', dark.value);
 };
-
-const appName = process.env.APP_NAME;
-const currYear = moment().format('YYYY');
-
-const isMobile = Screen.lt.sm;
-
-const miniMode = ref(!isMobile);
-const showDrawer = ref(!isMobile);
 
 const changeLayout = () => {
   if (Screen.lt.sm) {

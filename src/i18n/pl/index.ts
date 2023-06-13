@@ -59,18 +59,6 @@ export default {
         icon: 'o_settings',
         link: 'setting',
       },
-      code: {
-        title: 'Wgrywanie kodu',
-        caption: 'Rectle IDE',
-        icon: 'o_code',
-        link: 'code',
-      },
-      logs: {
-        title: 'Logi',
-        caption: 'Dziennik logów',
-        icon: 'o_monitor_heart',
-        link: 'logs',
-      },
       competitions: {
         title: 'Zawody',
         caption: 'Rywalizacja w naszych konkursach',
@@ -83,12 +71,6 @@ export default {
         icon: 'o_workspaces',
         link: 'yourworkspace',
       },
-      codeEditor: {
-        title: 'Edytor',
-        caption: 'Edytor kodu',
-        icon: 'o_data_array',
-        link: 'codeEditor',
-      }
     },
     icons: {
       labels: {

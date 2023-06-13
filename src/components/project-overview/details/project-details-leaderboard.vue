@@ -45,8 +45,7 @@ const columns = [
     name: 'members',
     label: 'Members(id)',
     field: 'members',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    format: (val: any) => val.join(', '), // # TODO: change format for displaying avatars instead of ids
+    format: (val: number[]) => val.join(', '), // # TODO: change format for displaying avatars instead of ids
     sortable: true
   },
   {
