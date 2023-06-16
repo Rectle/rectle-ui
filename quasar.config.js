@@ -78,9 +78,7 @@ module.exports = configure(function (ctx) {
       env: {
         APP_NAME: 'Rectle',
         GOOGLE_IDENTITY_CLIENT_ID: '591314779637-vdhq6f1do84rgcf3fe18fg731me831q4.apps.googleusercontent.com',
-        // BACKEND_URL: ctx.dev ? `http://localhost:8080/api/v1` : `https://rectle-service-dgcodfmmgq-lm.a.run.app/api/v1`
-        BACKEND_URL: ctx.dev ? `https://rectle-service-wxvnwxzk5a-lm.a.run.app/api/v1` : `https://rectle-service-dgcodfmmgq-lm.a.run.app/api/v1`
-
+        BACKEND_URL: ctx.dev ? `http://localhost:8080/api/v1` : `https://rectle-service-dgcodfmmgq-lm.a.run.app/api/v1`
       },
       // rawDefine: {}
       // ignorePublicFolder: true,

@@ -14,7 +14,7 @@
       <ProjectDetailsApproaches
         :id="props.id"
         :title="props.title"
-        :compileId="compileId"
+        :projectId="projectId"
         v-if="props.type === $t('projectTabs.approaches')"
       />
 

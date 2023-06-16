@@ -26,7 +26,7 @@ import { uuid } from 'vue-uuid';
 const props = defineProps({
   id: String,
   title: String,
-  compileId: Number
+  projectId: Number
 });
 
 const exampleApproaches = [
