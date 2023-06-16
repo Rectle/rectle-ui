@@ -1,17 +1,19 @@
 import { axios } from 'boot/axios'
 import { url } from '../shared/variable.shared';
 import { useUserStore } from 'src/stores/user';
-const compileFile = async (id: number): Promise<boolean> => {
+
+
+const getTeamByName = async (email: string) => {
     const userStore = useUserStore();
+
     try{
-        return (await axios.put(url+'/projects/'+id, null,{ headers: {
+        return (await axios.get(url + '/teams', { params: {name: email },headers: {
             'Authorization': `Bearer${userStore.user.jwt}`
-        } })).data == 'Request succeeded, file is being compiled'
-    }
-    catch(err: any) {
+        } })).data
+    }catch(err) {
         console.error(err);
-        return false;
+        return null
     }
 }
 
-export { compileFile };
+export { getTeamByName };

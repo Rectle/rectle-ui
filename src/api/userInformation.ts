@@ -2,7 +2,7 @@ import { axios } from 'boot/axios'
 import { url } from '../shared/variable.shared';
 import { useUserStore } from 'src/stores/user';
 
-const getInformation = (user: any) =>{
+const getInformation = (user: any) => {
     return {
         email: user.email,
         password: "",

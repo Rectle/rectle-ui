@@ -5,11 +5,16 @@
         v-if="props.type === $t('projectTabs.overview')"
       />
 
-      <ProjectDetailsCode v-if="props.type === $t('projectTabs.code')" />
+      <ProjectDetailsCode
+        @compileIdEmit="(e:number) => compileId = e"
+        @projectIdEmit="(e:number) => projectId = e"
+        v-if="props.type === $t('projectTabs.code')"
+      />
 
       <ProjectDetailsApproaches
         :id="props.id"
         :title="props.title"
+        :compileId="compileId"
         v-if="props.type === $t('projectTabs.approaches')"
       />
 
@@ -25,6 +30,10 @@ import ProjectDetailsApproaches from './project-details-approaches.vue';
 import ProjectDetailsCode from './project-details-code.vue';
 import ProjectDetailsLeaderboard from './project-details-leaderboard.vue';
 import ProjectDetailsOverview from './project-details-overview.vue';
+import { ref } from 'vue';
+
+const compileId = ref(0);
+const projectId = ref(0);
 
 const props = defineProps({
   type: String,

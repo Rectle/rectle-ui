@@ -9,13 +9,12 @@ const changeFileToFormData = (file: File)=> {
 }
 
 
-const sendFile = async (file: File): Promise<number> => {
+const sendModelFile = async (id: number, file: File): Promise<number> => {
     const formData = changeFileToFormData(file);
     const userStore = useUserStore();
-    const teamID = userStore.getUser.email && await userStore.loadTeam(userStore.getUser.email)
     try{
         let result = 0;
-        await axios.post(url+'/projects/'+ teamID, formData, { headers: {
+        await axios.post(url+'/models/'+ id, formData, { headers: {
             'Content-Type': `multipart/form-data`,
             'Authorization': `Bearer${userStore.user.jwt}`
         } }).then((res: any)=> {
@@ -29,4 +28,4 @@ const sendFile = async (file: File): Promise<number> => {
     }
 }
 
-export { sendFile };
+export { sendModelFile };

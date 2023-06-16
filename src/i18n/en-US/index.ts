@@ -107,6 +107,15 @@ export default {
     leaderboard: 'Leaderboard'
   },
   codePage: {
+    model: {
+      title: 'Upload model',
+      create: 'Create model',
+      modelName: 'Model Name',
+      errorName: 'First upload project!'
+    },
+    project: {
+      title: 'Upload project'
+    },
     title: 'Code',
     uploadLabel: 'Upload file',
     emptyData: 'Submitted form contains empty formData!',
