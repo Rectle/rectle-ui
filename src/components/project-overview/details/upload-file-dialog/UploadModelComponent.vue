@@ -112,7 +112,7 @@ const props = defineProps({
 });
 const modelName = ref('');
 const modelId = ref(0);
-const emit = defineEmits(['closeDialog', 'compileIdEmit']);
+const emit = defineEmits(['closeDialog', 'compileIdEmit', 'modelNameEmit']);
 
 const projectIDComputed = computed(() => {
   return props.projectID;
@@ -165,6 +165,7 @@ const createModel = async () => {
       modelName.value
     );
     modelId.value = result;
+    emit('modelNameEmit', modelName.value);
   } else {
     $q.notify({
       type: 'negative',

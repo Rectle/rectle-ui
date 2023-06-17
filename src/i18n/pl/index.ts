@@ -122,6 +122,14 @@ export default {
     successData: 'Plik został pomyślnie przesłany',
     errorData: 'Podczas przesyłania pliku wystąpił problem'
   },
+  approcheTab: {
+    empty: 'Projekt nie ma żadnych podejść',
+    details: {
+      compileId : 'ID: ',
+      status: 'Status: ',
+      name: 'Nazwa: '
+    }
+  },
   logsPage: {
     title: 'Logi'
   },

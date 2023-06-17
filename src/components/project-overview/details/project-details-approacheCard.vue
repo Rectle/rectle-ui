@@ -4,27 +4,31 @@
       <q-list class="my-list q-mr-sm">
         <q-item>
           <q-item-section>
-            <q-icon name="fingerprint" size="2em" />
+            <q-icon name="o_badge" size="2em" />
           </q-item-section>
-
-          <q-item-section>{{ props.points }}</q-item-section>
+          <q-item-section
+            >{{ $t('approcheTab.details.name')
+            }}{{ props.modelName }}</q-item-section
+          >
         </q-item>
 
         <q-item>
           <q-item-section>
-            <q-icon name="o_analytics" size="2em" />
+            <q-icon name="o_fingerprint" size="2em" />
           </q-item-section>
-
-          <q-item-section>{{ props.score }}</q-item-section>
+          <q-item-section
+            >{{ $t('approcheTab.details.compileId')
+            }}{{ props.compiletId }}</q-item-section
+          >
         </q-item>
       </q-list>
 
-      <q-icon
+      <!-- <q-icon
         class="q-ma-md q-ml-lg"
         :name="icons[status as keyof typeof icons]"
         :color="colors[status as keyof typeof colors]"
         size="4rem"
-      />
+      /> -->
     </q-card-section>
   </q-card>
 </template>
@@ -35,12 +39,15 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const props = defineProps({
-  projectId: String,
-  approacheID: String,
+  projectId: Number,
+  compiletId: Number,
+  approacheID: Number,
   points: Number,
   score: Number,
   status: String,
-  title: String
+  title: String,
+  name: String,
+  modelName: String
 });
 
 enum colors {
