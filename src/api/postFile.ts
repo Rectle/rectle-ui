@@ -14,14 +14,11 @@ const sendFile = async (file: File): Promise<number> => {
     const userStore = useUserStore();
     const teamID = userStore.getUser.email && await userStore.loadTeam(userStore.getUser.email)
     try{
-        let result = 0;
-        await axios.post(url+'/projects/'+ teamID, formData, { headers: {
+        const {data} = await axios.post(`${url}/projects/${teamID}`, formData, { headers: {
             'Content-Type': `multipart/form-data`,
             'Authorization': `Bearer${userStore.user.jwt}`
-        } }).then((res: any)=> {
-            result = res.data.id;
-        })
-        return result;
+        } })
+        return data.id;
     }
     catch(err: any) {
         console.error(err);

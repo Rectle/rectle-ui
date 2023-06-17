@@ -6,7 +6,7 @@ import { useUserStore } from 'src/stores/user';
 const getAllTeams = async (userID: number) => {
     const userStore = useUserStore();
     try{
-        return (await axios.get(url + '/teams/users/' + userID, { headers: {
+        return (await axios.get(`${url}/teams/users/${userID}`, { headers: {
             'Authorization': `Bearer${userStore.user.jwt}`
         } })).data
     }catch(err) {

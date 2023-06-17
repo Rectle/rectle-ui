@@ -13,14 +13,12 @@ const sendModelFile = async (id: number, file: File): Promise<number> => {
     const formData = changeFileToFormData(file);
     const userStore = useUserStore();
     try{
-        let result = 0;
-        await axios.post(url+'/models/'+ id, formData, { headers: {
+        const {data} = await axios.post(`${url}/models/${id}`, formData, { headers: {
             'Content-Type': `multipart/form-data`,
             'Authorization': `Bearer${userStore.user.jwt}`
-        } }).then((res: any)=> {
-            result = res.data.id;
-        })
-        return result;
+        }});
+
+        return data.id;
     }
     catch(err: any) {
         console.error(err);

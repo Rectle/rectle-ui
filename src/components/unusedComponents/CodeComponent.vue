@@ -29,7 +29,7 @@
           color="primary"
           class="full-width"
           size="lg"
-          @click="compile()"
+          @click="compile"
         />
       </div>
     </div>

@@ -4,13 +4,10 @@ import { useUserStore } from 'src/stores/user';
 const compileModelFile = async (id: number): Promise<number> => {
     const userStore = useUserStore();
     try{
-      let result = 0;
-        await axios.put(url+'/models/'+id, null,{ headers: {
+        const {data} = await axios.put(`${url}/models/${id}`, { headers: {
             'Authorization': `Bearer${userStore.user.jwt}`
-        } }).then((res:any)=>{
-          result = res.data;
-        })
-        return result;
+        } })
+        return data;
     }
     catch(err: any) {
         console.error(err);

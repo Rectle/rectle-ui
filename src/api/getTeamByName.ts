@@ -7,7 +7,7 @@ const getTeamByName = async (email: string) => {
     const userStore = useUserStore();
 
     try{
-        return (await axios.get(url + '/teams', { params: {name: email },headers: {
+        return (await axios.get(`${url}/teams`, { params: { name: email }, headers: {
             'Authorization': `Bearer${userStore.user.jwt}`
         } })).data
     }catch(err) {
