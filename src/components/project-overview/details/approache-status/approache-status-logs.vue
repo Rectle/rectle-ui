@@ -6,7 +6,6 @@
       flat
       bordered
       row-key="name"
-      hide-bottom
       separator="none"
     >
       <template v-slot:body-cell="props">
@@ -29,8 +28,10 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar';
 import { useI18n } from 'vue-i18n';
-
+import { ref, onMounted } from 'vue';
+import io from 'socket.io-client';
 const { t } = useI18n();
+
 const column: QTableColumn[] = [
   {
     name: 'id',
@@ -47,16 +48,52 @@ const column: QTableColumn[] = [
   }
 ];
 
-const row = [
-  {
-    id: 1,
-    name: 'docker run --restart=always -d v=/var/run/docker.sock:/var/run/docker.sock gliderlabs/logspoutsyslog+tls:logsN.papertrailapp.com:XXXXX'
-  },
-  {
-    id: 2,
-    name: 'docker run --log-driver=syslog--log-opt syslog-address=udp://logsN.papertrailapp.com:XXXXX image-name'
+interface ILogs {
+  id: number;
+  name: string;
+}
+const row = ref<ILogs[]>([]);
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
   }
-];
+});
+
+const socketsLogic = (adress: string) => {
+  const socket = io(adress, {
+    extraHeaders: {
+      'X-Build': props.id,
+      'Bypass-Tunnel-Reminder': 'Rectle'
+    }
+  });
+
+  socket.emit('build:join');
+
+  socket.on('build:logs', (logs) => {
+    row.value = logs.map(
+      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+    );
+  });
+
+  socket.on('build:log', (logs) => {
+    row.value.push({ id: row.value.length + 1, name: logs });
+  });
+
+  socket.on('connect_error', (err) => {
+    console.error('websocket_error', err);
+  });
+};
+
+onMounted(() => {
+  // TODO: getAdressToWebSockets or logs from backend
+
+  //if adress != null
+  socketsLogic('wss://rectle-c3bfbf63-4f1b-41dc-b463-cbf47507d824.loca.lt/');
+  //else
+  //odpytaj backend
+});
 </script>
 <style>
 .myTable .scroll {

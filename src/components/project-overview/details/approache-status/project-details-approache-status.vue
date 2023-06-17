@@ -5,7 +5,7 @@
     :score="props.approacheData?.score"
   />
   <q-separator class="q-my-sm" />
-  <approacheStatusLogs />
+  <approacheStatusLogs :id="props.approacheData?.id" />
 </template>
 
 <script setup lang="ts">
