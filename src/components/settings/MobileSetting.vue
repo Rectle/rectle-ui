@@ -8,7 +8,8 @@
       class="q-py-lg cursor-pointer"
       v-for="item of (props.settings as ISetting[])"
       v-bind:key="item.title"
-      @click="$router.push({ path: item.to ?? '/setting' })"
+      @click="item.click"
+      :class="{'disabled': !item.click}"
       v-ripple.early
     >
       <q-item-section avatar>
