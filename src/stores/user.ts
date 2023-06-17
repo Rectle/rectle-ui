@@ -5,28 +5,8 @@ import {
 } from "vue3-google-signin";
 import { sendUserInformation } from 'src/api/userInformation';
 import { useSessionStorage } from '@vueuse/core';
-
-interface IUser {
-  id?: number;
-  provider?: string;
-  aud?: string;
-  azp?:string;
-  client_id: string | undefined;
-  email?: string;
-  email_verified?: string;
-  exp?: string;
-  family_name?: string;
-  given_name?: string;
-  iat?: string;
-  iss?: string;
-  jti?: string;
-  jwt: string | undefined;
-  name?: string;
-  nbf?: string;
-  picture?: string;
-  sub?: string;
-}
-
+import { getAllTeams } from 'src/api/getTeamsByUserId';
+import { getTeamByName } from 'src/api/getTeamByName';
 
 interface IResponseData {
   id: number;
@@ -40,7 +20,8 @@ export const useUserStore = defineStore('user', {
   }),
   getters: {
     getUser: (state) => state.user,
-    isSignedIn: (state) => !!Object.keys(state.user).length
+    isSignedIn: (state) => !!Object.keys(state.user).length,
+    getAllTeams: (state) => state.user.teams,
   },
   actions: {
     async signIn(data: CredentialResponse) {
@@ -60,6 +41,14 @@ export const useUserStore = defineStore('user', {
     },
     signOut() {
       this.user = {} as IUser
+    },
+    async loadTeams(id: number){
+      const teams = await getAllTeams(id) as ITeam[];
+      this.user.teams = teams;
+    },
+    async loadTeam(email: string){
+      const res = await getTeamByName(email) as ITeam;
+      return res.id
     }
   },
 

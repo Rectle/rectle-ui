@@ -107,6 +107,15 @@ export default {
     leaderboard: 'Tablica wyników'
   },
   codePage: {
+    model: {
+      title: 'Wgraj model',
+      create: 'Stwórz model',
+      modelName: 'Nazwa modelu',
+      errorName: 'Najpierw wgraj projekt!'
+    },
+    project: {
+      title: 'Wgraj projekt'
+    },
     title: 'Code',
     uploadLabel: 'Wgraj plik',
     emptyData: 'Przesłany formularz zawiera puste dane formularza!',

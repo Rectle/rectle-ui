@@ -25,3 +25,4 @@
 - `0.1.3` - Added project-overview components
 - `0.1.4` - Added logs page
 - `0.1.5` - Clean code
+- `0.1.6` - Upload project file and model file with compile

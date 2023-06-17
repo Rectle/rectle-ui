@@ -10,7 +10,7 @@ const routes: RouteRecordRaw[] = [
         name: 'home',
         component: () => import('pages/IndexPage.vue'),
         meta: {
-          requiresAuth: false
+          requiresAuth: true
         },
       },
       {

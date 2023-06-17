@@ -25,7 +25,8 @@ import { uuid } from 'vue-uuid';
 // TODO: download approaches form databse by id
 const props = defineProps({
   id: String,
-  title: String
+  title: String,
+  projectId: Number
 });
 
 const exampleApproaches = [
