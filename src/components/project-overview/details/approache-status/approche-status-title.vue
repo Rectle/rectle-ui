@@ -3,7 +3,7 @@
   <div class="text-h6 text-weight-thin">
     {{ $t('approcheStatusTitle.id') }} {{ props.id?.split('-')[0] }}
   </div>
-  <div class="text-h6 text-weight-thin">
+  <div v-if="props.score" class="text-h6 text-weight-thin">
     {{ $t('approcheStatusTitle.score') }} {{ props.score }}
   </div>
 </template>
