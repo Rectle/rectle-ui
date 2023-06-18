@@ -6,7 +6,10 @@
     @sort="sortByDate"
     class="q-pa-md"
   />
-  <projects-list :list="sortedListOfCompetitions" />
+  <projects-list
+    :list="sortedListOfCompetitions"
+    :page="$t('link.competitions.link')"
+  />
 </template>
 <script setup lang="ts">
 import searchBar from './competitions/searchBar.vue';

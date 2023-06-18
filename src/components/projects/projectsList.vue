@@ -23,6 +23,7 @@ import { useRouter } from 'vue-router';
 
 interface IList {
   list: IProjectCard[];
+  page: string;
 }
 
 const props = defineProps<IList>();
@@ -40,7 +41,8 @@ const displayProject = (item: IProjectCard) => {
       title: item.title,
       date: item.date,
       users: item.users,
-      technologies: item.technologies
+      technologies: item.technologies,
+      page: props.page
     }
   });
 };

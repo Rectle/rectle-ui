@@ -10,6 +10,7 @@
     :title="props.project?.title"
     :type="type"
     :id="props.project?.id"
+    :page="props.project?.page"
   />
   <ProjectDetailsFloatingButton :options="options" />
 </template>

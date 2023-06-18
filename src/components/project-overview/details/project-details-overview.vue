@@ -1,8 +1,10 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <div class="q-ma-md">
     <q-scroll-area style="height: 500px">
       <div class="q-pa-md q-gutter-sm">
         <q-editor
+          v-if="props.page == $t('link.yourworkspace.link')"
           v-model="editor"
           :dense="$q.screen.lt.md"
           :toolbar="[
@@ -84,6 +86,9 @@
           }"
           :toolbar-bg="toolbarColor"
         />
+        <q-card v-else flat bordered>
+          <q-card-section v-html="editor" />
+        </q-card>
       </div>
     </q-scroll-area>
   </div>
@@ -97,8 +102,11 @@ import { useQuasar } from 'quasar';
 // const props = defineProps({
 //   id: String
 // });
-
 const $q = useQuasar();
+
+const props = defineProps({
+  page: String
+});
 
 const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 

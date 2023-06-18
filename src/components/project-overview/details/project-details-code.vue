@@ -1,5 +1,7 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <q-editor
+    v-if="props.page == $t('link.yourworkspace.link')"
     v-model="editor"
     :toolbar-rounded="true"
     :definitions="{
@@ -35,6 +37,21 @@
     min-height="5rem"
     style="white-space: break-spaces"
   />
+  <div v-else>
+    <q-btn
+      class="q-mb-md"
+      align="between"
+      label="Download code"
+      icon="o_file_download"
+      outline
+      rounded
+    />
+    <q-card flat bordered>
+      <q-card-section>
+        <pre style="white-space: pre-line">{{ editor }}</pre>
+      </q-card-section>
+    </q-card>
+  </div>
   <UploadProjectComponent
     :dialog="uploadProjectFile"
     @projectIdEmit="(e:number) => {
@@ -63,6 +80,10 @@ const $q = useQuasar();
 // const props = defineProps({
 //   id: String
 // });
+
+const props = defineProps({
+  page: String
+});
 
 const projectId = ref(0);
 const uploadProjectFile = ref(false);
