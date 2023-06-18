@@ -131,7 +131,8 @@ export default {
     }
   },
   logsPage: {
-    title: 'Logi'
+    title: 'Logi',
+    empty: 'Logi nie są w tej chwili dostępne!'
   },
   projectOverviewTitle:{
     author: 'Autor: ',

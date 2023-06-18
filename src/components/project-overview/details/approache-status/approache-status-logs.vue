@@ -1,12 +1,17 @@
 <template>
   <div class="myTable">
     <q-table
+      style="height: 400px"
       :rows="row"
       :columns="column"
       flat
       bordered
       row-key="name"
       separator="none"
+      hide-bottom
+      virtual-scroll
+      :rows-per-page-options="[0]"
+      :no-data-label="$t('logsPage.empty')"
     >
       <template v-slot:body-cell="props">
         <q-td
@@ -30,6 +35,8 @@ import { QTableColumn } from 'quasar';
 import { useI18n } from 'vue-i18n';
 import { ref, onMounted } from 'vue';
 import io from 'socket.io-client';
+import { getLogs } from 'src/api/getLogs';
+import { getRunnerUrl } from 'src/api/getRunnerUrl';
 const { t } = useI18n();
 
 const column: QTableColumn[] = [
@@ -86,22 +93,22 @@ const socketsLogic = (adress: string) => {
   });
 };
 
-onMounted(() => {
-  // TODO: getAdressToWebSockets or logs from backend
-
-  //if adress != null
-  socketsLogic('wss://rectle-c3bfbf63-4f1b-41dc-b463-cbf47507d824.loca.lt/');
-  //else
-  //odpytaj backend
+onMounted(async () => {
+  const logs = await getLogs(Number(props.id));
+  if (logs) {
+    row.value = logs.map(
+      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+    );
+  } else {
+    const address = await getRunnerUrl(Number(props.id));
+    if (address) {
+      socketsLogic(address);
+    }
+  }
 });
 </script>
 <style>
-.myTable .scroll {
+/* .myTable .scroll {
   overflow: hidden;
-}
-.customEllipsis {
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-}
+} */
 </style>
