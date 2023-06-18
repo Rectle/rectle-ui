@@ -122,6 +122,14 @@ export default {
     successData: 'The file has been successfully uploaded',
     errorData: 'There was a problem uploading the file'
   },
+  approcheTab: {
+    empty: "Project doesn't have any approches",
+    details: {
+      compileId : 'ID: ',
+      status: 'Status: ',
+      name: 'Name: '
+    }
+  },
   logsPage: {
     title: 'Logs'
   },

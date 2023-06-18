@@ -65,6 +65,7 @@
     :projectID="projectId"
     @closeDialog="(e:boolean) => uploadModelFile = e"
     @compileIdEmit="(e:number) => emit('compileIdEmit', e)"
+    @modelNameEmit="(e:string) => emit('modelNameEmit', e)"
   />
 </template>
 
@@ -87,7 +88,7 @@ const props = defineProps({
 const projectId = ref(0);
 const uploadProjectFile = ref(false);
 const uploadModelFile = ref(false);
-const emit = defineEmits(['projectIdEmit', 'compileIdEmit']);
+const emit = defineEmits(['projectIdEmit', 'compileIdEmit', 'modelNameEmit']);
 const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 
 const exampleText = `# exampleProgram

@@ -16,27 +16,42 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/setting',
         name: 'setting',
-        component: () => import('pages/SettingPage.vue')
+        component: () => import('pages/SettingPage.vue'),
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: '/competitions',
         name: 'competitions',
-        component: () => import('pages/CompetitionsPage.vue')
+        component: () => import('pages/CompetitionsPage.vue'),
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: '/yourworkspace',
         name: 'yourworkspace',
-        component: () => import('pages/YourWorkspacePage.vue')
+        component: () => import('pages/YourWorkspacePage.vue'),
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: '/project-overview/:id',
         name: 'projectOverview',
-        component: () => import('pages/ProjectOverviewPage.vue')
+        component: () => import('pages/ProjectOverviewPage.vue'),
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: '/project-overview/:id/status/:id',
         name: 'approachStatus',
-        component: () => import('pages/ApproachStatusPage.vue')
+        component: () => import('pages/ApproachStatusPage.vue'),
+        meta: {
+          requiresAuth: true
+        },
       }
     ],
   },
@@ -56,11 +71,6 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/auth/SignUp.vue')
       }
     ],
-  },
-  {
-    path: '/setting',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: 'account', name: 'accountSetting', component: () => import('pages/settings/AccountPage.vue') }],
   },
 
   // Always leave this as last one,

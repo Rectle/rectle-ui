@@ -26,4 +26,5 @@
 - `0.1.4` - Added logs page
 - `0.1.5` - Clean code
 - `0.1.6` - Upload project file and model file with compile
-- `0.1.7` - Added readonly view in project details
+- `0.1.7` - Changed view of approaches list
+- `0.1.8` - Added readonly view in project details
