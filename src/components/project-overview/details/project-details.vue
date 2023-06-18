@@ -3,12 +3,14 @@
     <q-card-section>
       <ProjectDetailsOverview
         v-if="props.type === $t('projectTabs.overview')"
+        :page="props.page"
       />
 
       <ProjectDetailsCode
         @compileIdEmit="(e:number) => compileId = e"
         @projectIdEmit="(e:number) => projectId = e"
         @modelNameEmit="(e:string) => modelName = e"
+        :page="props.page"
         v-if="props.type === $t('projectTabs.code')"
       />
 
@@ -16,6 +18,7 @@
         :id="props.id"
         :title="props.title"
         :projectId="projectId"
+        :page="props.page"
         :compileId="compileId"
         :modelName="modelName"
         v-if="props.type === $t('projectTabs.approaches')"
@@ -42,6 +45,7 @@ const modelName = ref('');
 const props = defineProps({
   type: String,
   id: String,
-  title: String
+  title: String,
+  page: String
 });
 </script>

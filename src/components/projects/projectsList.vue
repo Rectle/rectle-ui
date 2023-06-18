@@ -20,11 +20,12 @@
 <script setup lang="ts">
 import projectCard from './projectCard.vue';
 import { useRouter } from 'vue-router';
-import type { PropType } from 'vue'
+import type { PropType } from 'vue';
 
 const props = defineProps({
-  list: { type: Array as PropType<IProjectCard[]>, required: true }
-})
+  list: { type: Array as PropType<IProjectCard[]>, required: true },
+  page: String
+});
 
 const router = useRouter();
 
@@ -39,7 +40,8 @@ const displayProject = (item: IProjectCard) => {
       title: item.title,
       date: item.date,
       users: item.users,
-      technologies: item.technologies
+      technologies: item.technologies,
+      page: props.page
     }
   });
 };
