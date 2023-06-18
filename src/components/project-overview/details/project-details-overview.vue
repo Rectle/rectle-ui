@@ -87,7 +87,7 @@
           :toolbar-bg="toolbarColor"
         />
         <q-card v-else flat bordered>
-          <q-card-section v-html="editor" />
+          <q-card-section v-html="article" />
         </q-card>
       </div>
     </q-scroll-area>
@@ -97,11 +97,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
+import xss from 'xss';
 
 // TODO: download overview text form databse by id
 // const props = defineProps({
 //   id: String
 // });
+
 const $q = useQuasar();
 
 const props = defineProps({
@@ -185,4 +187,8 @@ const exampleText = `<p><strong>What is a Getting Started competition?</strong><
       </p>`;
 
 const editor = ref(exampleText);
+
+const article = computed(() => {
+  return xss(editor.value);
+});
 </script>

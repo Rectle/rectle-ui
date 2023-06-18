@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <q-editor
     v-if="props.page == $t('link.yourworkspace.link')"
