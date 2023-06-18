@@ -95,6 +95,16 @@ export default {
     creator: 'Twórca',
     participant: 'Uczestnik'
   },
+  addProjcet:{
+    form:{
+      title: 'Stwórz projekt',
+      projectName: 'Nazwa projektu',
+      description: 'Opis (opcjonalne)'
+    },
+    browse:{
+      title: 'WYBIERZ'
+    }
+  },
   projectCard:{
     author: 'Autor: ',
     users: 'użytkowników',
