@@ -20,12 +20,11 @@
 <script setup lang="ts">
 import projectCard from './projectCard.vue';
 import { useRouter } from 'vue-router';
+import type { PropType } from 'vue'
 
-interface IList {
-  list: IProjectCard[];
-}
-
-const props = defineProps<IList>();
+const props = defineProps({
+  list: { type: Array as PropType<IProjectCard[]>, required: true }
+})
 
 const router = useRouter();
 

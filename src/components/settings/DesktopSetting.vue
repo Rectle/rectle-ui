@@ -4,7 +4,8 @@
       v-for="item of (props.settings as ISetting[])"
       v-bind:key="item.title"
       class="q-pa-md col-md-4 col-lg-4 col-xl-4 cursor-pointer"
-      @click="$router.push({ path: item.to ?? '/setting' })"
+      @click="item.click"
+      :class="{'disabled': !item.click}"
       v-ripple.early
     >
       <div class="column items-center">
