@@ -17,6 +17,7 @@
             text="signup_with"
             shape="pill"
             :width="240"
+            context="signup"
           />
         </q-card-section>
       </q-card>

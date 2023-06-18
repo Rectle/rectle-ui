@@ -1,8 +1,10 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <div class="q-ma-md">
     <q-scroll-area style="height: 500px">
       <div class="q-pa-md q-gutter-sm">
         <q-editor
+          v-if="props.page == $t('link.yourworkspace.link')"
           v-model="editor"
           :dense="$q.screen.lt.md"
           :toolbar="[
@@ -84,6 +86,9 @@
           }"
           :toolbar-bg="toolbarColor"
         />
+        <q-card v-else flat bordered>
+          <q-card-section v-html="article" />
+        </q-card>
       </div>
     </q-scroll-area>
   </div>
@@ -92,6 +97,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
+import xss from 'xss';
 
 // TODO: download overview text form databse by id
 // const props = defineProps({
@@ -99,6 +105,10 @@ import { useQuasar } from 'quasar';
 // });
 
 const $q = useQuasar();
+
+const props = defineProps({
+  page: String
+});
 
 const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 
@@ -177,4 +187,8 @@ const exampleText = `<p><strong>What is a Getting Started competition?</strong><
       </p>`;
 
 const editor = ref(exampleText);
+
+const article = computed(() => {
+  return xss(editor.value);
+});
 </script>

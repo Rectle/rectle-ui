@@ -9,6 +9,7 @@
   />
   <projects-list
     :list="sortedListOfCompetitions.filter((e) => e.type == type)"
+    :page="$t('link.yourworkspace.link')"
   />
 </template>
 <script setup lang="ts">
