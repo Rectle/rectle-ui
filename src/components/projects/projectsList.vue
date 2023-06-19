@@ -55,8 +55,9 @@ const { t } = useI18n();
 const addProject = () => {
   if (props.tab === t('tabs.creator')) {
     projectDialog.value = !projectDialog.value;
+  } else {
+    router.push({ name: 'competitions' });
   }
-  //TODO: else display dialog with projectList
 };
 
 const displayProject = (item: IProjectCard) => {
