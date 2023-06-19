@@ -29,3 +29,4 @@
 - `0.1.7` - Changed view of approaches list
 - `0.1.8` - Added readonly view in project details
 - `0.1.9` - Added functionality to display logs
+- `0.2.0` - Added components to add new project
