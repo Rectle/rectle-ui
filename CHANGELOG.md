@@ -28,3 +28,4 @@
 - `0.1.6` - Upload project file and model file with compile
 - `0.1.7` - Changed view of approaches list
 - `0.1.8` - Added readonly view in project details
+- `0.1.9` - Added functionality to display logs
