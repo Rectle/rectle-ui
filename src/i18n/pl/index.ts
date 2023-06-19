@@ -99,7 +99,8 @@ export default {
     form:{
       title: 'Stwórz projekt',
       projectName: 'Nazwa projektu',
-      description: 'Opis (opcjonalne)'
+      description: 'Opis (opcjonalne)',
+      baner: 'Wgraj zdjęcie baneru (opcjonalne)'
     },
     browse:{
       title: 'WYBIERZ'

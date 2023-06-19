@@ -31,11 +31,11 @@
             :label="t('addProjcet.form.description')"
           />
 
-          <!-- <q-file v-model="file" :label="$t('codePage.uploadLabel')" filled>
+          <q-file v-model="baner" :label="$t('addProjcet.form.baner')" filled>
             <template v-slot:prepend>
               <q-icon name="attach_file" />
             </template>
-          </q-file> -->
+          </q-file>
 
           <div>
             <q-btn
@@ -70,6 +70,7 @@ const openDialog = computed({
 
 const projectName = ref<string>('');
 const description = ref<string>('');
+const baner = ref<File>();
 
 const $q = useQuasar();
 const { t } = useI18n();
