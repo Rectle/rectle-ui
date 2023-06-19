@@ -107,8 +107,3 @@ onMounted(async () => {
   }
 });
 </script>
-<style>
-/* .myTable .scroll {
-  overflow: hidden;
-} */
-</style>
