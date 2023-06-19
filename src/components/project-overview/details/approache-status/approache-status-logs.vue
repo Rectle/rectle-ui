@@ -80,7 +80,7 @@ const socketsLogic = (adress: string) => {
 
   socket.on('build:logs', (logs) => {
     row.value = logs.map(
-      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
     );
   });
 
@@ -97,13 +97,16 @@ onMounted(async () => {
   const logs = await getLogs(Number(props.id));
   if (logs) {
     row.value = logs.map(
-      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
     );
   } else {
-    const address = await getRunnerUrl(Number(props.id));
-    if (address) {
-      socketsLogic(address);
-    }
+    const interval = setInterval(async () => {
+      const address = await getRunnerUrl(Number(props.id));
+      if (address) {
+        socketsLogic(address.url);
+        clearInterval(interval);
+      }
+    }, 1000);
   }
 });
 </script>
