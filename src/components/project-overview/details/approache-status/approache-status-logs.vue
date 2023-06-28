@@ -19,8 +19,7 @@
           :style="{
             maxWidth: '1000px',
             whiteSpace: 'pre-wrap',
-            padding: 0,
-            alignItems: 'center'
+            alignItems: 'center',
           }"
         >
           {{ props.value }}
@@ -45,14 +44,14 @@ const column: QTableColumn[] = [
     label: t('logs.id'),
     align: 'center',
     field: 'id',
-    sortable: true
+    sortable: true,
   },
   {
     name: 'name',
     label: t('logs.name'),
     field: 'name',
-    align: 'left'
-  }
+    align: 'left',
+  },
 ];
 
 interface ILogs {
@@ -64,16 +63,16 @@ const row = ref<ILogs[]>([]);
 const props = defineProps({
   id: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const socketsLogic = (adress: string) => {
   const socket = io(adress, {
     extraHeaders: {
       'X-Build': props.id,
-      'Bypass-Tunnel-Reminder': 'Rectle'
-    }
+      'Bypass-Tunnel-Reminder': 'Rectle',
+    },
   });
 
   socket.emit('build:join');
