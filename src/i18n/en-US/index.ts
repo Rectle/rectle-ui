@@ -9,42 +9,42 @@ export default {
     toggleJWT: {
       trueValue: 'JWT enable',
       falseValue: 'JWT disable',
-    }
+    },
   },
   settingPage: {
     title: 'Settings',
     list: {
       account: {
         title: 'Account',
-        icon: 'o_person'
+        icon: 'o_person',
       },
       notification: {
         title: 'Notification',
-        icon: 'o_notifications'
+        icon: 'o_notifications',
       },
       privacy: {
         title: 'Privacy & Security',
-        icon: 'o_lock'
+        icon: 'o_lock',
       },
       help: {
         title: 'Help and Support',
-        icon: 'o_headphones'
+        icon: 'o_headphones',
       },
       about: {
         title: 'About',
-        icon: 'o_info'
+        icon: 'o_info',
       },
       logout: {
         title: 'Logout',
-        icon: 'o_logout'
-      }
-    }
+        icon: 'o_logout',
+      },
+    },
   },
   dashboard: {
     title: 'Links',
     setting: {
       title: 'Settings',
-      darkmode: 'Darkmode'
+      darkmode: 'Darkmode',
     },
     links: {
       home: {
@@ -74,9 +74,9 @@ export default {
     },
     icons: {
       labels: {
-        menu: 'Menu'
-      }
-    }
+        menu: 'Menu',
+      },
+    },
   },
   searchBar: {
     search: 'Search',
@@ -88,88 +88,88 @@ export default {
       ended: 'Ended',
       toggleActive: 'Active',
       toggleEnd: 'Finished',
-      uploadDate: 'Date'
+      uploadDate: 'Date',
     },
   },
-  tabs:{
+  tabs: {
     creator: 'Creator',
-    participant: 'Participant'
+    participant: 'Participant',
   },
-  addProjcet:{
-    form:{
+  addProject: {
+    form: {
       title: 'Create project',
       projectName: 'Project Name',
       description: 'Description (optional)',
-      baner: 'Upload baner image (optional)'
+      baner: 'Upload baner image (optional)',
     },
-    browse:{
-      title: 'BROWSE'
-    }
+    browse: {
+      title: 'BROWSE',
+    },
   },
-  projectCard:{
+  projectCard: {
     author: 'Author: ',
     users: 'users',
-    date: 'Date: '
+    date: 'Date: ',
   },
-  projectTabs:{
+  projectTabs: {
     overview: 'Overview',
     code: 'Code',
     approaches: 'Your Approaches',
-    leaderboard: 'Leaderboard'
+    leaderboard: 'Leaderboard',
   },
   codePage: {
     model: {
       title: 'Upload model',
       create: 'Create model',
       modelName: 'Model Name',
-      errorName: 'First upload project!'
+      errorName: 'First upload project!',
     },
     project: {
-      title: 'Upload project'
+      title: 'Upload project',
     },
     title: 'Code',
     uploadLabel: 'Upload file',
     emptyData: 'Submitted form contains empty formData!',
     successData: 'The file has been successfully uploaded',
-    errorData: 'There was a problem uploading the file'
+    errorData: 'There was a problem uploading the file',
   },
   approcheTab: {
     empty: "Project doesn't have any approches",
     details: {
-      compileId : 'ID: ',
+      compileId: 'ID: ',
       status: 'Status: ',
-      name: 'Name: '
-    }
+      name: 'Name: ',
+    },
   },
   logsPage: {
     title: 'Logs',
-    empty: 'Logs are not present yet!'
+    empty: 'Logs are not present yet!',
   },
-  projectOverviewTitle:{
+  projectOverviewTitle: {
     author: 'Author: ',
     users: 'users',
-    date: 'Date: '
+    date: 'Date: ',
   },
-  approcheStatusTitle:{
+  approcheStatusTitle: {
     id: 'ID: ',
-    score: 'Score: '
+    score: 'Score: ',
   },
-  logs:{
+  logs: {
     id: '#',
-    name: 'Logs'
+    name: 'Logs',
   },
   auth: {
     signin: {
       title: 'Sign in',
       meta: {
-        title: 'Login'
-      }
+        title: 'Login',
+      },
     },
     signup: {
       title: 'Sign up',
       meta: {
-        title: 'Register'
-      }
-    }
-  }
+        title: 'Register',
+      },
+    },
+  },
 };

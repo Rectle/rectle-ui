@@ -12,7 +12,7 @@
         />
       </div>
       <div class="q-my-md row items-start justify-center text-h3">
-        {{ $t('addProjcet.form.title') }}
+        {{ $t('addProject.form.title') }}
       </div>
 
       <q-separator />
@@ -21,17 +21,17 @@
           <q-input
             v-model="projectName"
             filled
-            :label="t('addProjcet.form.projectName')"
+            :label="t('addProject.form.projectName')"
           />
 
           <q-input
             v-model="description"
             type="textarea"
             filled
-            :label="t('addProjcet.form.description')"
+            :label="t('addProject.form.description')"
           />
 
-          <q-file v-model="baner" :label="$t('addProjcet.form.baner')" filled>
+          <q-file v-model="baner" :label="$t('addProject.form.baner')" filled>
             <template v-slot:prepend>
               <q-icon name="attach_file" />
             </template>
@@ -58,14 +58,14 @@ import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
-  dialog: Boolean
+  dialog: Boolean,
 });
 
 const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 
 const openDialog = computed({
   get: () => props.dialog,
-  set: (newValue) => emit('closeDialog', newValue)
+  set: (newValue) => emit('closeDialog', newValue),
 });
 
 const projectName = ref<string>('');
@@ -81,13 +81,13 @@ const setResult = (result: number) => {
     $q.notify({
       color: 'primary',
       message: t('codePage.successData'),
-      timeout: 1000
+      timeout: 1000,
     });
   } else {
     emit('projectIdEmit', 0);
     $q.notify({
       type: 'negative',
-      message: t('codePage.errorData')
+      message: t('codePage.errorData'),
     });
   }
 };
@@ -99,7 +99,7 @@ const onSubmit = async () => {
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };

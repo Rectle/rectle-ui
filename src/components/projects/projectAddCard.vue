@@ -12,14 +12,14 @@
         size="200px"
       />
       <div v-else class="text-h2 text-grey-4">
-        {{ $t('addProjcet.browse.title') }}
+        {{ $t('addProject.browse.title') }}
       </div>
     </div>
   </q-card>
 </template>
 <script setup lang="ts">
 const props = defineProps({
-  tab: String
+  tab: String,
 });
 </script>
 <style scoped>
