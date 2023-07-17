@@ -15,38 +15,38 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 const { t } = useI18n();
 
-const router = useRouter()
-const userStore = useUserStore()
+const router = useRouter();
+const userStore = useUserStore();
 
 const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.account.title'),
     icon: t('settingPage.list.account.icon'),
-    click: () => router.push({ path: '/setting' })
+    click: () => router.push({ path: '/setting/account' }),
   },
   {
     title: t('settingPage.list.notification.title'),
-    icon: t('settingPage.list.notification.icon')
+    icon: t('settingPage.list.notification.icon'),
   },
   {
     title: t('settingPage.list.privacy.title'),
-    icon: t('settingPage.list.privacy.icon')
+    icon: t('settingPage.list.privacy.icon'),
   },
   {
     title: t('settingPage.list.help.title'),
-    icon: t('settingPage.list.help.icon')
+    icon: t('settingPage.list.help.icon'),
   },
   {
     title: t('settingPage.list.about.title'),
-    icon: t('settingPage.list.about.icon')
+    icon: t('settingPage.list.about.icon'),
   },
   {
     title: t('settingPage.list.logout.title'),
     icon: t('settingPage.list.logout.icon'),
     click: async () => {
-      userStore.signOut()
-      await router.push('/')
-    }
-  }
+      userStore.signOut();
+      await router.push('/');
+    },
+  },
 ];
 </script>

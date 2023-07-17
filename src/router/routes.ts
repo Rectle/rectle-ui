@@ -6,19 +6,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
-        path: '',
+        path: '/',
         name: 'home',
         component: () => import('pages/IndexPage.vue'),
         meta: {
-          requiresAuth: true
-        },
-      },
-      {
-        path: '/setting',
-        name: 'setting',
-        component: () => import('pages/SettingPage.vue'),
-        meta: {
-          requiresAuth: true
+          redirectAuth: true,
         },
       },
       {
@@ -26,7 +18,7 @@ const routes: RouteRecordRaw[] = [
         name: 'competitions',
         component: () => import('pages/CompetitionsPage.vue'),
         meta: {
-          requiresAuth: true
+          redirectAuth: true,
         },
       },
       {
@@ -34,7 +26,7 @@ const routes: RouteRecordRaw[] = [
         name: 'yourworkspace',
         component: () => import('pages/YourWorkspacePage.vue'),
         meta: {
-          requiresAuth: true
+          redirectAuth: true,
         },
       },
       {
@@ -42,7 +34,7 @@ const routes: RouteRecordRaw[] = [
         name: 'projectOverview',
         component: () => import('pages/ProjectOverviewPage.vue'),
         meta: {
-          requiresAuth: true
+          redirectAuth: true,
         },
       },
       {
@@ -50,26 +42,42 @@ const routes: RouteRecordRaw[] = [
         name: 'approachStatus',
         component: () => import('pages/ApproachStatusPage.vue'),
         meta: {
-          requiresAuth: true
+          redirectAuth: true,
         },
-      }
+      },
+      {
+        path: 'setting',
+        name: 'setting',
+        component: () => import('pages/SettingPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
+      {
+        path: 'setting/account',
+        name: 'account',
+        component: () => import('pages/settings/AccountPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
     ],
   },
   {
     path: '/auth',
     component: () => import('layouts/AuthLayout.vue'),
     meta: {
-      redirectAuth: true
+      redirectAuth: true,
     },
     children: [
       {
         path: 'login',
-        component: () => import('pages/auth/SignIn.vue')
+        component: () => import('pages/auth/SignIn.vue'),
       },
       {
         path: 'register',
-        component: () => import('pages/auth/SignUp.vue')
-      }
+        component: () => import('pages/auth/SignUp.vue'),
+      },
     ],
   },
 
@@ -80,6 +88,5 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/ErrorNotFound.vue'),
   },
 ];
-
 
 export default routes;
