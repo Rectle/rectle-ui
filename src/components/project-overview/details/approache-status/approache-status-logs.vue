@@ -19,8 +19,7 @@
           :style="{
             maxWidth: '1000px',
             whiteSpace: 'pre-wrap',
-            padding: 0,
-            alignItems: 'center'
+            alignItems: 'center',
           }"
         >
           {{ props.value }}
@@ -45,14 +44,14 @@ const column: QTableColumn[] = [
     label: t('logs.id'),
     align: 'center',
     field: 'id',
-    sortable: true
+    sortable: true,
   },
   {
     name: 'name',
     label: t('logs.name'),
     field: 'name',
-    align: 'left'
-  }
+    align: 'left',
+  },
 ];
 
 interface ILogs {
@@ -64,23 +63,23 @@ const row = ref<ILogs[]>([]);
 const props = defineProps({
   id: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const socketsLogic = (adress: string) => {
   const socket = io(adress, {
     extraHeaders: {
       'X-Build': props.id,
-      'Bypass-Tunnel-Reminder': 'Rectle'
-    }
+      'Bypass-Tunnel-Reminder': 'Rectle',
+    },
   });
 
   socket.emit('build:join');
 
   socket.on('build:logs', (logs) => {
     row.value = logs.map(
-      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
     );
   });
 
@@ -97,13 +96,16 @@ onMounted(async () => {
   const logs = await getLogs(Number(props.id));
   if (logs) {
     row.value = logs.map(
-      (log: string, index: number) => ({ id: index, name: log } as ILogs)
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
     );
   } else {
-    const address = await getRunnerUrl(Number(props.id));
-    if (address) {
-      socketsLogic(address);
-    }
+    const interval = setInterval(async () => {
+      const address = await getRunnerUrl(Number(props.id));
+      if (address) {
+        socketsLogic(address.url);
+        clearInterval(interval);
+      }
+    }, 1000);
   }
 });
 </script>
