@@ -1,13 +1,17 @@
 <template>
   <div class="myTable">
     <q-table
+      style="height: 400px"
       :rows="row"
       :columns="column"
       flat
       bordered
       row-key="name"
-      hide-bottom
       separator="none"
+      hide-bottom
+      virtual-scroll
+      :rows-per-page-options="[0]"
+      :no-data-label="$t('logsPage.empty')"
     >
       <template v-slot:body-cell="props">
         <q-td
@@ -15,8 +19,7 @@
           :style="{
             maxWidth: '1000px',
             whiteSpace: 'pre-wrap',
-            padding: 0,
-            alignItems: 'center'
+            alignItems: 'center',
           }"
         >
           {{ props.value }}
@@ -29,42 +32,80 @@
 <script setup lang="ts">
 import { QTableColumn } from 'quasar';
 import { useI18n } from 'vue-i18n';
-
+import { ref, onMounted } from 'vue';
+import io from 'socket.io-client';
+import { getLogs } from 'src/api/getLogs';
+import { getRunnerUrl } from 'src/api/getRunnerUrl';
 const { t } = useI18n();
+
 const column: QTableColumn[] = [
   {
     name: 'id',
     label: t('logs.id'),
     align: 'center',
     field: 'id',
-    sortable: true
+    sortable: true,
   },
   {
     name: 'name',
     label: t('logs.name'),
     field: 'name',
-    align: 'left'
-  }
+    align: 'left',
+  },
 ];
 
-const row = [
-  {
-    id: 1,
-    name: 'docker run --restart=always -d v=/var/run/docker.sock:/var/run/docker.sock gliderlabs/logspoutsyslog+tls:logsN.papertrailapp.com:XXXXX'
+interface ILogs {
+  id: number;
+  name: string;
+}
+const row = ref<ILogs[]>([]);
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-  {
-    id: 2,
-    name: 'docker run --log-driver=syslog--log-opt syslog-address=udp://logsN.papertrailapp.com:XXXXX image-name'
+});
+
+const socketsLogic = (adress: string) => {
+  const socket = io(adress, {
+    extraHeaders: {
+      'X-Build': props.id,
+      'Bypass-Tunnel-Reminder': 'Rectle',
+    },
+  });
+
+  socket.emit('build:join');
+
+  socket.on('build:logs', (logs) => {
+    row.value = logs.map(
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
+    );
+  });
+
+  socket.on('build:log', (logs) => {
+    row.value.push({ id: row.value.length + 1, name: logs });
+  });
+
+  socket.on('connect_error', (err) => {
+    console.error('websocket_error', err);
+  });
+};
+
+onMounted(async () => {
+  const logs = await getLogs(Number(props.id));
+  if (logs) {
+    row.value = logs.map(
+      (log: string, index: number) => ({ id: index + 1, name: log } as ILogs)
+    );
+  } else {
+    const interval = setInterval(async () => {
+      const address = await getRunnerUrl(Number(props.id));
+      if (address) {
+        socketsLogic(address.url);
+        clearInterval(interval);
+      }
+    }, 1000);
   }
-];
+});
 </script>
-<style>
-.myTable .scroll {
-  overflow: hidden;
-}
-.customEllipsis {
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-}
-</style>
