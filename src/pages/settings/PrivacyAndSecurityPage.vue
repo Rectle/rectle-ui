@@ -6,5 +6,5 @@
   </q-page>
 </template>
 <script setup lang="ts">
-import PrivacyAndSecurity from 'src/components/settings/PrivacyAndSecurity.vue';
+import PrivacyAndSecurity from 'src/components/settings/PrivacyAndSecuritySetting.vue';
 </script>
