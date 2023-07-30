@@ -69,6 +69,14 @@ const routes: RouteRecordRaw[] = [
           redirectAuth: true,
         },
       },
+      {
+        path: 'setting/privacy&security',
+        name: 'privacyAndSecurity',
+        component: () => import('pages/settings/PrivacyAndSecurityPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
     ],
   },
   {

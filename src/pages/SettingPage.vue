@@ -32,6 +32,7 @@ const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.privacy.title'),
     icon: t('settingPage.list.privacy.icon'),
+    click: () => router.push({ path: '/setting/privacy&security' }),
   },
   {
     title: t('settingPage.list.help.title'),

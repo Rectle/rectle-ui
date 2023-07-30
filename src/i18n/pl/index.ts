@@ -175,5 +175,8 @@ export default {
       title: 'Powdiadomienia',
       empty: 'Brak powiadomien',
     },
+    privacyAndSecurity: {
+      title: 'Prywatność & Bezpieczeństwo',
+    },
   },
 };

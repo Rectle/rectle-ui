@@ -175,5 +175,8 @@ export default {
       title: 'Notifications',
       empty: 'No notifications to display',
     },
+    privacyAndSecurity: {
+      title: 'Privacy & Security',
+    },
   },
 };
