@@ -32,3 +32,4 @@
 - `0.2.0` - Added components to add new project
 - `0.2.1` - Added user account view
 - `0.2.2` - Added notifications page
+- `0.2.3` - Added privacy&security page
