@@ -9,42 +9,42 @@ export default {
     toggleJWT: {
       trueValue: 'JWT włączone',
       falseValue: 'JWT wyłączone',
-    }
+    },
   },
   settingPage: {
     title: 'Ustawienia',
     list: {
       account: {
         title: 'Konto',
-        icon: 'o_person'
+        icon: 'o_person',
       },
       notification: {
         title: 'Powiadomienia',
-        icon: 'o_notifications'
+        icon: 'o_notifications',
       },
       privacy: {
         title: 'Prywatność & Bezpieczeństwo',
-        icon: 'o_lock'
+        icon: 'o_lock',
       },
       help: {
         title: 'Pomoc i wsparcie',
-        icon: 'o_headphones'
+        icon: 'o_headphones',
       },
       about: {
         title: 'O nas',
-        icon: 'o_info'
+        icon: 'o_info',
       },
       logout: {
         title: 'Wyloguj',
-        icon: 'o_logout'
-      }
-    }
+        icon: 'o_logout',
+      },
+    },
   },
   dashboard: {
     title: 'Linki',
     setting: {
       title: 'Ustawienia',
-      darkmode: 'Darkmode'
+      darkmode: 'Darkmode',
     },
     links: {
       home: {
@@ -74,9 +74,9 @@ export default {
     },
     icons: {
       labels: {
-        menu: 'Menu'
-      }
-    }
+        menu: 'Menu',
+      },
+    },
   },
   searchBar: {
     search: 'Szukaj',
@@ -88,70 +88,82 @@ export default {
       ended: 'Zakończone',
       toggleActive: 'Aktywne',
       toggleEnd: 'Zakończone',
-      uploadDate: 'Date'
+      uploadDate: 'Date',
     },
   },
-  tabs:{
+  tabs: {
     creator: 'Twórca',
-    participant: 'Uczestnik'
+    participant: 'Uczestnik',
   },
-  projectCard:{
+  addProject: {
+    form: {
+      title: 'Stwórz projekt',
+      projectName: 'Nazwa projektu',
+      description: 'Opis (opcjonalne)',
+      baner: 'Wgraj zdjęcie baneru (opcjonalne)',
+    },
+    browse: {
+      title: 'WYBIERZ',
+    },
+  },
+  projectCard: {
     author: 'Autor: ',
     users: 'użytkowników',
-    date: 'Data: '
+    date: 'Data: ',
   },
-  projectTabs:{
+  projectTabs: {
     overview: 'Przegląd',
     code: 'Kod',
     approaches: 'Twoje podejście',
-    leaderboard: 'Tablica wyników'
+    leaderboard: 'Tablica wyników',
   },
   codePage: {
     model: {
       title: 'Wgraj model',
       create: 'Stwórz model',
       modelName: 'Nazwa modelu',
-      errorName: 'Najpierw wgraj projekt!'
+      errorName: 'Najpierw wgraj projekt!',
     },
     project: {
-      title: 'Wgraj projekt'
+      title: 'Wgraj projekt',
     },
     title: 'Code',
     uploadLabel: 'Wgraj plik',
     emptyData: 'Przesłany formularz zawiera puste dane formularza!',
     successData: 'Plik został pomyślnie przesłany',
-    errorData: 'Podczas przesyłania pliku wystąpił problem'
+    errorData: 'Podczas przesyłania pliku wystąpił problem',
   },
   approcheTab: {
     empty: 'Projekt nie ma żadnych podejść',
     details: {
-      compileId : 'ID: ',
+      compileId: 'ID: ',
       status: 'Status: ',
-      name: 'Nazwa: '
-    }
+      name: 'Nazwa: ',
+    },
   },
   logsPage: {
-    title: 'Logi'
+    title: 'Logi',
+    empty: 'Logi nie są w tej chwili dostępne!',
   },
-  projectOverviewTitle:{
+  projectOverviewTitle: {
     author: 'Autor: ',
     users: 'użytkowników',
-    date: 'Data: '
+    date: 'Data: ',
   },
-  approcheStatusTitle:{
+  approcheStatusTitle: {
     id: 'ID: ',
-    score: 'Wynik: '
+    score: 'Wynik: ',
   },
-  logs:{
+  logs: {
     id: '#',
-    name: 'Logi'
+    name: 'Logi',
   },
   auth: {
     signin: {
       title: 'Zaloguj się przy użyciu',
       meta: {
-        title: 'Logowanie'
-      }
-    }
-  }
+        title: 'Logowanie',
+      },
+    },
+  },
 };
