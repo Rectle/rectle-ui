@@ -31,3 +31,4 @@
 - `0.1.9` - Added functionality to display logs
 - `0.2.0` - Added components to add new project
 - `0.2.1` - Added user account view
+- `0.2.2` - Added notifications page
