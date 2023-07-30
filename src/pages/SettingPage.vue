@@ -42,6 +42,7 @@ const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.about.title'),
     icon: t('settingPage.list.about.icon'),
+    click: () => router.push({ path: '/setting/about' }),
   },
   {
     title: t('settingPage.list.logout.title'),

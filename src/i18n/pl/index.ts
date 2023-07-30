@@ -181,5 +181,8 @@ export default {
     helpAndSupport: {
       title: 'Pomoc i wsparcie',
     },
+    about: {
+      title: 'O nas',
+    },
   },
 };
