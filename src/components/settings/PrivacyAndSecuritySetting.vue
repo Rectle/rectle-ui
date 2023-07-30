@@ -116,7 +116,6 @@ help@rectle.com
 
 Korzystając z Rectle, potwierdzasz, że zapoznałeś się z niniejszą Polityką prywatności i bezpieczeństwa, rozumiesz jej treść i wyrażasz zgodę na zbieranie, wykorzystywanie i ujawnianie Twoich danych zgodnie z opisanymi w niej warunkami.`;
 
-console.log(locale);
 const editor = ref(locale.value == 'en-US' ? en : pl);
 
 const text = computed(() => {
