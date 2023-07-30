@@ -178,5 +178,8 @@ export default {
     privacyAndSecurity: {
       title: 'Privacy & Security',
     },
+    helpAndSupport: {
+      title: 'Help and Support',
+    },
   },
 };

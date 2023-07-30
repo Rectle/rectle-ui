@@ -37,6 +37,7 @@ const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.help.title'),
     icon: t('settingPage.list.help.icon'),
+    click: () => router.push({ path: '/setting/help&support' }),
   },
   {
     title: t('settingPage.list.about.title'),
