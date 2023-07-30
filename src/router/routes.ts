@@ -61,6 +61,14 @@ const routes: RouteRecordRaw[] = [
           redirectAuth: true,
         },
       },
+      {
+        path: 'setting/notifications',
+        name: 'notifications',
+        component: () => import('pages/settings/NotificationsPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
     ],
   },
   {

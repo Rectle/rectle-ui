@@ -1,6 +1,6 @@
 <template>
   <div class="q-my-md row items-start justify-center text-h4">
-    {{ $t('accountSettings.title') }}
+    {{ $t('settingPage.accountSettings.title') }}
   </div>
   <q-card flat bordered class="my-card">
     <q-card-section
@@ -33,8 +33,8 @@
       <q-toggle
         v-model="buttonJWT"
         :label="buttonJWT"
-        :false-value="$t('accountSettings.toggleJWT.falseValue')"
-        :true-value="$t('accountSettings.toggleJWT.trueValue')"
+        :false-value="$t('settingPage.accountSettings.toggleJWT.falseValue')"
+        :true-value="$t('settingPage.accountSettings.toggleJWT.trueValue')"
         @update:model-value="changeJWT"
       />
     </q-card-section>
@@ -54,12 +54,12 @@ const $q = useQuasar();
 
 const buttonJWT = ref<string>(
   LocalStorage.getItem('JWT')
-    ? t('accountSettings.toggleJWT.trueValue')
-    : t('accountSettings.toggleJWT.falseValue')
+    ? t('settingPage.accountSettings.toggleJWT.trueValue')
+    : t('settingPage.accountSettings.toggleJWT.falseValue')
 );
 
 const changeJWT = () => {
-  if (buttonJWT.value === t('accountSettings.toggleJWT.trueValue'))
+  if (buttonJWT.value === t('settingPage.accountSettings.toggleJWT.trueValue'))
     LocalStorage.set('JWT', true);
   else LocalStorage.set('JWT', false);
 };

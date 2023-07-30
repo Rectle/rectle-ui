@@ -4,42 +4,6 @@
 export default {
   failed: 'Niepowodzenie',
   success: 'Akcja powiodła się',
-  accountSettings: {
-    title: 'Konto',
-    toggleJWT: {
-      trueValue: 'JWT włączone',
-      falseValue: 'JWT wyłączone',
-    },
-  },
-  settingPage: {
-    title: 'Ustawienia',
-    list: {
-      account: {
-        title: 'Konto',
-        icon: 'o_person',
-      },
-      notification: {
-        title: 'Powiadomienia',
-        icon: 'o_notifications',
-      },
-      privacy: {
-        title: 'Prywatność & Bezpieczeństwo',
-        icon: 'o_lock',
-      },
-      help: {
-        title: 'Pomoc i wsparcie',
-        icon: 'o_headphones',
-      },
-      about: {
-        title: 'O nas',
-        icon: 'o_info',
-      },
-      logout: {
-        title: 'Wyloguj',
-        icon: 'o_logout',
-      },
-    },
-  },
   dashboard: {
     title: 'Linki',
     setting: {
@@ -164,6 +128,52 @@ export default {
       meta: {
         title: 'Logowanie',
       },
+    },
+    signup: {
+      title: 'Zarejestruj się przy użyciu',
+      meta: {
+        title: 'Register',
+      },
+    },
+  },
+  settingPage: {
+    title: 'Ustawienia',
+    list: {
+      account: {
+        title: 'Konto',
+        icon: 'o_person',
+      },
+      notification: {
+        title: 'Powiadomienia',
+        icon: 'o_notifications',
+      },
+      privacy: {
+        title: 'Prywatność & Bezpieczeństwo',
+        icon: 'o_lock',
+      },
+      help: {
+        title: 'Pomoc i wsparcie',
+        icon: 'o_headphones',
+      },
+      about: {
+        title: 'O nas',
+        icon: 'o_info',
+      },
+      logout: {
+        title: 'Wyloguj',
+        icon: 'o_logout',
+      },
+    },
+    accountSettings: {
+      title: 'Konto',
+      toggleJWT: {
+        trueValue: 'JWT włączone',
+        falseValue: 'JWT wyłączone',
+      },
+    },
+    notificationsSettings: {
+      title: 'Powdiadomienia',
+      empty: 'Brak powiadomien',
     },
   },
 };
