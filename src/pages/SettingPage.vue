@@ -27,6 +27,7 @@ const listOfSettings: ISetting[] = [
   {
     title: t('settingPage.list.notification.title'),
     icon: t('settingPage.list.notification.icon'),
+    click: () => router.push({ path: '/setting/notifications' }),
   },
   {
     title: t('settingPage.list.privacy.title'),
