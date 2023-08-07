@@ -229,6 +229,51 @@ export default {
     },
     helpAndSupport: {
       title: 'Help and Support',
+      description: `Help and Support for Rectle Application
+
+      Welcome to the Help and Support page for Rectle! We are here to assist you and provide the necessary guidance to ensure a seamless experience while using the Rectle application. Below are some of the common topics and frequently asked questions that might help you find the answers you need:
+
+      1. Frequently Asked Questions (FAQs):
+
+      Q1. How do I create an account on Rectle?
+      A1. To create an account, open the Rectle app and click on the "Sign Up" button. Enter your email address, create a password, and follow the on-screen instructions to complete the registration process.
+
+      Q2. How can I reset my password?
+      A2. If you've forgotten your password, go to the login screen and click on the "Forgot Password" link. You will receive an email with instructions on how to reset your password.
+
+      Q3. How do I change my profile picture?
+      A3. To change your profile picture, go to your profile settings and click on the "Edit Profile" option. From there, you can upload a new picture or choose one from your device's gallery.
+
+      Q4. How can I report inappropriate content?
+      A4. If you come across any content that violates our community guidelines or seems inappropriate, you can report it by tapping on the "Report" button next to the content. Our team will review the report and take appropriate action.
+
+      2. Contacting Support:
+
+      If you have any issues, concerns, or questions that are not covered in the FAQs, our dedicated support team is here to help. Please reach out to us using one of the following methods:
+
+      a. In-App Support:
+      You can contact support directly from within the Rectle app. Go to the "Settings" menu, and click on "Help & Support" to access the support options. From there, you can submit a support ticket or start a live chat with one of our support representatives.
+
+      b. Email Support:
+      For non-urgent inquiries, you can send us an email at support@rectleapp.com. We aim to respond to all email inquiries within 24-48 hours.
+
+      3. Community Forums:
+
+      Join our community forums to engage with other Rectle users, share your ideas, and get tips and tricks for making the most out of the app. Our community is vibrant and helpful, and you can find answers to various questions from experienced users.
+
+      4. App Updates and Announcements:
+
+      Stay up-to-date with the latest features, improvements, and announcements by following our official blog or social media channels. We regularly share exciting news and updates with our users.
+
+      5. Feedback and Suggestions:
+
+      We value your feedback and suggestions to improve Rectle continually. If you have any ideas or suggestions for new features or enhancements, please share them with us through the "Feedback" option in the app's settings.
+
+      6. Privacy and Security:
+
+      If you have concerns about your privacy and the security of your data on Rectle, please review our Privacy & Security Policy, which outlines how we handle and protect your information.
+
+      Thank you for choosing Rectle! We are committed to providing you with the best possible experience, and our support team is ready to assist you with any inquiries or issues you may have.`,
     },
   },
 };
