@@ -46,6 +46,6 @@ const props = defineProps({
   type: String,
   id: String,
   title: String,
-  page: String
+  page: String,
 });
 </script>
