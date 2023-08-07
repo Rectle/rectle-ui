@@ -227,5 +227,53 @@ export default {
 
       Korzystając z Rectle, potwierdzasz, że zapoznałeś się z niniejszą Polityką prywatności i bezpieczeństwa, rozumiesz jej treść i wyrażasz zgodę na zbieranie, wykorzystywanie i ujawnianie Twoich danych zgodnie z opisanymi w niej warunkami.`,
     },
+    helpAndSupport: {
+      title: 'Pomoc i wsparcie',
+      description: `Pomoc i wsparcie dla aplikacji Rectle
+
+      Witamy na stronie Pomocy i Wsparcia dla aplikacji Rectle! Jesteśmy tutaj, aby Ci pomóc i udzielić niezbędnych wskazówek, zapewniając płynne korzystanie z aplikacji Rectle. Poniżej znajdziesz najczęściej zadawane pytania oraz odpowiedzi, które mogą pomóc Ci znaleźć potrzebne informacje:
+
+      1. Najczęściej zadawane pytania (FAQ):
+
+      Q1. Jak założyć konto w aplikacji Rectle?
+      A1. Aby założyć konto, otwórz aplikację Rectle i kliknij przycisk "Zarejestruj się". Wprowadź swój adres e-mail, utwórz hasło i postępuj zgodnie z wyświetlanymi instrukcjami, aby ukończyć proces rejestracji.
+
+      Q2. Jak zresetować hasło?
+      A2. Jeśli zapomniałeś swojego hasła, przejdź do ekranu logowania i kliknij link "Zapomniałeś hasła". Otrzymasz e-mail z instrukcjami dotyczącymi zresetowania hasła.
+
+      Q3. Jak zmienić zdjęcie profilowe?
+      A3. Aby zmienić zdjęcie profilowe, przejdź do ustawień profilu i kliknij opcję "Edytuj profil". Stamtąd możesz przesłać nowe zdjęcie lub wybrać je z galerii urządzenia.
+
+      Q4. Jak zgłosić nieodpowiednią treść?
+      A4. Jeśli natkniesz się na treść, która narusza nasze wytyczne społeczności lub wydaje się nieodpowiednia, możesz zgłosić to, klikając przycisk "Zgłoś" obok treści. Nasz zespół przeanalizuje zgłoszenie i podejmie odpowiednie działania.
+
+      2. Kontakt z działem wsparcia:
+
+      Jeśli masz jakiekolwiek problemy, wątpliwości lub pytania, które nie są objęte sekcją FAQ, nasz oddany zespół wsparcia jest gotowy do pomocy. Skontaktuj się z nami, korzystając z jednej z poniższych metod:
+
+      a. Wsparcie w aplikacji:
+      Możesz skontaktować się z działem wsparcia bezpośrednio z aplikacji Rectle. Przejdź do menu "Ustawienia" i kliknij opcję "Pomoc i Wsparcie", aby uzyskać dostęp do opcji wsparcia. Stamtąd możesz złożyć zgłoszenie wsparcia lub rozpocząć czat na żywo z jednym z naszych przedstawicieli wsparcia.
+
+      b. Wsparcie e-mail:
+      W przypadku mniej pilnych pytań możesz wysłać do nas e-mail na adres wsparcie@rectleapp.com. Staramy się odpowiadać na wszystkie zapytania e-mailowe w ciągu 24-48 godzin.
+
+      3. Forum Społeczności:
+
+      Dołącz do naszego forum społeczności, aby komunikować się z innymi użytkownikami Rectle, dzielić się swoimi pomysłami i otrzymywać wskazówki i triki, które pomogą Ci w pełni wykorzystać aplikację. Nasza społeczność jest żywa i pomocna, a tam możesz znaleźć odpowiedzi na różne pytania od doświadczonych użytkowników.
+
+      4. Aktualizacje i ogłoszenia dotyczące aplikacji:
+
+      Bądź na bieżąco z najnowszymi funkcjami, usprawnieniami i ogłoszeniami, śledząc nasz oficjalny blog lub kanały mediów społecznościowych. Regularnie udostępniamy ekscytujące wiadomości i aktualizacje dla naszych użytkowników.
+
+      5. Opinie i sugestie:
+
+      Cenimy Twoją opinię i sugestie w celu ciągłego doskonalenia Rectle. Jeśli masz jakieś pomysły lub sugestie dotyczące nowych funkcji lub ulepszeń, podziel się nimi z nami za pośrednictwem opcji "Opinie" w ustawieniach aplikacji.
+
+      6. Prywatność i bezpieczeństwo:
+
+      Jeśli masz obawy dotyczące prywatności i bezpieczeństwa swoich danych na Rectle, zapoznaj się z naszą Polityką prywatności i bezpieczeństwa, która opisuje, w jaki sposób traktujemy i chronimy Twoje informacje.
+
+      Dziękujemy, że wybrałeś Rectle! Jesteśmy zobowiązani do zapewnienia Ci jak najlepszego doświadczenia, a nasz zespół wsparcia jest gotowy do pomocy w przypadku jakichkolwiek pytań lub problemów.`,
+    },
   },
 };

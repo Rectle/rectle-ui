@@ -33,3 +33,4 @@
 - `0.2.1` - Added user account view
 - `0.2.2` - Added notifications page
 - `0.2.3` - Added privacy&security page
+- `0.2.4` - Added help&support page

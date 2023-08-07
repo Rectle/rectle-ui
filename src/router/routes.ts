@@ -77,6 +77,14 @@ const routes: RouteRecordRaw[] = [
           redirectAuth: true,
         },
       },
+      {
+        path: 'setting/help&support',
+        name: 'helpAndSupport',
+        component: () => import('pages/settings/HelpAndSupportPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
     ],
   },
   {
