@@ -4,22 +4,25 @@
   </div>
   <q-separator />
   <q-list class="text-h6" separator>
-    <q-item
-      class="q-py-lg cursor-pointer"
+    <div
       v-for="item of (props.settings as ISetting[])"
       v-bind:key="item.title"
       @click="item.click"
-      :class="{'disabled': !item.click}"
-      v-ripple.early
     >
-      <q-item-section avatar>
-        <q-icon :name="item.icon" />
-      </q-item-section>
-      <q-item-section>{{ item.title }}</q-item-section>
-      <q-item-section avatar>
-        <q-icon name="arrow_forward_ios" />
-      </q-item-section>
-    </q-item>
+      <q-item
+        class="q-py-lg cursor-pointer"
+        :class="{ disabled: !item.click }"
+        v-ripple.early
+      >
+        <q-item-section avatar>
+          <q-icon :name="item.icon" />
+        </q-item-section>
+        <q-item-section>{{ item.title }}</q-item-section>
+        <q-item-section avatar>
+          <q-icon name="arrow_forward_ios" />
+        </q-item-section>
+      </q-item>
+    </div>
   </q-list>
   <q-separator />
 </template>
@@ -27,7 +30,7 @@
 const props = defineProps({
   settings: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
