@@ -85,6 +85,14 @@ const routes: RouteRecordRaw[] = [
           redirectAuth: true,
         },
       },
+      {
+        path: 'setting/about',
+        name: 'about',
+        component: () => import('pages/settings/AboutPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
     ],
   },
   {

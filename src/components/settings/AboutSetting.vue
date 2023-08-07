@@ -1,6 +1,6 @@
 <template>
   <div class="q-my-md row items-start justify-center text-h4">
-    {{ $t('settingPage.helpAndSupport.title') }}
+    {{ $t('settingPage.about.title') }}
   </div>
   <q-card flat bordered class="my-card">
     <q-card-section>
@@ -17,6 +17,6 @@ import xss from 'xss';
 const { t } = useI18n();
 
 const text = computed(() => {
-  return xss(t('settingPage.helpAndSupport.description'));
+  return xss(t('settingPage.about.description'));
 });
 </script>

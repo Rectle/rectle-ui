@@ -275,5 +275,39 @@ export default {
 
       Dziękujemy, że wybrałeś Rectle! Jesteśmy zobowiązani do zapewnienia Ci jak najlepszego doświadczenia, a nasz zespół wsparcia jest gotowy do pomocy w przypadku jakichkolwiek pytań lub problemów.`,
     },
+    about: {
+      title: 'O nas',
+      description: `O nas
+
+      Witamy na naszej platformie poświęconej konkursom algorytmicznym i ocenie wyników, ze szczególnym uwzględnieniem uczenia ze wzmocnieniem. Naszym celem jest stworzenie portalu, który umożliwia uczestnikom rywalizację oraz ocenę ich algorytmów poprzez wymagające symulacje, zapewniając dynamiczne i interaktywne doświadczenie nauki.
+
+      Nasza Misja
+
+      Naszym głównym celem jest zapewnienie platformy, na której uczestnicy mogą zaprezentować swoją wiedzę i umiejętności w różnych dziedzinach algorytmicznych, ze szczególnym naciskiem na uczenie ze wzmocnieniem. Dążymy do promowania innowacji i współpracy między pasjonatami, badaczami i specjalistami w dziedzinie sztucznej inteligencji i uczenia maszynowego.
+
+      Co Nas Wyróżnia
+
+      W przeciwieństwie do tradycyjnych platform, sięgamy poza statyczną analizę danych. Nasz system jest inspirowany platformami takimi jak Kaggle, ale posiada unikalne cechy. Oceniamy działanie algorytmów uczenia ze wzmocnieniem, co wymaga przeprowadzenia dynamicznych symulacji (np. gier), aby skutecznie ocenić ich implementację.
+
+      Główne Funkcje
+
+      Konkursy Algorytmiczne: Weź udział w ekscytujących konkursach algorytmicznych, aby zaprezentować swoje umiejętności w dziedzinie uczenia ze wzmocnieniem. Testuj swoje algorytmy w rywalizacji z innymi i zdobywaj uznanie za swoją wiedzę.
+
+      Wymagające Symulacje: Nasza platforma oferuje wyzwania symulacyjne, które odzwierciedlają scenariusze ze świata rzeczywistego, zapewniając kompleksową ocenę algorytmów uczenia ze wzmocnieniem.
+
+      Zaangażowanie Społeczności: Poznaj aktywną społeczność pasjonatów sztucznej inteligencji i uczenia maszynowego, badaczy i ekspertów. Współpracuj, dziel się wiedzą i ucz się od innych, aby jeszcze bardziej rozwijać swoje umiejętności w tej dziedzinie.
+
+      Okazje Do Nauki: Nasze konkursy i symulacje dostarczają cennych okazji do nauki, umożliwiając uczestnikom doskonalenie umiejętności rozwiązywania problemów oraz pozostanie na bieżąco z najnowszymi osiągnięciami w dziedzinie uczenia ze wzmocnieniem.
+
+      Dołącz do Nas
+
+      Nie ważne, czy jesteś doświadczonym specjalistą, studentem czy pasjonatem sztucznej inteligencji, serdecznie zapraszamy do naszej społeczności. Weź udział w konkursach, nawiąż kontakt z innymi członkami i korzystaj z naszych zasobów, aby poprawić swoje umiejętności i wiedzę z zakresu uczenia ze wzmocnieniem.
+
+      Skontaktuj Się z Nami
+
+      Jeśli masz jakieś pytania, sugestie lub zapytania, chętnie wysłuchamy Twojej opinii. Prosimy o kontakt pod adresem help@rectle.com, a nasz zespół z przyjemnością Ci pomoże.
+
+      Dołącz do naszej ekscytującej podróży odkrywania fascynującego świata uczenia ze wzmocnieniem i rywalizacji algorytmicznych. Razem poszerzajmy granice sztucznej inteligencji i odblokowujmy potencjał najnowszych algorytmów!`,
+    },
   },
 };
