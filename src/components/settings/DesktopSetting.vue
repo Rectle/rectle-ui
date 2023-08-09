@@ -5,7 +5,7 @@
       v-bind:key="item.title"
       class="q-pa-md col-md-4 col-lg-4 col-xl-4 cursor-pointer"
       @click="item.click"
-      :class="{'disabled': !item.click}"
+      :class="{ disabled: !item.click }"
       v-ripple.early
     >
       <div class="column items-center">
@@ -25,7 +25,7 @@
 const props = defineProps({
   settings: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 });
 </script>
