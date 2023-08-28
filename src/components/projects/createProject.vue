@@ -31,6 +31,18 @@
             :label="t('addProject.form.description')"
           />
 
+          <q-select
+            v-model="tags"
+            filled
+            :label="t('addProject.form.tags')"
+            use-input
+            use-chips
+            multiple
+            hide-dropdown-icon
+            input-debounce="0"
+            new-value-mode="add-unique"
+          />
+
           <q-file v-model="baner" :label="$t('addProject.form.baner')" filled>
             <template v-slot:prepend>
               <q-icon name="attach_file" />
@@ -56,6 +68,7 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
+import { createProject } from 'src/api/postProjectData';
 
 const props = defineProps({
   dialog: Boolean,
@@ -70,6 +83,7 @@ const openDialog = computed({
 
 const projectName = ref<string>('');
 const description = ref<string>('');
+const tags = ref<string[]>([]);
 const baner = ref<File>();
 
 const $q = useQuasar();
@@ -80,21 +94,26 @@ const setResult = (result: number) => {
     emit('projectIdEmit', result);
     $q.notify({
       color: 'primary',
-      message: t('codePage.successData'),
+      message: t('codePage.project.successData'),
       timeout: 1000,
     });
   } else {
     emit('projectIdEmit', 0);
     $q.notify({
       type: 'negative',
-      message: t('codePage.errorData'),
+      message: t('codePage.project.errorData'),
     });
   }
 };
 
 const onSubmit = async () => {
   if (projectName.value) {
-    const result = 0; //TODO: Create method to add new project
+    const result = await createProject({
+      name: projectName.value,
+      description: description.value,
+      tags: tags.value.join(','),
+      teamId: '1',
+    });
     setResult(result);
   } else {
     $q.notify({

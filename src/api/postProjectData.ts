@@ -12,7 +12,7 @@ const createProject = async (project: IProjectCreate): Promise<number> => {
   try {
     const { data } = await axios.post(`${url}/projects`, res, {
       headers: {
-        'Content-Type': `multipart/form-data`,
+        'Content-Type': 'application/json',
         Authorization: `Bearer${userStore.user.jwt}`,
       },
     });

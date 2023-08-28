@@ -33,6 +33,7 @@ interface IApproache {
 interface IProjectCreate {
   name: string;
   description?: string;
+  tags?: string;
   file?: File;
   teamId: string;
 }
