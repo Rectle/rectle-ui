@@ -9,6 +9,7 @@ const createProject = async (project: IProjectCreate): Promise<number> => {
     (await userStore.loadTeam(userStore.getUser.email));
 
   const res = { ...project, teamID };
+
   try {
     const { data } = await axios.post(`${url}/projects`, res, {
       headers: {

@@ -35,5 +35,5 @@ interface IProjectCreate {
   description?: string;
   tags?: string;
   file?: File;
-  teamId: string;
+  teamId?: string;
 }

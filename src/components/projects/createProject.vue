@@ -112,7 +112,6 @@ const onSubmit = async () => {
       name: projectName.value,
       description: description.value,
       tags: tags.value.join(','),
-      teamId: '1',
     });
     setResult(result);
   } else {
