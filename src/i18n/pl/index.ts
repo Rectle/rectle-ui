@@ -64,7 +64,7 @@ export default {
       title: 'Stwórz projekt',
       projectName: 'Nazwa projektu',
       description: 'Opis (opcjonalne)',
-      tags: 'Tagi (optional)',
+      tags: 'Tagi (opcjonalne)',
       baner: 'Wgraj zdjęcie baneru (opcjonalne)',
     },
     browse: {
