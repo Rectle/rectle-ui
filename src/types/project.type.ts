@@ -1,4 +1,3 @@
-
 interface IProjectCard {
   image: string;
   author: string;
@@ -21,7 +20,7 @@ interface IWorkspace {
   technologies: string[];
   active: boolean;
   finished: boolean;
-  type:string;
+  type: string;
 }
 
 interface IApproache {
@@ -29,4 +28,12 @@ interface IApproache {
   points: number;
   score: number;
   status: string;
+}
+
+interface IProjectCreate {
+  name: string;
+  description?: string;
+  tags?: string;
+  file?: File;
+  teamId?: string;
 }

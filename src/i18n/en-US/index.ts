@@ -64,6 +64,7 @@ export default {
       title: 'Create project',
       projectName: 'Project Name',
       description: 'Description (optional)',
+      tags: 'Tags (optional)',
       baner: 'Upload baner image (optional)',
     },
     browse: {
@@ -90,6 +91,8 @@ export default {
     },
     project: {
       title: 'Upload project',
+      successData: 'The project has been successfully created',
+      errorData: 'There was a problem during project creation',
     },
     title: 'Code',
     uploadLabel: 'Upload file',
