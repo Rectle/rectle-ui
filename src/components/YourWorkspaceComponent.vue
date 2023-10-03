@@ -45,7 +45,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Flower Classification',
@@ -60,7 +60,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'date Science for Business',
@@ -74,7 +74,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Entrepreneurs',
@@ -89,7 +89,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Healthcare',
@@ -104,7 +104,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Marketing',
@@ -119,7 +119,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Finance',
@@ -134,7 +134,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Social Media',
@@ -149,7 +149,7 @@ const listExamples: IWorkspace[] = [
     finished: true,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Education',
@@ -164,7 +164,7 @@ const listExamples: IWorkspace[] = [
     finished: true,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for E-commerce',
@@ -179,7 +179,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Learing Equality',
@@ -193,7 +193,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Creator',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Flower Classification',
@@ -208,7 +208,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Applied Data Science',
@@ -223,7 +223,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Healthcare',
@@ -238,7 +238,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Marketing',
@@ -253,7 +253,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Finance',
@@ -268,7 +268,7 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Social Media',
@@ -283,7 +283,7 @@ const listExamples: IWorkspace[] = [
     finished: true,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for Education',
@@ -298,7 +298,7 @@ const listExamples: IWorkspace[] = [
     finished: true,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
+    technologies: ['Python', 'Learning', 'K-012'],
   },
   {
     title: 'Data Science for E-commerce',
@@ -313,8 +313,8 @@ const listExamples: IWorkspace[] = [
     finished: false,
     type: 'Participant',
     id: uuid.v4(),
-    technologies: ['Python', 'Learning', 'K-012']
-  }
+    technologies: ['Python', 'Learning', 'K-012'],
+  },
 ];
 
 const listOfCompetitions = ref(listExamples);
@@ -338,7 +338,7 @@ const sortedListOfCompetitions = computed({
   },
   set(val) {
     listOfCompetitions.value = val;
-  }
+  },
 });
 
 const sortByDate = (e: ISort) => {

@@ -35,6 +35,12 @@ export default {
         icon: 'o_workspaces',
         link: 'yourworkspace',
       },
+      teams: {
+        title: 'Zaspoły',
+        caption: 'Zarządzaj zespołami',
+        icon: 'o_groups',
+        link: 'teams',
+      },
     },
     icons: {
       labels: {

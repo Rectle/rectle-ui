@@ -24,6 +24,14 @@ const routes: RouteRecordRaw[] = [
         component: () => import('pages/YourWorkspacePage.vue'),
       },
       {
+        path: '/teams',
+        name: 'teams',
+        component: () => import('pages/TeamsPage.vue'),
+        meta: {
+          redirectAuth: true,
+        },
+      },
+      {
         path: '/project-overview/:id',
         name: 'projectOverview',
         component: () => import('pages/ProjectOverviewPage.vue'),
