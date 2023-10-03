@@ -2,6 +2,7 @@
   <search-bar
     @search="(e: string) => search = e"
     @sort="sortByDate"
+    :showFilter="false"
     class="q-pa-sm"
   />
   <teams-list
@@ -20,8 +21,6 @@ import teamsList from './teams/teamsList.vue';
 
 const { t } = useI18n();
 
-const active = ref<boolean>(true);
-const finished = ref<boolean>(false);
 const search = ref<string>('');
 const sort = ref<ISort>(ISortMock);
 
@@ -64,10 +63,7 @@ const listExamples = [
 
 const listOfCompetitions = ref(listExamples);
 
-const getBase = () => listExamples;
-// listExamples.filter(
-//   (obj) => (active.value && obj.active) || (finished.value && obj.finished)
-// );
+const getBase = () => [...listExamples];
 
 const getSearchBase = () =>
   listExamples.filter((obj) => {
@@ -108,7 +104,7 @@ onMounted(() => {
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 });
 
-watch([active, finished, search], () => {
+watch([search], () => {
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 });
 </script>

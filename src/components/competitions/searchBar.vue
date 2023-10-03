@@ -18,6 +18,7 @@
           round
           dropdown-icon="o_filter_list"
           class="q-px-sm q-mx-xs"
+          v-if="props.showFilter"
         >
           <div class="row no-wrap q-py-sm q-px-lg">
             <div class="column items-center">
@@ -94,6 +95,12 @@
 import { defineEmits, ref } from 'vue';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ESortTypes } from 'src/sort-types/sort.enum';
+const props = defineProps({
+  showFilter: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const emit = defineEmits(['sort', 'active', 'finished', 'search']);
 const active = ref<boolean>(true);
