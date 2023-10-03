@@ -77,6 +77,18 @@ export default {
       title: 'BROWSE',
     },
   },
+  addTeam: {
+    form: {
+      title: 'Create team',
+      teamName: 'Team Name',
+      avatar: 'Upload avatar image (optional)',
+      tab: 'Create',
+    },
+    join: {
+      title: 'Join to team',
+      tab: 'Join',
+    },
+  },
   projectCard: {
     author: 'Author: ',
     users: 'users',

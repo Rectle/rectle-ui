@@ -1,5 +1,5 @@
 <template>
-  <q-card class="cursor-pointer q-ma-xs card_style column" flat bordered>
+  <q-card class="q-ma-xs card_style column" flat bordered>
     <q-item class="col-6" style="justify-items: center">
       <q-item-section avatar>
         <q-avatar size="50px">

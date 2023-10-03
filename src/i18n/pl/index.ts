@@ -77,6 +77,18 @@ export default {
       title: 'WYBIERZ',
     },
   },
+  addTeam: {
+    form: {
+      title: 'Stwórz zespół',
+      teamName: 'Nazwa zespołu',
+      avatar: 'Wgraj zdjęcie awatara (opcjonalne))',
+      tab: 'Stwórz',
+    },
+    join: {
+      title: 'Dołącz do zespołu',
+      tab: 'Dołącz',
+    },
+  },
   projectCard: {
     author: 'Autor: ',
     users: 'użytkowników',

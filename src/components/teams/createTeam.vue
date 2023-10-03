@@ -12,38 +12,28 @@
         />
       </div>
       <div class="q-my-md row items-start justify-center text-h3">
-        {{ $t('addProject.form.title') }}
+        {{
+          tab === 'create' ? $t('addTeam.form.title') : $t('addTeam.join.title')
+        }}
       </div>
-
+      <q-tabs v-model="tab" class="text-primary">
+        <q-tab name="create" :label="$t('addTeam.form.tab')" />
+        <q-tab name="join" :label="$t('addTeam.join.tab')" />
+      </q-tabs>
       <q-separator />
       <div class="items-start justify-start">
-        <q-form @submit.prevent.stop="onSubmit" class="q-gutter-md q-mt-md">
+        <q-form
+          v-if="tab === 'create'"
+          @submit.prevent.stop="onSubmit"
+          class="q-gutter-md q-mt-md"
+        >
           <q-input
-            v-model="projectName"
+            v-model="teamName"
             filled
-            :label="t('addProject.form.projectName')"
+            :label="t('addTeam.form.teamName')"
           />
 
-          <q-input
-            v-model="description"
-            type="textarea"
-            filled
-            :label="t('addProject.form.description')"
-          />
-
-          <q-select
-            v-model="tags"
-            filled
-            :label="t('addProject.form.tags')"
-            use-input
-            use-chips
-            multiple
-            hide-dropdown-icon
-            input-debounce="0"
-            new-value-mode="add-unique"
-          />
-
-          <q-file v-model="baner" :label="$t('addProject.form.baner')" filled>
+          <q-file v-model="avatar" :label="$t('addTeam.form.avatar')" filled>
             <template v-slot:prepend>
               <q-icon name="attach_file" />
             </template>
@@ -59,6 +49,27 @@
             />
           </div>
         </q-form>
+        <div v-else class="q-my-sm">
+          <q-virtual-scroll
+            style="max-height: 400px"
+            :items="['test5', 'test6', 'test7', 'test8']"
+            separator
+            v-slot="{ item, index }"
+          >
+            <q-item :key="index" dense>
+              <q-item-section>
+                <q-item-label class="text-h6" style="text-align: center">
+                  <q-btn
+                    flat
+                    color="primary"
+                    :label="item"
+                    @click="requestDialog(item)"
+                  />
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-virtual-scroll>
+        </div>
       </div>
     </q-card>
   </q-dialog>
@@ -68,7 +79,6 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
-import { createProject } from 'src/api/postProjectData';
 
 const props = defineProps({
   dialog: Boolean,
@@ -76,15 +86,33 @@ const props = defineProps({
 
 const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 
+const requestDialog = (item: string) => {
+  $q.dialog({
+    title: 'Almost there!',
+    message: `Your request to join the ${item} them is pending approval`,
+    cancel: true,
+    persistent: true,
+  })
+    .onOk(() => {
+      // console.log('>>>> OK')
+    })
+    .onCancel(() => {
+      // console.log('>>>> Cancel')
+    })
+    .onDismiss(() => {
+      // console.log('I am triggered on both OK and Cancel')
+    });
+};
+
 const openDialog = computed({
   get: () => props.dialog,
   set: (newValue) => emit('closeDialog', newValue),
 });
 
-const projectName = ref<string>('');
-const description = ref<string>('');
-const tags = ref<string[]>([]);
-const baner = ref<File>();
+const teamName = ref<string>('');
+const avatar = ref<File>();
+
+const tab = ref<string>('create');
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -107,12 +135,12 @@ const setResult = (result: number) => {
 };
 
 const onSubmit = async () => {
-  if (projectName.value) {
-    const result = await createProject({
-      name: projectName.value,
-      description: description.value,
-      tags: tags.value.join(','),
-    });
+  if (teamName.value) {
+    const result = 0;
+    // const result = await createTeam({
+    //   name: projectName.value,
+    //   avatar: avatar,
+    // });
     setResult(result);
   } else {
     $q.notify({
