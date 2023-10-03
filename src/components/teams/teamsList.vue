@@ -3,13 +3,14 @@
     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3">
       <team-add-card @click="addTeam" />
     </div>
+
     <div
       class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-3"
       v-for="item of props.list"
       v-bind:key="item.name"
     >
       <team-card
-        :image="item.image"
+        :avatar="item.avatar"
         :name="item.name"
         :date="item.date"
         :users="item.users"

@@ -1,5 +1,5 @@
 interface ITeamCard {
-  image: string;
+  avatar: string;
   name: string;
   date: string;
   users: string[];

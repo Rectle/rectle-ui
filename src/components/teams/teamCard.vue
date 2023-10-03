@@ -3,7 +3,7 @@
     <q-item class="col-6" style="justify-items: center">
       <q-item-section avatar>
         <q-avatar size="50px">
-          <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
+          <img :src="props.avatar" />
         </q-avatar>
       </q-item-section>
 
@@ -18,8 +18,10 @@
             {{ $t('projectCard.date') }} {{ formatDate(props.date) }}
           </q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
-            {{ props.users?.length ? props.users.join(', ') : '0' }}
-            {{ $t('projectCard.users') }}
+            <div v-if="props.users && props.users.length">
+              {{ $t('projectCard.users') }} : {{ props.users.join(', ') }}
+            </div>
+            <div v-else>0 {{ $t('projectCard.users') }}</div>
           </q-item-label>
         </q-card-section>
       </div>
@@ -31,10 +33,10 @@ import moment from 'moment';
 import { useQuasar } from 'quasar';
 
 const props = defineProps({
-  image: String,
   name: String,
   users: Array,
   date: String,
+  avatar: String,
 });
 
 const $q = useQuasar();

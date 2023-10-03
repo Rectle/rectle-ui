@@ -33,29 +33,32 @@ const listExamples = [
     id: '1',
     name: 'test1',
     date: '03.23.2023',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Animedia_favicon.png',
-    users: [],
+    avatar:
+      'https://upload.wikimedia.org/wikipedia/commons/f/f8/Animedia_favicon.png',
+    users: ['Michaqu', 'MichuBilu123', 'Dazasd5@E'],
   },
   {
     id: '2',
     name: 'test2',
     date: '03.24.2023',
-    url: 'https://supersound.pl/media/catalog/category/DJ_banner_10.jpg',
-    users: [],
+    avatar:
+      'https://i.pinimg.com/474x/47/17/ce/4717ce89b32aebad31c7c1d343550303.jpg',
+    users: ['Ahrop', 'Manus'],
   },
   {
     id: '3',
     name: 'test3',
     date: '03.25.2023',
-    url: 'https://supersound.pl/media/catalog/category/kolumny_banner2_1.jpg',
+    avatar:
+      'https://supersound.pl/media/catalog/category/kolumny_banner2_1.jpg',
     users: [],
   },
   {
     id: '4',
     name: 'test4',
     date: '03.27.2023',
-    url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/250x250.png',
-    users: [],
+    avatar: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/250x250.png',
+    users: ['B4rt', 'Chicken', 'Mr.Beast'],
   },
 ];
 
