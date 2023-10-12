@@ -10,9 +10,9 @@
       v-bind:key="item.name"
     >
       <team-card
-        :avatar="item.avatar"
+        :logoUrl="item.logoUrl"
         :name="item.name"
-        :date="item.date"
+        :createDate="item.createDate"
         :users="item.users"
       />
     </div>

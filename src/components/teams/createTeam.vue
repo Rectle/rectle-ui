@@ -136,7 +136,6 @@ const setResult = (result: number) => {
 };
 
 const onSubmit = async () => {
-  debugger;
   if (teamName.value) {
     const result = await createTeam(teamName.value, avatar.value);
     setResult(result);

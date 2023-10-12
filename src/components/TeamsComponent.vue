@@ -12,6 +12,7 @@
   />
 </template>
 <script setup lang="ts">
+import { getAllTeams } from 'src/api/getTeamsByUserId';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -26,46 +27,22 @@ const sort = ref<ISort>(ISortMock);
 const tabs = [t('tabs.creator'), t('tabs.participant')];
 const type = ref<string>(tabs[0]);
 
-const listExamples = [
-  {
-    id: '1',
-    name: 'test1',
-    date: '03.23.2023',
-    avatar:
-      'https://upload.wikimedia.org/wikipedia/commons/f/f8/Animedia_favicon.png',
-    users: ['Michaqu', 'MichuBilu123', 'Dazasd5@E'],
-  },
-  {
-    id: '2',
-    name: 'test2',
-    date: '03.24.2023',
-    avatar:
-      'https://i.pinimg.com/474x/47/17/ce/4717ce89b32aebad31c7c1d343550303.jpg',
-    users: ['Ahrop', 'Manus'],
-  },
-  {
-    id: '3',
-    name: 'test3',
-    date: '03.25.2023',
-    avatar:
-      'https://supersound.pl/media/catalog/category/kolumny_banner2_1.jpg',
-    users: [],
-  },
-  {
-    id: '4',
-    name: 'test4',
-    date: '03.27.2023',
-    avatar: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/250x250.png',
-    users: ['B4rt', 'Chicken', 'Mr.Beast'],
-  },
-];
+interface ITeam {
+  id: string;
+  name: string;
+  createDate: string;
+  logoUrl: string;
+  users?: { id: string; name: string }[];
+}
 
-const listOfCompetitions = ref(listExamples);
+const teamList = ref<ITeam[]>([]);
 
-const getBase = () => [...listExamples];
+const listOfCompetitions = ref(teamList);
+
+const getBase = () => [...teamList.value];
 
 const getSearchBase = () =>
-  listExamples.filter((obj) => {
+  teamList.value.filter((obj) => {
     return obj.name.toUpperCase().includes(search.value.toUpperCase());
   });
 
@@ -88,19 +65,20 @@ const sortByStartDate = (sort: ISort) => {
 
   if (sort.sortOrder == 1) {
     sortedListOfCompetitions.value = base.sort((a, b) =>
-      new Date(a.date) > new Date(b.date) ? -1 : 1
+      new Date(a.createDate) > new Date(b.createDate) ? -1 : 1
     );
   } else if (sort.sortOrder == 2) {
     sortedListOfCompetitions.value = base.sort((a, b) =>
-      new Date(a.date) < new Date(b.date) ? -1 : 1
+      new Date(a.createDate) < new Date(b.createDate) ? -1 : 1
     );
   } else {
     sortedListOfCompetitions.value = base;
   }
 };
 
-onMounted(() => {
+onMounted(async () => {
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
+  teamList.value = (await getAllTeams(1)) as ITeam[];
 });
 
 watch([search], () => {

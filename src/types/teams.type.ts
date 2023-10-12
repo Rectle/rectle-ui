@@ -1,7 +1,7 @@
 interface ITeamCard {
-  avatar: string;
+  logoUrl: string;
   name: string;
-  date: string;
+  createDate: string;
   users: string[];
   id?: string;
 }

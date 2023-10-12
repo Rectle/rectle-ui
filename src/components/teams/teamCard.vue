@@ -3,7 +3,7 @@
     <q-item class="col-6" style="justify-items: center">
       <q-item-section avatar>
         <q-avatar size="50px">
-          <img :src="props.avatar" />
+          <img :src="props.logoUrl ?? EMPTY_IMAGE" />
         </q-avatar>
       </q-item-section>
 
@@ -15,11 +15,12 @@
       <div class="details">
         <q-card-section>
           <q-item-label :caption="!$q.dark.isActive">
-            {{ $t('projectCard.date') }} {{ formatDate(props.date) }}
+            {{ $t('projectCard.date') }} {{ formatDate(props.createDate) }}
           </q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
             <div v-if="props.users && props.users.length">
-              {{ $t('projectCard.users') }} : {{ props.users.join(', ') }}
+              {{ $t('projectCard.users') }} :
+              {{ props.users.map((user) => user.name).join(', ') }}
             </div>
             <div v-else>0 {{ $t('projectCard.users') }}</div>
           </q-item-label>
@@ -35,9 +36,11 @@ import { useQuasar } from 'quasar';
 const props = defineProps({
   name: String,
   users: Array,
-  date: String,
-  avatar: String,
+  createDate: String,
+  logoUrl: String,
 });
+
+const EMPTY_IMAGE = 'https://hryoutest.in.ua/uploads/images/default.jpg';
 
 const $q = useQuasar();
 
