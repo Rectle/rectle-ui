@@ -17,7 +17,6 @@ import { ref, watch, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import searchBar from './competitions/searchBar.vue';
 import teamsList from './teams/teamsList.vue';
-// import { uuid } from 'vue-uuid';
 
 const { t } = useI18n();
 

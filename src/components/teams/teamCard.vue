@@ -57,7 +57,7 @@ const formatDate = (date: string | undefined) => {
 
 .card_style {
   height: 120px;
-  max-width: 250px;
+  max-width: 280px;
   padding: 10px 10px 0px 10px;
   justify-content: center;
 }

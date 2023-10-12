@@ -89,7 +89,7 @@ const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 const requestDialog = (item: string) => {
   $q.dialog({
     title: 'Almost there!',
-    message: `Your request to join the ${item} them is pending approval`,
+    message: `Your request to join the ${item} team is pending approval`,
     cancel: true,
     persistent: true,
   })
