@@ -79,6 +79,7 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
+import { createTeam } from 'src/api/createTeam';
 
 const props = defineProps({
   dialog: Boolean,
@@ -135,12 +136,9 @@ const setResult = (result: number) => {
 };
 
 const onSubmit = async () => {
+  debugger;
   if (teamName.value) {
-    const result = 0;
-    // const result = await createTeam({
-    //   name: projectName.value,
-    //   avatar: avatar,
-    // });
+    const result = await createTeam(teamName.value, avatar.value);
     setResult(result);
   } else {
     $q.notify({
