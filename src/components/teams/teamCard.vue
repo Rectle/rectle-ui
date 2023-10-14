@@ -1,5 +1,14 @@
 <template>
   <q-card class="q-ma-xs card_style column" flat bordered>
+    <q-btn
+      class="absolute-top-right"
+      flat
+      round
+      color="red"
+      size="sm"
+      icon="o_exit_to_app"
+      @click="() => leaveTeam(props.name, props.id)"
+    />
     <q-item class="col-6" style="justify-items: center">
       <q-item-section avatar>
         <q-avatar size="50px">
@@ -8,9 +17,9 @@
       </q-item-section>
 
       <q-item-section>
-        <q-item-label class="text-h6 user-card-header">{{
-          props.name
-        }}</q-item-label>
+        <q-item-label class="text-h6 user-card-header"
+          >{{ props.name }}
+        </q-item-label>
       </q-item-section>
     </q-item>
     <div class="row q-px-xs col-6">
@@ -37,6 +46,7 @@
 <script setup lang="ts">
 import moment from 'moment';
 import { useQuasar } from 'quasar';
+import { leaveTheTeam } from 'src/api/leaveFromTeam';
 import { EMPTY_IMAGE } from 'src/shared/variable.shared';
 
 const props = defineProps({
@@ -44,12 +54,26 @@ const props = defineProps({
   users: Array,
   createDate: String,
   logoUrl: String,
+  id: Number,
 });
 
 const $q = useQuasar();
 
 const formatDate = (date: string | undefined) => {
   return moment(date).format('DD.MM.YYYY');
+};
+
+const leaveTeam = (name: string | undefined, id: number | undefined) => {
+  if (id)
+    $q.dialog({
+      title: 'Leave the team',
+      message: `Are you sure you want to leave the ${name ?? ''} team?`,
+      cancel: true,
+      persistent: true,
+    }).onOk(() => {
+      leaveTheTeam(id);
+      location.reload();
+    });
 };
 </script>
 <style scoped>
@@ -71,7 +95,6 @@ const formatDate = (date: string | undefined) => {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .details .q-card__section--vert {
   padding: 6px;
 }

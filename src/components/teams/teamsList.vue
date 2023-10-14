@@ -14,6 +14,7 @@
         :name="item.name"
         :createDate="item.createDate"
         :users="item.users"
+        :id="item.id"
       />
     </div>
   </div>
