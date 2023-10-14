@@ -37,6 +37,7 @@
 <script setup lang="ts">
 import moment from 'moment';
 import { useQuasar } from 'quasar';
+import { EMPTY_IMAGE } from 'src/shared/variable.shared';
 
 const props = defineProps({
   name: String,
@@ -44,8 +45,6 @@ const props = defineProps({
   createDate: String,
   logoUrl: String,
 });
-
-const EMPTY_IMAGE = 'https://hryoutest.in.ua/uploads/images/default.jpg';
 
 const $q = useQuasar();
 

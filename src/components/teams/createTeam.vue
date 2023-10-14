@@ -52,19 +52,26 @@
         <div v-else class="q-my-sm">
           <q-virtual-scroll
             style="max-height: 400px"
-            :items="['test5', 'test6', 'test7', 'test8']"
+            :items="availableTeams"
             separator
             v-slot="{ item, index }"
           >
-            <q-item :key="index" dense>
+            <q-item
+              :key="index"
+              dense
+              style="padding: 5px 0px"
+              @click="requestDialog(item)"
+              clickable
+              v-ripple
+            >
+              <q-item-section avatar>
+                <q-avatar>
+                  <img :src="item.logoUrl ?? EMPTY_IMAGE" />
+                </q-avatar>
+              </q-item-section>
               <q-item-section>
-                <q-item-label class="text-h6" style="text-align: center">
-                  <q-btn
-                    flat
-                    color="primary"
-                    :label="item"
-                    @click="requestDialog(item)"
-                  />
+                <q-item-label class="text-primary">
+                  {{ item.name }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -76,10 +83,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
 import { createTeam } from 'src/api/createTeam';
+import { getNotBelongingToUserTeams } from 'src/api/getNotBelongingToUserTeams';
+import { ITeamJoin } from 'src/types/teams.type';
+import { joinToTeam } from 'src/api/joinToTeam';
+import { EMPTY_IMAGE } from 'src/shared/variable.shared';
 
 const props = defineProps({
   dialog: Boolean,
@@ -87,22 +98,22 @@ const props = defineProps({
 
 const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 
-const requestDialog = (item: string) => {
+const availableTeams = ref([]);
+
+onMounted(async () => {
+  availableTeams.value = await getNotBelongingToUserTeams();
+});
+
+const requestDialog = (item: ITeamJoin) => {
   $q.dialog({
     title: 'Almost there!',
-    message: `Your request to join the ${item} team is pending approval`,
+    message: `Your request to join the ${item.name} team is pending approval`,
     cancel: true,
     persistent: true,
-  })
-    .onOk(() => {
-      // console.log('>>>> OK')
-    })
-    .onCancel(() => {
-      // console.log('>>>> Cancel')
-    })
-    .onDismiss(() => {
-      // console.log('I am triggered on both OK and Cancel')
-    });
+  }).onOk(() => {
+    joinToTeam(item.id);
+    location.reload();
+  });
 };
 
 const openDialog = computed({

@@ -10,6 +10,6 @@ import { useMeta } from 'quasar';
 import metaData from '@/utils/configs/meta.ts';
 useMeta({
   ...metaData,
-  title: 'Home page'
+  title: 'Home page',
 });
 </script>

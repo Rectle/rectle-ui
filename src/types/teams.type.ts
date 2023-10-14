@@ -5,3 +5,10 @@ interface ITeamCard {
   users: string[];
   id?: string;
 }
+
+export interface ITeamJoin {
+  createDate: string;
+  id: number;
+  logoUrl: string | null;
+  name: string;
+}
