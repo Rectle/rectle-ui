@@ -9,7 +9,6 @@
     </div>
   </q-card>
 </template>
-<script setup lang="ts"></script>
 <style scoped>
 .card_style {
   height: 120px;

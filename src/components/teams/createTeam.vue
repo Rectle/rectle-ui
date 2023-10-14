@@ -120,14 +120,13 @@ const { t } = useI18n();
 
 const setResult = (result: number) => {
   if (result) {
-    emit('projectIdEmit', result);
     $q.notify({
       color: 'primary',
       message: t('codePage.project.successData'),
-      timeout: 1000,
+      timeout: 2000,
     });
+    setTimeout(() => location.reload(), 500);
   } else {
-    emit('projectIdEmit', 0);
     $q.notify({
       type: 'negative',
       message: t('codePage.project.errorData'),

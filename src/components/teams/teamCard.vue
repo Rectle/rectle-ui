@@ -8,7 +8,9 @@
       </q-item-section>
 
       <q-item-section>
-        <q-item-label class="text-h6">{{ props.name }}</q-item-label>
+        <q-item-label class="text-h6 user-card-header">{{
+          props.name
+        }}</q-item-label>
       </q-item-section>
     </q-item>
     <div class="row q-px-xs col-6">
@@ -18,7 +20,10 @@
             {{ $t('projectCard.date') }} {{ formatDate(props.createDate) }}
           </q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
-            <div v-if="props.users && props.users.length">
+            <div
+              v-if="props.users && props.users.length"
+              style="white-space: break-spaces"
+            >
               {{ $t('projectCard.users') }} :
               {{ props.users.map((user) => user.name).join(', ') }}
             </div>
@@ -63,6 +68,9 @@ const formatDate = (date: string | undefined) => {
   max-width: 280px;
   padding: 10px 10px 0px 10px;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .details .q-card__section--vert {

@@ -6,13 +6,13 @@
     class="q-pa-sm"
   />
   <teams-list
-    :list="sortedListOfCompetitions"
+    :list="sortedListOfTeams"
     :page="$t('link.yourworkspace.link')"
     :tab="type"
   />
 </template>
 <script setup lang="ts">
-import { getAllTeams } from 'src/api/getTeamsByUserId';
+import { getAllTeams } from 'src/api/getAllTeamsByUserId';
 import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -37,21 +37,21 @@ interface ITeam {
 
 const teamList = ref<ITeam[]>([]);
 
-const listOfCompetitions = ref(teamList);
+const listOfTeams = ref(teamList);
 
 const getBase = () => [...teamList.value];
 
 const getSearchBase = () =>
-  teamList.value.filter((obj) => {
+  getBase().filter((obj) => {
     return obj.name.toUpperCase().includes(search.value.toUpperCase());
   });
 
-const sortedListOfCompetitions = computed({
+const sortedListOfTeams = computed({
   get() {
-    return listOfCompetitions.value;
+    return listOfTeams.value;
   },
   set(val) {
-    listOfCompetitions.value = val;
+    listOfTeams.value = val;
   },
 });
 
@@ -64,24 +64,25 @@ const sortByStartDate = (sort: ISort) => {
   const base = search.value !== '' ? getSearchBase() : getBase();
 
   if (sort.sortOrder == 1) {
-    sortedListOfCompetitions.value = base.sort((a, b) =>
+    sortedListOfTeams.value = base.sort((a, b) =>
       new Date(a.createDate) > new Date(b.createDate) ? -1 : 1
     );
   } else if (sort.sortOrder == 2) {
-    sortedListOfCompetitions.value = base.sort((a, b) =>
+    sortedListOfTeams.value = base.sort((a, b) =>
       new Date(a.createDate) < new Date(b.createDate) ? -1 : 1
     );
   } else {
-    sortedListOfCompetitions.value = base;
+    sortedListOfTeams.value = base;
   }
 };
 
 onMounted(async () => {
-  sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
-  teamList.value = (await getAllTeams(1)) as ITeam[];
+  teamList.value = (await getAllTeams()) as ITeam[];
+  sortedListOfTeams.value = search.value ? getSearchBase() : getBase();
 });
 
-watch([search], () => {
-  sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
+watch([search], async () => {
+  teamList.value = (await getAllTeams()) as ITeam[];
+  sortedListOfTeams.value = search.value ? getSearchBase() : getBase();
 });
 </script>

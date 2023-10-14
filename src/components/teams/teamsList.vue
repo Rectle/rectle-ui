@@ -20,7 +20,6 @@
 
   <create-team
     :dialog="projectDialog"
-    @projectIdEmit="(e: number) => projectId = e"
     @closeDialog="(e: boolean) => projectDialog = e"
   />
 </template>
@@ -36,8 +35,6 @@ const props = defineProps({
   page: String,
   tab: String,
 });
-const projectId = ref(0);
-
 const projectDialog = ref(false);
 
 const addTeam = () => {
