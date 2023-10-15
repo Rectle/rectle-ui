@@ -109,6 +109,12 @@ export default {
     },
     project: {
       title: 'Wgraj projekt',
+      successData: 'Projekt został pomyślnie stworzony',
+      errorData: 'Wystąpił problem przy tworzeniu projektu',
+    },
+    teams: {
+      successData: 'Zespół został pomyślnie stworzony',
+      errorData: 'Wystąpił problem przy tworzeniu teamu',
     },
     title: 'Code',
     uploadLabel: 'Wgraj plik',

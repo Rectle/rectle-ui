@@ -68,7 +68,7 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
-import { createProject } from 'src/api/postProjectData';
+import { createProject } from 'src/api/createProject';
 
 const props = defineProps({
   dialog: Boolean,
@@ -112,6 +112,7 @@ const onSubmit = async () => {
       name: projectName.value,
       description: description.value,
       tags: tags.value.join(','),
+      file: baner.value,
     });
     setResult(result);
   } else {

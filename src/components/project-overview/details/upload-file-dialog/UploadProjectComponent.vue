@@ -43,17 +43,17 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
-import { sendFile } from 'src/api/postFile';
+import { createProjectFile } from 'src/api/createProjectFile';
 
 const props = defineProps({
-  dialog: Boolean
+  dialog: Boolean,
 });
 
 const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 
 const openDialog = computed({
   get: () => props.dialog,
-  set: (newValue) => emit('closeDialog', newValue)
+  set: (newValue) => emit('closeDialog', newValue),
 });
 
 const file = ref<File>();
@@ -66,25 +66,25 @@ const setResult = (result: number) => {
     $q.notify({
       color: 'primary',
       message: t('codePage.successData'),
-      timeout: 1000
+      timeout: 1000,
     });
   } else {
     emit('projectIdEmit', 0);
     $q.notify({
       type: 'negative',
-      message: t('codePage.errorData')
+      message: t('codePage.errorData'),
     });
   }
 };
 
 const onSubmit = async () => {
   if (file.value) {
-    const result = await sendFile(file.value);
+    const result = await createProjectFile(file.value);
     setResult(result);
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };

@@ -112,6 +112,10 @@ export default {
       successData: 'The project has been successfully created',
       errorData: 'There was a problem during project creation',
     },
+    teams: {
+      successData: 'The team has been successfully created',
+      errorData: 'There was a problem during team creation',
+    },
     title: 'Code',
     uploadLabel: 'Upload file',
     emptyData: 'Submitted form contains empty formData!',
