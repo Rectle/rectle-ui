@@ -47,6 +47,7 @@ import { createProjectFile } from 'src/api/createProjectFile';
 
 const props = defineProps({
   dialog: Boolean,
+  id: String,
 });
 
 const emit = defineEmits(['closeDialog', 'projectIdEmit']);
@@ -79,7 +80,7 @@ const setResult = (result: number) => {
 
 const onSubmit = async () => {
   if (file.value) {
-    const result = await createProjectFile(file.value);
+    const result = props.id ? await createProjectFile(file.value, props.id) : 0;
     setResult(result);
   } else {
     $q.notify({

@@ -48,6 +48,7 @@
   </div>
   <UploadProjectComponent
     :dialog="uploadProjectFile"
+    :id="props.id"
     @projectIdEmit="(e) => (projectId = e)"
     @closeDialog="(e) => (uploadProjectFile = e)"
   />
@@ -66,6 +67,7 @@ const $q = useQuasar();
 
 const props = defineProps({
   page: String,
+  id: String,
 });
 
 const projectId = ref(0);
