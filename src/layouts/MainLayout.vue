@@ -73,7 +73,7 @@ import { ref, watch } from 'vue';
 import { useQuasar, LocalStorage, Screen } from 'quasar';
 import moment from 'moment';
 import EssentialLink, {
-  EssentialLinkProps
+  EssentialLinkProps,
 } from 'components/EssentialLink.vue';
 
 const $q = useQuasar();
@@ -84,20 +84,26 @@ const links: EssentialLinkProps[] = [
     title: t('dashboard.links.home.title'),
     caption: t('dashboard.links.home.caption'),
     icon: t('dashboard.links.home.icon'),
-    link: t('dashboard.links.home.link')
+    link: t('dashboard.links.home.link'),
   },
   {
     title: t('dashboard.links.competitions.title'),
     caption: t('dashboard.links.competitions.caption'),
     icon: t('dashboard.links.competitions.icon'),
-    link: t('dashboard.links.competitions.link')
+    link: t('dashboard.links.competitions.link'),
   },
   {
     title: t('dashboard.links.yourworkspace.title'),
     caption: t('dashboard.links.yourworkspace.caption'),
     icon: t('dashboard.links.yourworkspace.icon'),
-    link: t('dashboard.links.yourworkspace.link')
-  }
+    link: t('dashboard.links.yourworkspace.link'),
+  },
+  {
+    title: t('dashboard.links.teams.title'),
+    caption: t('dashboard.links.teams.caption'),
+    icon: t('dashboard.links.teams.icon'),
+    link: t('dashboard.links.teams.link'),
+  },
 ];
 
 const drawer = ref(false);

@@ -35,6 +35,12 @@ export default {
         icon: 'o_workspaces',
         link: 'yourworkspace',
       },
+      teams: {
+        title: 'Teams',
+        caption: 'Manage teams',
+        icon: 'o_groups',
+        link: 'teams',
+      },
     },
     icons: {
       labels: {
@@ -69,6 +75,18 @@ export default {
     },
     browse: {
       title: 'BROWSE',
+    },
+  },
+  addTeam: {
+    form: {
+      title: 'Create team',
+      teamName: 'Team Name',
+      avatar: 'Upload avatar image (optional)',
+      tab: 'Create',
+    },
+    join: {
+      title: 'Join to team',
+      tab: 'Join',
     },
   },
   projectCard: {

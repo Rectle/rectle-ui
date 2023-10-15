@@ -1,4 +1,5 @@
-
 const url = process.env.BACKEND_URL;
 
-export { url };
+const EMPTY_IMAGE = 'https://hryoutest.in.ua/uploads/images/default.jpg';
+
+export { url, EMPTY_IMAGE };

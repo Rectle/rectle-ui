@@ -35,6 +35,12 @@ export default {
         icon: 'o_workspaces',
         link: 'yourworkspace',
       },
+      teams: {
+        title: 'Zaspoły',
+        caption: 'Zarządzaj zespołami',
+        icon: 'o_groups',
+        link: 'teams',
+      },
     },
     icons: {
       labels: {
@@ -69,6 +75,18 @@ export default {
     },
     browse: {
       title: 'WYBIERZ',
+    },
+  },
+  addTeam: {
+    form: {
+      title: 'Stwórz zespół',
+      teamName: 'Nazwa zespołu',
+      avatar: 'Wgraj zdjęcie awatara (opcjonalne))',
+      tab: 'Stwórz',
+    },
+    join: {
+      title: 'Dołącz do zespołu',
+      tab: 'Dołącz',
     },
   },
   projectCard: {
