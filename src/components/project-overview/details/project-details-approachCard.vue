@@ -18,7 +18,7 @@
           </q-item-section>
           <q-item-section
             >{{ $t('approcheTab.details.compileId')
-            }}{{ props.compiletId }}</q-item-section
+            }}{{ props.approacheID }}</q-item-section
           >
         </q-item>
       </q-list>
@@ -40,24 +40,23 @@ const router = useRouter();
 
 const props = defineProps({
   projectId: Number,
-  compiletId: Number,
   approacheID: Number,
   points: Number,
   score: Number,
   status: String,
   title: String,
   name: String,
-  modelName: String
+  modelName: String,
 });
 
 enum colors {
   pending = 'orange',
-  done = 'green'
+  done = 'green',
 }
 
 enum icons {
   pending = 'o_pending',
-  done = 'o_check_circle'
+  done = 'o_check_circle',
 }
 
 const routeToDetails = () => {
@@ -69,8 +68,8 @@ const routeToDetails = () => {
       title: props.title,
       points: props.points,
       score: props.score,
-      status: props.status
-    }
+      status: props.status,
+    },
   });
 };
 </script>

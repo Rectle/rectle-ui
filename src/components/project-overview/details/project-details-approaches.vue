@@ -39,9 +39,10 @@
 </template>
 
 <script setup lang="ts">
-import ProjectDetailsApproacheCard from './project-details-approacheCard.vue';
+import { getApproaches } from 'src/api/getApproaches';
+import ProjectDetailsApproacheCard from './project-details-approachCard.vue';
 import UploadModelComponent from './upload-file-dialog/UploadModelComponent.vue';
-import { ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 // TODO: download approaches form databse by projectid
 const props = defineProps({
@@ -52,6 +53,7 @@ const props = defineProps({
 interface IApprocheDetail {
   id: number;
   name: string;
+  createDate: string;
   points?: number;
   score?: number;
   status?: string;
@@ -62,6 +64,14 @@ const modelName = ref('');
 const compileId = ref(0);
 
 const approaches = ref<IApprocheDetail[]>([]);
+
+onMounted(async () => {
+  approaches.value = props.id ? await getApproaches(props.id) : [];
+});
+
+watch([compileId.value], async () => {
+  approaches.value = props.id ? await getApproaches(props.id) : [];
+});
 
 const uploadModelFromFile = () =>
   (uploadModelFile.value = !uploadModelFile.value);
