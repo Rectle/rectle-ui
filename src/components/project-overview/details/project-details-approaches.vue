@@ -1,4 +1,14 @@
 <template>
+  <q-btn
+    class="q-mb-md"
+    align="between"
+    label="Create model"
+    icon="o_attach_file"
+    outline
+    rounded
+    @click="uploadModelFromFile"
+  />
+
   <div class="row justify-center q-gutter-sm">
     <div v-if="!approaches.length">{{ $t('approcheTab.empty') }}</div>
     <q-intersection
@@ -8,9 +18,8 @@
       class="example-item"
     >
       <ProjectDetailsApproacheCard
-        :projectId="props.projectId"
+        :projectId="props.id ? Number(props.id) : 0"
         :approacheID="approache.id"
-        :compiletId="props.compileId"
         :points="approache.points"
         :score="approache.score"
         :status="approache.status"
@@ -19,22 +28,25 @@
       />
     </q-intersection>
   </div>
+
+  <UploadModelComponent
+    :dialog="uploadModelFile"
+    :projectId="props.id ? Number(props.id) : 0"
+    @closeDialog="(e) => (uploadModelFile = e)"
+    @compileIdEmit="(e) => (compileId = e)"
+    @modelNameEmit="(e) => (modelName = e)"
+  />
 </template>
 
 <script setup lang="ts">
 import ProjectDetailsApproacheCard from './project-details-approacheCard.vue';
-import { ref, onMounted } from 'vue';
+import UploadModelComponent from './upload-file-dialog/UploadModelComponent.vue';
+import { ref } from 'vue';
 
 // TODO: download approaches form databse by projectid
 const props = defineProps({
   id: String,
   title: String,
-  projectId: Number,
-  compileId: Number,
-  modelName: {
-    type: String,
-    required: true
-  }
 });
 
 interface IApprocheDetail {
@@ -45,16 +57,23 @@ interface IApprocheDetail {
   status?: string;
 }
 
+const uploadModelFile = ref(false);
+const modelName = ref('');
+const compileId = ref(0);
+
 const approaches = ref<IApprocheDetail[]>([]);
 
-onMounted(() => {
-  if (props.compileId) {
-    approaches.value.push({
-      id: props.compileId,
-      name: props.modelName
-    });
-  }
-});
+const uploadModelFromFile = () =>
+  (uploadModelFile.value = !uploadModelFile.value);
+
+// onMounted(() => {
+//   if (props.compileId) {
+//     approaches.value.push({
+//       id: props.compileId,
+//       name: props.modelName,
+//     });
+//   }
+// });
 
 // const exampleApproaches = [
 //   {

@@ -5,7 +5,7 @@
     :description="props.project?.description"
     :technologies="props.project?.technologies"
   />
-  <ProjectTabs :tabs="tabs" @tab="(e: string) => type = e" />
+  <ProjectTabs :tabs="tabs" @tab="(e) => (type = e)" />
   <ProjectDetails
     :title="props.project?.title"
     :type="type"
@@ -30,8 +30,6 @@ const tabs = [
   t('projectTabs.approaches'),
   t('projectTabs.leaderboard'),
 ];
-
-// const options = ['o_file_upload', 'o_add', 'o_edit'];
 
 const type = ref<string>(tabs[0]);
 

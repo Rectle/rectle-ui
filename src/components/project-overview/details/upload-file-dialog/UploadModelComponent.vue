@@ -105,22 +105,22 @@ import { createModelByName } from 'src/api/createModel';
 
 const props = defineProps({
   dialog: Boolean,
-  projectID: {
+  projectId: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });
 const modelName = ref('');
 const modelId = ref(0);
 const emit = defineEmits(['closeDialog', 'compileIdEmit', 'modelNameEmit']);
 
 const projectIDComputed = computed(() => {
-  return props.projectID;
+  return props.projectId;
 });
 
 const openDialog = computed({
   get: () => props.dialog,
-  set: (newValue) => emit('closeDialog', newValue)
+  set: (newValue) => emit('closeDialog', newValue),
 });
 
 const file = ref<File>();
@@ -134,13 +134,13 @@ const setResult = (result: number) => {
     $q.notify({
       color: 'primary',
       message: t('codePage.successData'),
-      timeout: 1000
+      timeout: 1000,
     });
     disableCompileButton.value = false;
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.errorData')
+      message: t('codePage.errorData'),
     });
   }
 };
@@ -153,7 +153,7 @@ const compile = async () => {
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };
@@ -169,7 +169,7 @@ const createModel = async () => {
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };
@@ -182,7 +182,7 @@ const onSubmit = async () => {
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };

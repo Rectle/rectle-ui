@@ -38,10 +38,10 @@ import { useRouter } from 'vue-router';
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { IProject } from 'src/types/project.type';
+import { IProject, IWorkspace } from 'src/types/project.type';
 
 const props = defineProps({
-  list: { type: Array as PropType<IProject[]>, required: true },
+  list: { type: Array as PropType<IProject[] | IWorkspace[]>, required: true },
   page: String,
   tab: String,
 });
