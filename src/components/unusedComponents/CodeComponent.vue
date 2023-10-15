@@ -40,7 +40,7 @@
 import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
-import { sendFile } from 'src/api/postFile';
+import { createProjectFile } from 'src/api/createProjectFile';
 import { compileFile } from 'src/api/compileFile';
 
 const file = ref<File>();
@@ -54,13 +54,13 @@ const setResult = (result: number) => {
     $q.notify({
       color: 'primary',
       message: t('codePage.successData'),
-      timeout: 1000
+      timeout: 1000,
     });
     disableCompileButton.value = false;
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.errorData')
+      message: t('codePage.errorData'),
     });
     // disableCompileButton.value = true;
   }
@@ -74,20 +74,20 @@ const compile = async () => {
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };
 
 const onSubmit = async () => {
   if (file.value) {
-    const result = await sendFile(file.value);
+    const result = await createProjectFile(file.value);
     setResult(result);
     fileId.value = result;
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.emptyData')
+      message: t('codePage.emptyData'),
     });
   }
 };

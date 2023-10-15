@@ -41,10 +41,6 @@ export const useUserStore = defineStore('user', {
     signOut() {
       this.user = {} as IUser;
     },
-    async loadTeams(id: number) {
-      const teams = (await getAllTeams(id)) as ITeam[];
-      this.user.teams = teams;
-    },
     async loadTeam(email: string) {
       const res = (await getTeamByName(email)) as ITeam;
       return res.id;

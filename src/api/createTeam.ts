@@ -24,7 +24,16 @@ const createTeam = async (
       },
     });
 
-    await axios.put(`${url}/teams/${data.id}/user/${userStore.getUserId}`);
+    await axios.put(
+      `${url}/teams/${data.id}/user/${userStore.getUserId}`,
+      null,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer${userStore.user.jwt}`,
+        },
+      }
+    );
 
     return data.id;
   } catch (err: any) {

@@ -7,7 +7,12 @@ const leaveTheTeam = async (teamId: number) => {
   const userId = userStore.getUserId;
 
   try {
-    await axios.delete(`${url}/teams/${teamId}/user/${userId}`);
+    await axios.delete(`${url}/teams/${teamId}/user/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer${userStore.user.jwt}`,
+      },
+    });
   } catch (err) {
     console.error(err);
   }
