@@ -28,6 +28,7 @@
     :dialog="projectDialog"
     @projectIdEmit="(e:number) => projectId = e"
     @closeDialog="(e:boolean) => projectDialog = e"
+    @realodProjects="realodProjects"
   />
 </template>
 <script setup lang="ts">
@@ -42,7 +43,7 @@ import { useI18n } from 'vue-i18n';
 const props = defineProps({
   list: { type: Array as PropType<IProjectCard[]>, required: true },
   page: String,
-  tab: String
+  tab: String,
 });
 
 const router = useRouter();
@@ -51,6 +52,10 @@ const projectDialog = ref(false);
 const projectId = ref(0);
 
 const { t } = useI18n();
+
+const realodProjects = () => {
+  console.log('reloading projects...'); //TODO: add reload project mechanism
+};
 
 const addProject = () => {
   if (props.tab === t('tabs.creator')) {
@@ -72,8 +77,8 @@ const displayProject = (item: IProjectCard) => {
       date: item.date,
       users: item.users,
       technologies: item.technologies,
-      page: props.page
-    }
+      page: props.page,
+    },
   });
 };
 </script>

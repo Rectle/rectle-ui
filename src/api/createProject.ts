@@ -10,9 +10,6 @@ const changeFileToFormData = (file: File) => {
 
 const createProject = async (project: IProjectCreate): Promise<number> => {
   const userStore = useUserStore();
-  const teamId =
-    userStore.getUser.email &&
-    (await userStore.loadTeam(userStore.getUser.email));
 
   const formData = project.file
     ? changeFileToFormData(project.file)
@@ -20,23 +17,18 @@ const createProject = async (project: IProjectCreate): Promise<number> => {
   formData.append('description', project.description ?? '');
   formData.append('name', project.name);
   formData.append('tags', project.tags ?? '');
+  formData.append('teamId', project.teamId);
 
-  if (teamId) {
-    formData.append('teamId', teamId);
-
-    try {
-      const { data } = await axios.post(`${url}/projects`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer${userStore.user.jwt}`,
-        },
-      });
-      return data.id;
-    } catch (err: any) {
-      console.error(err);
-      return 0;
-    }
-  } else {
+  try {
+    const { data } = await axios.post(`${url}/projects`, formData, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer${userStore.user.jwt}`,
+      },
+    });
+    return data.id;
+  } catch (err: any) {
+    console.error(err);
     return 0;
   }
 };

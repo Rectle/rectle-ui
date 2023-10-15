@@ -71,6 +71,7 @@ export default {
       projectName: 'Project Name',
       description: 'Description (optional)',
       tags: 'Tags (optional)',
+      team: 'Team',
       baner: 'Upload baner image (optional)',
     },
     browse: {

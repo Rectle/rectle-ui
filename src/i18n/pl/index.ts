@@ -71,6 +71,7 @@ export default {
       projectName: 'Nazwa projektu',
       description: 'Opis (opcjonalne)',
       tags: 'Tagi (opcjonalne)',
+      team: 'Zespoł',
       baner: 'Wgraj zdjęcie baneru (opcjonalne)',
     },
     browse: {
