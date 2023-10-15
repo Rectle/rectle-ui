@@ -91,9 +91,10 @@ export default {
     },
   },
   projectCard: {
-    author: 'Autor: ',
+    team: 'Zespoł: ',
     users: 'użytkowników',
     date: 'Data: ',
+    description: 'Opis: ',
   },
   projectTabs: {
     overview: 'Przegląd',
@@ -136,8 +137,8 @@ export default {
     empty: 'Logi nie są w tej chwili dostępne!',
   },
   projectOverviewTitle: {
-    author: 'Autor: ',
-    users: 'użytkowników',
+    team: 'Zespół: ',
+    description: 'Opis: ',
     date: 'Data: ',
   },
   approcheStatusTitle: {

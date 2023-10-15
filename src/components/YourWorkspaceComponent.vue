@@ -11,6 +11,7 @@
     :list="sortedListOfCompetitions.filter((e) => e.type == type)"
     :page="$t('link.yourworkspace.link')"
     :tab="type"
+    @reloadProjects="reloadProjects"
   />
 </template>
 <script setup lang="ts">
@@ -21,6 +22,7 @@ import { ISortMock } from 'src/mock/sort.mock';
 import { ref, watch, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { uuid } from 'vue-uuid';
+import { IWorkspace } from 'src/types/project.type';
 
 const { t } = useI18n();
 
@@ -369,4 +371,10 @@ onMounted(() => {
 watch([active, finished, search], () => {
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 });
+
+const reloadProjects = async () => {
+  console.log('reloading projects...');
+  // listExamples.value = formatProjectsListData(await getAllProjects());
+  // sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
+};
 </script>

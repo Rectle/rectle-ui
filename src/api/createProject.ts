@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { url } from '../shared/variable.shared';
 import { useUserStore } from 'src/stores/user';
+import { IProjectCreate } from 'src/types/project.type';
 
 const changeFileToFormData = (file: File) => {
   const formData = new FormData();

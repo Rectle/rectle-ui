@@ -91,9 +91,10 @@ export default {
     },
   },
   projectCard: {
-    author: 'Author: ',
+    team: 'Team: ',
     users: 'users',
     date: 'Date: ',
+    description: 'Description: ',
   },
   projectTabs: {
     overview: 'Overview',
@@ -136,8 +137,8 @@ export default {
     empty: 'Logs are not present yet!',
   },
   projectOverviewTitle: {
-    author: 'Author: ',
-    users: 'users',
+    team: 'Team: ',
+    description: 'Description: ',
     date: 'Date: ',
   },
   approcheStatusTitle: {

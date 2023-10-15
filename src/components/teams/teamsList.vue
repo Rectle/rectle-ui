@@ -30,6 +30,7 @@ import { ref } from 'vue';
 import teamCard from './teamCard.vue';
 import teamAddCard from './teamAddCard.vue';
 import createTeam from './createTeam.vue';
+import { ITeamCard } from 'src/types/teams.type';
 
 const props = defineProps({
   list: { type: Array as PropType<ITeamCard[]>, required: true },

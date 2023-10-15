@@ -1,4 +1,4 @@
-interface IProjectCard {
+export interface IProjectCard {
   image: string;
   author: string;
   avatar: string;
@@ -9,7 +9,7 @@ interface IProjectCard {
   technologies: string[];
 }
 
-interface IWorkspace {
+export interface IWorkspace {
   image: string;
   author: string;
   avatar: string;
@@ -23,17 +23,30 @@ interface IWorkspace {
   type: string;
 }
 
-interface IApproache {
+export interface IApproache {
   id: number;
   points: number;
   score: number;
   status: string;
 }
 
-interface IProjectCreate {
+export interface IProjectCreate {
   name: string;
   description?: string;
   tags?: string;
   file?: File;
   teamId: string;
+}
+
+export interface IProject {
+  title: string;
+  avatar: string;
+  image: string;
+  team: string;
+  date: string;
+  description: string;
+  active: boolean;
+  finished: boolean;
+  id: string;
+  technologies: string[];
 }

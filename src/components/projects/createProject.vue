@@ -95,7 +95,7 @@ const props = defineProps({
   dialog: Boolean,
 });
 
-const emit = defineEmits(['closeDialog', 'projectIdEmit', 'realodProjects']);
+const emit = defineEmits(['closeDialog', 'projectIdEmit', 'reloadProjects']);
 
 const openDialog = computed({
   get: () => props.dialog,
@@ -137,7 +137,7 @@ const setResult = (result: number) => {
       timeout: 1000,
     });
     emit('closeDialog', !openDialog.value);
-    emit('realodProjects');
+    emit('reloadProjects');
   } else {
     emit('projectIdEmit', 0);
     $q.notify({

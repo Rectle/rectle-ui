@@ -1,10 +1,10 @@
 <template>
   <q-card class="cursor-pointer q-ma-xs card_style column" flat bordered>
-    <q-img :src="props.image" class="col-5">
+    <q-img :src="props.image ?? EMPTY_BACKGROUND" class="col-5">
       <div class="absolute-bottom layout_image">
         <q-avatar class="outher cursor-pointer" v-ripple.early>
           <q-avatar class="absolute-center">
-            <img :src="avatar" />
+            <img :src="avatar ?? EMPTY_AVATAR" />
           </q-avatar>
         </q-avatar>
       </div>
@@ -15,11 +15,13 @@
         <q-card-section>
           <q-item-label class="text-h6">{{ props.title }}</q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
-            {{ $t('projectCard.author') }} {{ props.author }} |
-            {{ props.users }} {{ $t('projectCard.users') }}
+            {{ $t('projectCard.team') }} {{ props.team }}
           </q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
             {{ $t('projectCard.date') }} {{ formatDate(props.date) }}
+          </q-item-label>
+          <q-item-label :caption="!$q.dark.isActive" v-if="props.description">
+            {{ $t('projectCard.description') }} {{ props.description }}
           </q-item-label>
         </q-card-section>
       </div>
@@ -32,23 +34,20 @@
   </q-card>
 </template>
 <script setup lang="ts">
-import moment from 'moment';
 import { useQuasar } from 'quasar';
+import { formatDate } from 'src/shared/formatters/date.formatter';
+import { EMPTY_AVATAR, EMPTY_BACKGROUND } from 'src/shared/variable.shared';
 
 const props = defineProps({
   image: String,
   avatar: String,
   title: String,
-  author: String,
-  users: String,
-  date: String
+  team: String,
+  description: String,
+  date: String,
 });
 
 const $q = useQuasar();
-
-const formatDate = (date: string | undefined) => {
-  return moment(date).format('DD.MM.YYYY');
-};
 </script>
 <style scoped>
 .layout_image {
