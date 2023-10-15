@@ -3,7 +3,6 @@ import jwt_decode from 'jwt-decode';
 import { type CredentialResponse } from 'vue3-google-signin';
 import { sendUserInformation } from 'src/api/userInformation';
 import { useSessionStorage } from '@vueuse/core';
-import { getAllTeams } from 'src/api/getAllTeamsByUserId';
 import { getTeamByName } from 'src/api/getTeamByName';
 
 interface IResponseData {

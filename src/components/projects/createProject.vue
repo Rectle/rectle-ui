@@ -24,6 +24,26 @@
             :label="t('addProject.form.projectName')"
           />
 
+          <q-select
+            filled
+            v-model="teamId"
+            :options="teamList"
+            :label="t('addProject.form.team')"
+            :option-value="
+              (opt) => (Object(opt) === opt && 'id' in opt ? opt.id : null)
+            "
+            :option-label="
+              (opt) =>
+                Object(opt) === opt && 'desc' in opt ? opt.desc : '- Null -'
+            "
+            :option-disable="
+              (opt) => (Object(opt) === opt ? opt.inactive === true : true)
+            "
+            emit-value
+            map-options
+            style="max-width: 300px"
+          />
+
           <q-input
             v-model="description"
             type="textarea"
@@ -65,16 +85,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
 import { createProject } from 'src/api/createProject';
+import { getAllTeams } from 'src/api/getAllTeamsByUserId';
 
 const props = defineProps({
   dialog: Boolean,
 });
 
-const emit = defineEmits(['closeDialog', 'projectIdEmit']);
+const emit = defineEmits(['closeDialog', 'projectIdEmit', 'realodProjects']);
 
 const openDialog = computed({
   get: () => props.dialog,
@@ -85,6 +106,24 @@ const projectName = ref<string>('');
 const description = ref<string>('');
 const tags = ref<string[]>([]);
 const baner = ref<File>();
+
+interface SelectType {
+  id: number;
+  desc: string;
+}
+
+const teamList = ref<SelectType[]>([]);
+const teamId = ref<number | null>(null);
+
+onMounted(async () => {
+  const list = (await getAllTeams()) as ITeam[];
+  teamList.value = list.map((team: ITeam) => {
+    return {
+      id: team.id,
+      desc: team.name,
+    };
+  }) as unknown as SelectType[];
+});
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -97,6 +136,8 @@ const setResult = (result: number) => {
       message: t('codePage.project.successData'),
       timeout: 1000,
     });
+    emit('closeDialog', !openDialog.value);
+    emit('realodProjects');
   } else {
     emit('projectIdEmit', 0);
     $q.notify({
@@ -107,12 +148,13 @@ const setResult = (result: number) => {
 };
 
 const onSubmit = async () => {
-  if (projectName.value) {
+  if (projectName.value && teamId.value) {
     const result = await createProject({
       name: projectName.value,
       description: description.value,
       tags: tags.value.join(','),
       file: baner.value,
+      teamId: teamId.value.toString(),
     });
     setResult(result);
   } else {
