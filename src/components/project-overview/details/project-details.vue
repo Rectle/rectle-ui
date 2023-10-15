@@ -8,6 +8,7 @@
 
       <ProjectDetailsCode
         :page="props.page"
+        :id="props.id"
         v-if="props.type === $t('projectTabs.code')"
       />
 
