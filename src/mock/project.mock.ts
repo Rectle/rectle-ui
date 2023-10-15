@@ -1,4 +1,6 @@
-const  IProjectCardMock: IProjectCard = {
+import { IApproache, IProjectCard, IWorkspace } from 'src/types/project.type';
+
+const IProjectCardMock: IProjectCard = {
   image: '',
   author: '',
   avatar: '',
@@ -6,10 +8,10 @@ const  IProjectCardMock: IProjectCard = {
   date: '',
   users: '',
   id: '',
-  technologies: []
-}
+  technologies: [],
+};
 
-const  IWorkspaceMock: IWorkspace = {
+const IWorkspaceMock: IWorkspace = {
   image: '',
   author: '',
   avatar: '',
@@ -20,15 +22,14 @@ const  IWorkspaceMock: IWorkspace = {
   technologies: [],
   active: true,
   finished: true,
-  type:''
-}
-
+  type: '',
+};
 
 const IApproacheMock: IApproache = {
   id: 0,
   points: 0,
   score: 0,
-  status: ''
+  status: '',
 };
 
-export {IApproacheMock, IProjectCardMock, IWorkspaceMock}
+export { IApproacheMock, IProjectCardMock, IWorkspaceMock };

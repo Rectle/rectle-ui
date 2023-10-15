@@ -1,4 +1,4 @@
-interface ITeamCard {
+export interface ITeamCard {
   logoUrl: string;
   name: string;
   createDate: string;

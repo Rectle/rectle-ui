@@ -6,19 +6,18 @@
     >
       <project-add-card :tab="props.tab" @click="addProject" />
     </div>
-
     <div
       class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"
       v-for="item of props.list"
-      v-bind:key="item.title"
+      v-bind:key="item.id"
     >
       <project-card
         :image="item.image"
-        :author="item.author"
+        :team="item.team"
+        :description="item.description"
         :avatar="item.avatar"
         :title="item.title"
         :date="item.date"
-        :users="item.users"
         @click="displayProject(item)"
       />
     </div>
@@ -28,7 +27,7 @@
     :dialog="projectDialog"
     @projectIdEmit="(e:number) => projectId = e"
     @closeDialog="(e:boolean) => projectDialog = e"
-    @realodProjects="realodProjects"
+    @reloadProjects="reloadProjects"
   />
 </template>
 <script setup lang="ts">
@@ -39,12 +38,14 @@ import { useRouter } from 'vue-router';
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { IProject } from 'src/types/project.type';
 
 const props = defineProps({
-  list: { type: Array as PropType<IProjectCard[]>, required: true },
+  list: { type: Array as PropType<IProject[]>, required: true },
   page: String,
   tab: String,
 });
+const emit = defineEmits(['reloadProjects']);
 
 const router = useRouter();
 
@@ -53,8 +54,8 @@ const projectId = ref(0);
 
 const { t } = useI18n();
 
-const realodProjects = () => {
-  console.log('reloading projects...'); //TODO: add reload project mechanism
+const reloadProjects = () => {
+  emit('reloadProjects');
 };
 
 const addProject = () => {
@@ -65,17 +66,17 @@ const addProject = () => {
   }
 };
 
-const displayProject = (item: IProjectCard) => {
+const displayProject = (item: IProject) => {
   router.push({
     path: `project-overview/${item.id}`,
     query: {
       id: item.id,
       item: item.image,
-      author: item.author,
+      team: item.team,
       avatar: item.avatar,
       title: item.title,
       date: item.date,
-      users: item.users,
+      description: item.description,
       technologies: item.technologies,
       page: props.page,
     },
