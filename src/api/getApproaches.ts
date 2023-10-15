@@ -1,11 +1,11 @@
 import { axios } from 'boot/axios';
 import { url } from '../shared/variable.shared';
 import { useUserStore } from 'src/stores/user';
-const getAllUserProjects = async (): Promise<any | null> => {
+const getApproaches = async (projectId: string): Promise<any | null> => {
   const userStore = useUserStore();
   try {
     const { data } = await axios.get(
-      `${url}/projects/users/${userStore.getUserId}`,
+      `${url}/models/projects/${projectId}/users/${userStore.getUserId}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -13,7 +13,6 @@ const getAllUserProjects = async (): Promise<any | null> => {
         },
       }
     );
-
     return data;
   } catch (err: any) {
     console.error(err);
@@ -21,4 +20,4 @@ const getAllUserProjects = async (): Promise<any | null> => {
   }
 };
 
-export { getAllUserProjects };
+export { getApproaches };
