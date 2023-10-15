@@ -26,12 +26,12 @@ const finished = ref<boolean>(false);
 const search = ref<string>('');
 const sort = ref<ISort>(ISortMock);
 
-const listExamples = ref<IProject[]>([]);
+const allProjects = ref<IProject[]>([]);
 
-const listOfCompetitions = ref(listExamples);
+const listOfCompetitions = ref(allProjects);
 
 const getBase = () =>
-  listExamples.value.filter(
+  allProjects.value.filter(
     (obj) => (active.value && obj.active) || (finished.value && obj.finished)
   );
 const getSearchBase = () =>
@@ -73,17 +73,17 @@ const sortByStartDate = (sort: ISort) => {
 };
 
 onMounted(async () => {
-  listExamples.value = formatProjectsListData(await getAllProjects());
+  allProjects.value = formatProjectsListData(await getAllProjects());
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 });
 
 watch([active, finished, search], async () => {
-  listExamples.value = formatProjectsListData(await getAllProjects());
+  allProjects.value = formatProjectsListData(await getAllProjects());
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 });
 
 const reloadProjects = async () => {
-  listExamples.value = formatProjectsListData(await getAllProjects());
+  allProjects.value = formatProjectsListData(await getAllProjects());
   sortedListOfCompetitions.value = search.value ? getSearchBase() : getBase();
 };
 </script>
