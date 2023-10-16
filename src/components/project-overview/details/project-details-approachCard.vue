@@ -18,7 +18,7 @@
           </q-item-section>
           <q-item-section
             >{{ $t('approcheTab.details.compileId')
-            }}{{ props.approacheID }}</q-item-section
+            }}{{ props.modelId }}</q-item-section
           >
         </q-item>
       </q-list>
@@ -34,13 +34,14 @@
 </template>
 
 <script setup lang="ts">
+import { getCompilation } from 'src/api/getCompilation';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 const props = defineProps({
   projectId: Number,
-  approacheID: Number,
+  modelId: Number,
   points: Number,
   score: Number,
   status: String,
@@ -59,18 +60,22 @@ enum icons {
   done = 'o_check_circle',
 }
 
-const routeToDetails = () => {
-  router.push({
-    path: `/project-overview/${props.projectId}/status/${props.approacheID}`,
-    query: {
-      id: props.approacheID,
-      projectId: props.projectId,
-      title: props.title,
-      points: props.points,
-      score: props.score,
-      status: props.status,
-    },
-  });
+const routeToDetails = async () => {
+  const compileId =
+    props.modelId && (await getCompilation(props.modelId.toString()));
+
+  if (compileId)
+    router.push({
+      path: `/project-overview/${props.projectId}/status/${compileId}`,
+      query: {
+        id: compileId,
+        projectId: props.projectId,
+        title: props.title,
+        points: props.points,
+        score: props.score,
+        status: props.status,
+      },
+    });
 };
 </script>
 <style>

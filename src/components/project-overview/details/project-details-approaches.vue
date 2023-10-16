@@ -19,7 +19,7 @@
     >
       <ProjectDetailsApproacheCard
         :projectId="props.id ? Number(props.id) : 0"
-        :approacheID="approache.id"
+        :modelId="approache.id"
         :points="approache.points"
         :score="approache.score"
         :status="approache.status"
