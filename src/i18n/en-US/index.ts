@@ -200,7 +200,7 @@ export default {
     },
     notificationsSettings: {
       title: 'Notifications',
-      empty: 'No notifications to display',
+      empty: 'No notifications',
     },
     privacyAndSecurity: {
       title: 'Privacy & Security',
