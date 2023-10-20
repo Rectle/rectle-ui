@@ -1,8 +1,9 @@
 <template>
   <q-btn
+    v-if="projectIsUploaded"
     class="q-mb-md"
     align="between"
-    label="Create model"
+    :label="$t('codePage.model.create')"
     icon="o_attach_file"
     outline
     rounded
@@ -12,13 +13,13 @@
   <div class="row justify-center q-gutter-sm">
     <div v-if="!approaches.length">{{ $t('approcheTab.empty') }}</div>
     <q-intersection
-      v-for="approache in approaches"
+      v-for="approache in approaches.sort((a, b) => b.id - a.id)"
       :key="approache.id"
       transition="scale"
       class="example-item"
     >
       <ProjectDetailsApproacheCard
-        :projectId="props.id ? Number(props.id) : 0"
+        :projectId="props.projectId ? Number(props.projectId) : 0"
         :modelId="approache.id"
         :points="approache.points"
         :score="approache.score"
@@ -31,7 +32,7 @@
 
   <UploadModelComponent
     :dialog="uploadModelFile"
-    :projectId="props.id ? Number(props.id) : 0"
+    :projectId="props.projectId ? Number(props.projectId) : 0"
     @closeDialog="(e) => (uploadModelFile = e)"
     @compileIdEmit="(e) => (compileId = e)"
     @modelNameEmit="(e) => (modelName = e)"
@@ -43,10 +44,11 @@ import { getApproaches } from 'src/api/getApproaches';
 import ProjectDetailsApproacheCard from './project-details-approachCard.vue';
 import UploadModelComponent from './upload-file-dialog/UploadModelComponent.vue';
 import { onMounted, ref, watch } from 'vue';
+import { isProjectUploaded } from 'src/api/isProjectUploaded';
 
 // TODO: download approaches form databse by projectid
 const props = defineProps({
-  id: String,
+  projectId: String,
   title: String,
 });
 
@@ -63,14 +65,23 @@ const uploadModelFile = ref(false);
 const modelName = ref('');
 const compileId = ref(0);
 
+const projectIsUploaded = ref(false);
+
 const approaches = ref<IApprocheDetail[]>([]);
 
 onMounted(async () => {
-  approaches.value = props.id ? await getApproaches(props.id) : [];
+  projectIsUploaded.value = props.projectId
+    ? await isProjectUploaded(props.projectId)
+    : false;
+  approaches.value = props.projectId
+    ? await getApproaches(props.projectId)
+    : [];
 });
 
 watch([compileId.value], async () => {
-  approaches.value = props.id ? await getApproaches(props.id) : [];
+  approaches.value = props.projectId
+    ? await getApproaches(props.projectId)
+    : [];
 });
 
 const uploadModelFromFile = () =>
@@ -84,37 +95,4 @@ const uploadModelFromFile = () =>
 //     });
 //   }
 // });
-
-// const exampleApproaches = [
-//   {
-//     id: uuid.v4(),
-//     points: 123125,
-//     score: 0.86743,
-//     status: 'pending'
-//   },
-//   {
-//     id: uuid.v4(),
-//     points: 132513,
-//     score: 0.24335,
-//     status: 'pending'
-//   },
-//   {
-//     id: uuid.v4(),
-//     points: 125313,
-//     score: 0.6532,
-//     status: 'done'
-//   },
-//   {
-//     id: uuid.v4(),
-//     points: 103125,
-//     score: 0.36743,
-//     status: 'done'
-//   },
-//   {
-//     id: uuid.v4(),
-//     points: 532541,
-//     score: 0.1231,
-//     status: 'done'
-//   }
-// ];
 </script>
