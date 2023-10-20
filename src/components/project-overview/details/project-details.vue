@@ -13,7 +13,7 @@
       />
 
       <ProjectDetailsApproaches
-        :id="props.id"
+        :projectId="props.id"
         :title="props.title"
         :page="props.page"
         v-if="props.type === $t('projectTabs.approaches')"

@@ -72,7 +72,7 @@
 
           <div>
             <q-btn
-              label="Submit"
+              :label="$t('codePage.model.submitButton')"
               type="submit"
               color="primary"
               class="full-width"
@@ -80,7 +80,7 @@
             />
           </div>
         </q-form>
-        <div class="q-mt-md">
+        <!-- <div class="q-mt-md">
           <q-btn
             :disable="disableCompileButton"
             label="Compile"
@@ -89,7 +89,7 @@
             size="lg"
             @click="compile"
           />
-        </div>
+        </div> -->
       </div>
     </q-card>
   </q-dialog>
@@ -179,6 +179,7 @@ const onSubmit = async () => {
     const result = await sendModelFile(modelId.value, file.value);
     setResult(result);
     fileId.value = result;
+    if (!disableCompileButton.value) compile();
   } else {
     $q.notify({
       type: 'negative',
