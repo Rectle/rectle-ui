@@ -36,3 +36,4 @@
 - `0.2.4` - Added help&support page
 - `0.2.5` - Added about-us page
 - `0.2.6` - Create new project endpoint
+- `0.2.7` - Team invitations
