@@ -108,6 +108,7 @@ export default {
       create: 'Create model',
       modelName: 'Model Name',
       errorName: 'First upload project!',
+      submitButton: 'Submit and compile',
     },
     project: {
       title: 'Upload project',
@@ -131,6 +132,8 @@ export default {
       status: 'Status: ',
       name: 'Name: ',
     },
+    compileDetailsProblemInformation:
+      'There was a problem reading the approach with id: ',
   },
   logsPage: {
     title: 'Logs',
