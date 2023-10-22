@@ -84,6 +84,7 @@ export default {
       teamName: 'Nazwa zespołu',
       avatar: 'Wgraj zdjęcie awatara (opcjonalne))',
       tab: 'Stwórz',
+      noPendingInvitations: "Brak zaproszeń"
     },
     join: {
       title: 'Dołącz do zespołu',
@@ -116,9 +117,19 @@ export default {
     },
     teams: {
       successData: 'Zespół został pomyślnie stworzony',
+      inviteSuccessData: 'Dołączyłeś do zespołu',
       errorData: 'Wystąpił problem przy tworzeniu teamu',
+      manage: {
+        members: 'Członkowie zespołu',
+        inviteUsers: 'Zaproś nowych członków',
+        inviteId: 'Id nowego członka',
+        invitedUsers: 'Zaproszeni członkowie',
+        invite: 'Zaproś',
+        cancel: 'Anuluj'
+      }
     },
     title: 'Code',
+    invalidData: 'Nieprawidłowe dane',
     uploadLabel: 'Wgraj plik',
     emptyData: 'Przesłany formularz zawiera puste dane formularza!',
     successData: 'Plik został pomyślnie przesłany',

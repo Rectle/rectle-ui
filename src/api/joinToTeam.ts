@@ -7,7 +7,11 @@ const joinToTeam = async (teamId: number) => {
   const userId = userStore.getUserId;
 
   try {
-    await axios.put(`${url}/teams/${teamId}/user/${userId}`);
+    await axios.put(`${url}/teams/${teamId}/user/${userId}`, null, {
+      headers: {
+        Authorization: `Bearer${userStore.user.jwt}`,
+      },
+    });
   } catch (err) {
     console.error(err);
   }

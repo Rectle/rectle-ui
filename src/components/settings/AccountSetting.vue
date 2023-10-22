@@ -23,6 +23,9 @@
         <div class="text-subtitle1">
           {{ userStore.getUser.email }}
         </div>
+        <div class="text-subtitle1">
+          ID: {{ userStore.getUser.id }}
+        </div>
       </div>
       <div class="col-1">
         <q-btn flat round icon="more_vert" />

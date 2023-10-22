@@ -50,7 +50,11 @@
           </div>
         </q-form>
         <div v-else class="q-my-sm">
+          <p class="text-center" v-if="availableTeams.length ==- 0">
+            {{ t('addTeam.form.noPendingInvitations') }}
+          </p>
           <q-virtual-scroll
+            v-else
             style="max-height: 400px"
             :items="availableTeams"
             separator
@@ -91,6 +95,11 @@ import { getNotBelongingToUserTeams } from 'src/api/getNotBelongingToUserTeams';
 import { ITeamJoin } from 'src/types/teams.type';
 import { joinToTeam } from 'src/api/joinToTeam';
 import { EMPTY_IMAGE } from 'src/shared/variable.shared';
+import { useUserStore } from 'src/stores/user';
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const userStore = useUserStore();
 
 const props = defineProps({
   dialog: Boolean,
@@ -101,7 +110,9 @@ const emit = defineEmits(['closeDialog', 'projectIdEmit']);
 const availableTeams = ref([]);
 
 onMounted(async () => {
-  availableTeams.value = await getNotBelongingToUserTeams();
+  const _teams = await getNotBelongingToUserTeams();
+  console.log(_teams)
+  availableTeams.value = _teams.filter((t: any) => t?.pendingInvites?.includes(userStore.getUserId))
 });
 
 const requestDialog = (item: ITeamJoin) => {
@@ -112,7 +123,12 @@ const requestDialog = (item: ITeamJoin) => {
     persistent: true,
   }).onOk(() => {
     joinToTeam(item.id);
-    location.reload();
+    $q.notify({
+      color: 'primary',
+      message: t('codePage.team.inviteSuccessData'),
+      timeout: 2000,
+    });
+    router.push(`/teams/${item.id}`);
   });
 };
 
@@ -133,14 +149,14 @@ const setResult = (result: number) => {
   if (result) {
     $q.notify({
       color: 'primary',
-      message: t('codePage.project.successData'),
+      message: t('codePage.team.successData'),
       timeout: 2000,
     });
-    setTimeout(() => location.reload(), 500);
+    router.push(`/teams/${result}`)
   } else {
     $q.notify({
       type: 'negative',
-      message: t('codePage.project.errorData'),
+      message: t('codePage.team.errorData'),
     });
   }
 };

@@ -10,13 +10,13 @@
       @click="() => leaveTeam(props.name, props.id)"
     />
     <q-item class="col-6" style="justify-items: center">
-      <q-item-section avatar>
+      <q-item-section avatar @click="displayTeam(props.id)">
         <q-avatar size="50px">
           <img :src="props.logoUrl ?? EMPTY_IMAGE" />
         </q-avatar>
       </q-item-section>
 
-      <q-item-section>
+      <q-item-section @click="displayTeam(props.id)">
         <q-item-label class="text-h6 user-card-header"
           >{{ props.name }}
         </q-item-label>
@@ -48,6 +48,9 @@ import moment from 'moment';
 import { useQuasar } from 'quasar';
 import { leaveTheTeam } from 'src/api/leaveFromTeam';
 import { EMPTY_IMAGE } from 'src/shared/variable.shared';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const props = defineProps({
   name: String,
@@ -74,6 +77,12 @@ const leaveTeam = (name: string | undefined, id: number | undefined) => {
       leaveTheTeam(id);
       location.reload();
     });
+};
+
+const displayTeam = (id: number) => {
+  router.push({
+    path: `teams/${id}`,
+  });
 };
 </script>
 <style scoped>
