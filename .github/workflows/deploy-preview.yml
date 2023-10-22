@@ -16,4 +16,4 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebase init hosting:github: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECTLE }}'
-          projectId: rectle-app
+          projectId: rectle
