@@ -9,6 +9,30 @@ export interface IProjectCard {
   technologies: string[];
 }
 
+export interface IProjectDetails {
+  // response project data from backend
+  createDate: Date;
+  description: string;
+  id: number;
+  logoUrl: string | null;
+  models: {
+    id: number;
+    name: string;
+    createDate: Date;
+  }[];
+  name: string;
+  overview: string | null;
+  tags: string | null;
+  team: {
+    createDate: Date;
+    id: number;
+    joinRequests: string | null;
+    logoUrl: string | null;
+    name: string;
+    pendingInvites: string | null;
+  };
+}
+
 export interface IApproache {
   id: number;
   points: number;

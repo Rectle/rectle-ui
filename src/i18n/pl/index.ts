@@ -101,6 +101,7 @@ export default {
     code: 'Kod',
     approaches: 'Twoje podejście',
     leaderboard: 'Tablica wyników',
+    projectError: 'Wystąpił błąd przy odczycie projektu',
   },
   codePage: {
     model: {

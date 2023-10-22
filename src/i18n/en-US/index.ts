@@ -101,6 +101,7 @@ export default {
     code: 'Code',
     approaches: 'Your Approaches',
     leaderboard: 'Leaderboard',
+    projectError: 'An error occurred while reading the project',
   },
   codePage: {
     model: {
