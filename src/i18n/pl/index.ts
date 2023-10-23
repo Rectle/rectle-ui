@@ -102,6 +102,7 @@ export default {
     code: 'Kod',
     approaches: 'Twoje podejście',
     leaderboard: 'Tablica wyników',
+    projectError: 'Wystąpił błąd przy odczycie projektu',
   },
   codePage: {
     model: {
@@ -109,6 +110,7 @@ export default {
       create: 'Stwórz model',
       modelName: 'Nazwa modelu',
       errorName: 'Najpierw wgraj projekt!',
+      submitButton: 'Zapisz i kompiluj',
     },
     project: {
       title: 'Wgraj projekt',
@@ -142,6 +144,11 @@ export default {
       status: 'Status: ',
       name: 'Nazwa: ',
     },
+    compileDetailsProblemInformation:
+      'Wystąpił problem z odczytem podejścia o id: ',
+  },
+  overviewTab: {
+    empty: 'Brak przeglądu.',
   },
   logsPage: {
     title: 'Logi',

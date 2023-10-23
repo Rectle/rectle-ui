@@ -3,7 +3,6 @@ import jwt_decode from 'jwt-decode';
 import { type CredentialResponse } from 'vue3-google-signin';
 import { sendUserInformation } from 'src/api/userInformation';
 import { useSessionStorage } from '@vueuse/core';
-import { getTeamByName } from 'src/api/getTeamByName';
 
 interface IResponseData {
   id: number;
@@ -39,10 +38,6 @@ export const useUserStore = defineStore('user', {
     },
     signOut() {
       this.user = {} as IUser;
-    },
-    async loadTeam(email: string) {
-      const res = (await getTeamByName(email)) as ITeam;
-      return res.id;
     },
   },
 });

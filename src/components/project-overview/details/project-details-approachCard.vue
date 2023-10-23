@@ -36,6 +36,8 @@
 <script setup lang="ts">
 import { getCompilation } from 'src/api/getCompilation';
 import { useRouter } from 'vue-router';
+import { useQuasar } from 'quasar';
+import { useI18n } from 'vue-i18n';
 
 const router = useRouter();
 
@@ -59,6 +61,8 @@ enum icons {
   pending = 'o_pending',
   done = 'o_check_circle',
 }
+const $q = useQuasar();
+const { t } = useI18n();
 
 const routeToDetails = async () => {
   const compileId =
@@ -75,6 +79,14 @@ const routeToDetails = async () => {
         score: props.score,
         status: props.status,
       },
+    });
+  else
+    $q.notify({
+      type: 'negative',
+      message: `${t('approcheTab.compileDetailsProblemInformation')} ${
+        props.modelId
+      }`,
+      timeout: 2000,
     });
 };
 </script>

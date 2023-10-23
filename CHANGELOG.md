@@ -36,4 +36,7 @@
 - `0.2.4` - Added help&support page
 - `0.2.5` - Added about-us page
 - `0.2.6` - Create new project endpoint
-- `0.2.7` - Team invitations
+- `0.2.7` - Added teams list view
+- `0.2.8` - Connect projects list with backend
+- `0.2.9` - Connect projects details with backend
+- `0.3.0` - Team invitations
