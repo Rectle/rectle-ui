@@ -96,10 +96,10 @@ const invite = async () => {
   try {
     inviteProcess.value = true;
     const response = await inviteMember(route.params.id, newMemberName.value)
-
+    console.log(response)
     team.value = {
       ...team.value,
-      invited: response.pendingInvites
+      invited: response.invited
     }
   } catch {
     $q.notify({
@@ -117,7 +117,7 @@ const cancelInvitation = async (id) => {
 
   team.value = {
     ...team.value,
-    invited: response.pendingInvites
+    invited: response.invited
   }
   cancelInvitationProcess.value = false;
 }
