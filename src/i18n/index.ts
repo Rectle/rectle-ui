@@ -5,4 +5,5 @@ export default {
   'pl': pl,
   'pl-PL': pl,
   'en-US': enUS,
+  'en': enUS
 };

@@ -37,12 +37,12 @@ export default route(function ({ store }) {
   Router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
     const { isSignedIn } = userStore
-
+    
     if (to.matched.some(record => record.meta.redirectAuth) && isSignedIn) {
       next({ path: '/' })
     }
-
-    if (to.matched.some(record => record.meta.requiresAuth) && !isSignedIn) {
+    
+    if (to.matched.some(record => record?.meta?.requiresAuth) && !isSignedIn) {
       next({ path: '/auth/login', query: { next: encodeURIComponent(to.fullPath) } })
     }
 

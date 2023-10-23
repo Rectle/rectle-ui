@@ -17,6 +17,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECTLE_PLATFORM }}"
-          projectId: rectle-app
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_RECTLE }}"
+          projectId: rectle
           channelId: live
