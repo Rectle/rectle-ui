@@ -50,7 +50,7 @@
           </div>
         </q-form>
         <div v-else class="q-my-sm">
-          <p class="text-center" v-if="availableTeams.length ==- 0">
+          <p class="text-center" v-if="availableTeams.length == -0">
             {{ t('addTeam.form.noPendingInvitations') }}
           </p>
           <q-virtual-scroll
@@ -96,7 +96,7 @@ import { ITeamJoin } from 'src/types/teams.type';
 import { joinToTeam } from 'src/api/joinToTeam';
 import { EMPTY_IMAGE } from 'src/shared/variable.shared';
 import { useUserStore } from 'src/stores/user';
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -111,8 +111,9 @@ const availableTeams = ref([]);
 
 onMounted(async () => {
   const _teams = await getNotBelongingToUserTeams();
-  console.log(_teams)
-  availableTeams.value = _teams.filter((t: any) => t?.pendingInvites?.includes(userStore.getUserId))
+  availableTeams.value = _teams.filter((t: any) =>
+    t?.pendingInvites?.includes(userStore.getUserId)
+  );
 });
 
 const requestDialog = (item: ITeamJoin) => {
@@ -152,7 +153,7 @@ const setResult = (result: number) => {
       message: t('codePage.team.successData'),
       timeout: 2000,
     });
-    router.push(`/teams/${result}`)
+    router.push(`/teams/${result}`);
   } else {
     $q.notify({
       type: 'negative',
