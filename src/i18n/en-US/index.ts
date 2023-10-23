@@ -101,6 +101,7 @@ export default {
     code: 'Code',
     approaches: 'Your Approaches',
     leaderboard: 'Leaderboard',
+    projectError: 'An error occurred while reading the project',
   },
   codePage: {
     model: {
@@ -134,6 +135,9 @@ export default {
     },
     compileDetailsProblemInformation:
       'There was a problem reading the approach with id: ',
+  },
+  overviewTab: {
+    empty: 'Empty overview.',
   },
   logsPage: {
     title: 'Logs',
