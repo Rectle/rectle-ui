@@ -84,7 +84,7 @@ export default {
       teamName: 'Nazwa zespołu',
       avatar: 'Wgraj zdjęcie awatara (opcjonalne))',
       tab: 'Stwórz',
-      noPendingInvitations: "Brak zaproszeń"
+      noPendingInvitations: 'Brak zaproszeń',
     },
     join: {
       title: 'Dołącz do zespołu',
@@ -127,8 +127,9 @@ export default {
         inviteId: 'Id nowego członka',
         invitedUsers: 'Zaproszeni członkowie',
         invite: 'Zaproś',
-        cancel: 'Anuluj'
-      }
+        cancel: 'Anuluj',
+        leave: 'Opuść zespół',
+      },
     },
     title: 'Code',
     invalidData: 'Nieprawidłowe dane',

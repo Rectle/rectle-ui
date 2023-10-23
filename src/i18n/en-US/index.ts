@@ -84,7 +84,7 @@ export default {
       teamName: 'Team Name',
       avatar: 'Upload avatar image (optional)',
       tab: 'Create',
-      noPendingInvitations: 'No pending invitations'
+      noPendingInvitations: 'No pending invitations',
     },
     join: {
       title: 'Join to team',
@@ -127,8 +127,9 @@ export default {
         inviteId: 'User id',
         invitedUsers: 'Invited users',
         invite: 'Invite',
-        cancel: 'Cancel'
-      }
+        cancel: 'Cancel',
+        leave: 'Leave team',
+      },
     },
     title: 'Code',
     uploadLabel: 'Upload file',

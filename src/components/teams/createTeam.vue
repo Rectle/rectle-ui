@@ -50,7 +50,7 @@
           </div>
         </q-form>
         <div v-else class="q-my-sm">
-          <p class="text-center" v-if="availableTeams.length == -0">
+          <p class="text-center" v-if="availableTeams.length === 0">
             {{ t('addTeam.form.noPendingInvitations') }}
           </p>
           <q-virtual-scroll
