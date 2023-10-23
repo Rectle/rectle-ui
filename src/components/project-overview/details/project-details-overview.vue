@@ -95,7 +95,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import xss from 'xss';
 import { setOverview } from 'src/api/setOverview';
@@ -126,6 +126,6 @@ const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
 const editor = ref(props.overview ?? '');
 
 const article = computed(() => {
-  return xss(editor.value);
+  return xss(editor.value ? editor.value : t('overviewTab.empty'));
 });
 </script>

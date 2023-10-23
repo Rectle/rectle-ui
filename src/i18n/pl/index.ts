@@ -136,6 +136,9 @@ export default {
     compileDetailsProblemInformation:
       'Wystąpił problem z odczytem podejścia o id: ',
   },
+  overviewTab: {
+    empty: 'Brak przeglądu.',
+  },
   logsPage: {
     title: 'Logi',
     empty: 'Logi nie są w tej chwili dostępne!',

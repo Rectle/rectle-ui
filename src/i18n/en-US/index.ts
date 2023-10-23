@@ -136,6 +136,9 @@ export default {
     compileDetailsProblemInformation:
       'There was a problem reading the approach with id: ',
   },
+  overviewTab: {
+    empty: 'Empty overview.',
+  },
   logsPage: {
     title: 'Logs',
     empty: 'Logs are not present yet!',

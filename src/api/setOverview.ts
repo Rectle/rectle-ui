@@ -9,9 +9,8 @@ const setOverview = async (
   try {
     const { data } = await axios.put(
       `${url}/projects/${projectId}/overview`,
-      null,
+      { newOverview: overview },
       {
-        params: { newOverview: overview },
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer${userStore.user.jwt}`,
