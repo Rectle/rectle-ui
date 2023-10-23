@@ -73,3 +73,28 @@ export interface IWorkspace {
   finished: boolean;
   type: string;
 }
+
+export interface ILeaderboard {
+  name: string;
+  createDate: Date;
+  resourceUrl: string | null;
+  compilations: {
+    score: number;
+    createDate: Date;
+  }[];
+  user: {
+    id: number;
+    provider: string;
+    email: string;
+    name: string;
+  };
+}
+
+export interface IFormattedLeaderboard {
+  name: string;
+  resourceUrl: string | null;
+  score: number;
+  createDate: Date;
+  userId: number;
+  userName: string;
+}

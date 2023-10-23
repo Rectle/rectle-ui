@@ -40,3 +40,4 @@
 - `0.2.8` - Connect projects list with backend
 - `0.2.9` - Connect projects details with backend
 - `0.3.0` - Team invitations
+- `0.3.1` - Create leaderboard component
