@@ -22,6 +22,7 @@
       />
 
       <ProjectDetailsLeaderboard
+        :projectId="props.id"
         v-if="props.type === $t('projectTabs.leaderboard')"
       />
     </q-card-section>
