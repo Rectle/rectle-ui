@@ -1,3 +1,5 @@
 <template>
-  <div class="text-h3">Rectle Application</div>
+  <div style="width: 80%">
+    <q-img src="~assets/rectle_icon.png" fit="none" />
+  </div>
 </template>
