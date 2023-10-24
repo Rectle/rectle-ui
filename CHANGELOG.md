@@ -41,3 +41,5 @@
 - `0.2.9` - Connect projects details with backend
 - `0.3.0` - Team invitations
 - `0.3.1` - Create leaderboard component
+- `0.3.2` - Add rectle logo
+- `0.3.3` - Add project download button

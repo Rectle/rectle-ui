@@ -131,6 +131,10 @@ export default {
         leave: 'Opuść zespół',
       },
     },
+    alerts: {
+      emptyProject: 'Brak projektu',
+      comingSoon: 'Dostępne wkrótce',
+    },
     title: 'Code',
     invalidData: 'Nieprawidłowe dane',
     uploadLabel: 'Wgraj plik',
