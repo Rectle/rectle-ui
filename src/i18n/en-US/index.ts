@@ -131,6 +131,10 @@ export default {
         leave: 'Leave team',
       },
     },
+    alerts: {
+      emptyProject: 'Project not exist',
+      comingSoon: 'Coming soon',
+    },
     title: 'Code',
     uploadLabel: 'Upload file',
     invalidData: 'Invalid data',

@@ -11,6 +11,7 @@
       <ProjectDetailsCode
         :page="props.page"
         :id="props.id"
+        :project-name="title"
         v-if="props.type === $t('projectTabs.code')"
       />
 

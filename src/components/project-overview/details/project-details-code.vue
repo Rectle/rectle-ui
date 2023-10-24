@@ -4,9 +4,14 @@
     v-model="editor"
     :toolbar-rounded="true"
     :definitions="{
+      downloadProject: {
+        icon: 'o_file_download',
+        label: 'Download project',
+        handler: downloadProject,
+      },
       projectFromFile: {
         icon: 'attach_file',
-        label: 'Project',
+        label: 'Upload Project',
         handler: uploadProjectFromFile,
       },
       modelFromCode: {
@@ -26,6 +31,7 @@
       ],
       ['modelFromCode'],
       ['modelFromFile', 'projectFromFile'],
+      ['downloadProject'],
     ]"
     :toolbar-bg="toolbarColor"
     min-height="5rem"
@@ -58,18 +64,18 @@
 import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import UploadProjectComponent from './upload-file-dialog/UploadProjectComponent.vue';
+import { downloadProjectFile } from 'src/api/downloadProjectFile';
+import { downloadFileFromUrl } from 'src/api/downloadFileFromUrl';
+import { useI18n } from 'vue-i18n';
 const $q = useQuasar();
-
-// TODO: download code text/ file form databse by id
-// const props = defineProps({
-//   id: String
-// });
 
 const props = defineProps({
   page: String,
   id: String,
+  projectName: String,
 });
 
+const { t } = useI18n();
 const projectId = ref(0);
 const uploadProjectFile = ref(false);
 const toolbarColor = computed(() => ($q.dark.isActive ? 'grey-10' : 'grey-1'));
@@ -83,7 +89,7 @@ const editor = ref(exampleText);
 
 const uploadModelFromCode = () => {
   $q.notify({
-    message: 'Caming soon',
+    message: t('codePage.alerts.comingSoon'),
     color: 'red-5',
     textColor: 'white',
     icon: 'cloud_done',
@@ -92,4 +98,17 @@ const uploadModelFromCode = () => {
 
 const uploadProjectFromFile = () =>
   (uploadProjectFile.value = !uploadProjectFile.value);
+
+const downloadProject = async () => {
+  if (props.id) {
+    const url = await downloadProjectFile(props.id);
+
+    url
+      ? downloadFileFromUrl(url, props.projectName ?? 'project')
+      : $q.notify({
+          type: 'negative',
+          message: t('codePage.alerts.emptyProject'),
+        });
+  }
+};
 </script>
