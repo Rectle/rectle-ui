@@ -116,6 +116,7 @@ export default {
       title: 'Upload project',
       successData: 'The project has been successfully created',
       errorData: 'There was a problem during project creation',
+      downloadCodeButton: 'Download project code',
     },
     teams: {
       successData: 'The team has been successfully created',
@@ -141,6 +142,8 @@ export default {
     emptyData: 'Submitted form contains empty formData!',
     successData: 'The file has been successfully uploaded',
     errorData: 'There was a problem uploading the file',
+    successCompileData: 'The file has been successfully compiled',
+    errorCompileData: 'There was a problem compiling the file',
   },
   approcheTab: {
     empty: "Project doesn't have any approches",

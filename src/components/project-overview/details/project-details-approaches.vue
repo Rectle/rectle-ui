@@ -1,17 +1,17 @@
 <template>
-  <q-btn
-    v-if="projectIsUploaded"
-    class="q-mb-md"
-    align="between"
-    :label="$t('codePage.model.create')"
-    icon="o_attach_file"
-    outline
-    rounded
-    @click="uploadModelFromFile"
-  />
-
   <div class="row justify-center q-gutter-sm">
-    <div v-if="!approaches.length">{{ $t('approcheTab.empty') }}</div>
+    <div v-if="!approaches.length && !projectIsUploaded">
+      {{ $t('approcheTab.empty') }}
+    </div>
+    <q-card flat v-if="projectIsUploaded">
+      <q-btn
+        style="width: 100%; height: 100%; min-height: 120px"
+        align="between"
+        :label="$t('codePage.model.create')"
+        icon="o_attach_file"
+        @click="uploadModelFromFile"
+      />
+    </q-card>
     <q-intersection
       v-for="approache in approaches.sort((a, b) => b.id - a.id)"
       :key="approache.id"
@@ -36,6 +36,7 @@
     @closeDialog="(e) => (uploadModelFile = e)"
     @compileIdEmit="(e) => (compileId = e)"
     @modelNameEmit="(e) => (modelName = e)"
+    @reloadApproaches="reloadApproaches"
   />
 </template>
 
@@ -46,7 +47,6 @@ import UploadModelComponent from './upload-file-dialog/UploadModelComponent.vue'
 import { onMounted, ref, watch } from 'vue';
 import { isProjectUploaded } from 'src/api/isProjectUploaded';
 
-// TODO: download approaches form databse by projectid
 const props = defineProps({
   projectId: String,
   title: String,
@@ -87,12 +87,12 @@ watch([compileId.value], async () => {
 const uploadModelFromFile = () =>
   (uploadModelFile.value = !uploadModelFile.value);
 
-// onMounted(() => {
-//   if (props.compileId) {
-//     approaches.value.push({
-//       id: props.compileId,
-//       name: props.modelName,
-//     });
-//   }
-// });
+const reloadApproaches = async () => {
+  projectIsUploaded.value = props.projectId
+    ? await isProjectUploaded(props.projectId)
+    : false;
+  approaches.value = props.projectId
+    ? await getApproaches(props.projectId)
+    : [];
+};
 </script>
