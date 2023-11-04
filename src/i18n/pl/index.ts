@@ -116,6 +116,7 @@ export default {
       title: 'Wgraj projekt',
       successData: 'Projekt został pomyślnie stworzony',
       errorData: 'Wystąpił problem przy tworzeniu projektu',
+      downloadCodeButton: 'Pobierz kod projektu',
     },
     teams: {
       successData: 'Zespół został pomyślnie stworzony',
@@ -141,6 +142,8 @@ export default {
     emptyData: 'Przesłany formularz zawiera puste dane formularza!',
     successData: 'Plik został pomyślnie przesłany',
     errorData: 'Podczas przesyłania pliku wystąpił problem',
+    successCompileData: 'Plik został pomyślnie skompilowany',
+    errorCompileData: 'Podczas kompilacji pliku wystąpił problem',
   },
   approcheTab: {
     empty: 'Projekt nie ma żadnych podejść',

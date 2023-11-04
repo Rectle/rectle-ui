@@ -41,10 +41,10 @@
     <q-btn
       class="q-mb-md"
       align="between"
-      label="Download code"
+      :label="$t('codePage.project.downloadCodeButton')"
       icon="o_file_download"
       outline
-      rounded
+      @click="downloadProject"
     />
     <q-card flat bordered>
       <q-card-section>

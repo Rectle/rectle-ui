@@ -11,7 +11,7 @@
     </q-img>
 
     <div class="row q-px-xs col-7">
-      <div class="details col-11">
+      <div class="details">
         <q-card-section>
           <q-item-label class="text-h6">{{ props.title }}</q-item-label>
           <q-item-label :caption="!$q.dark.isActive">
@@ -25,11 +25,11 @@
           </q-item-label>
         </q-card-section>
       </div>
-      <q-card-section class="q-pa-none col-1">
+      <!-- <q-card-section class="q-pa-none col-1">
         <div class="q-mr-xs">
           <q-btn flat icon="more_vert" rounded class="q-px-none q-mx-none" />
         </div>
-      </q-card-section>
+      </q-card-section> -->
     </div>
   </q-card>
 </template>

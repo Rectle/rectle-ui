@@ -112,7 +112,12 @@ const props = defineProps({
 });
 const modelName = ref('');
 const modelId = ref(0);
-const emit = defineEmits(['closeDialog', 'compileIdEmit', 'modelNameEmit']);
+const emit = defineEmits([
+  'closeDialog',
+  'compileIdEmit',
+  'modelNameEmit',
+  'reloadApproaches',
+]);
 
 const projectIDComputed = computed(() => {
   return props.projectId;
@@ -145,10 +150,26 @@ const setResult = (result: number) => {
   }
 };
 
+const setCompileResult = (result: number) => {
+  if (result) {
+    $q.notify({
+      color: 'primary',
+      message: t('codePage.successCompileData'),
+      timeout: 1000,
+    });
+    disableCompileButton.value = false;
+  } else {
+    $q.notify({
+      type: 'negative',
+      message: t('codePage.errorCompileData'),
+    });
+  }
+};
+
 const compile = async () => {
   if (!disableCompileButton.value) {
     const result = await compileModelFile(fileId.value);
-    setResult(result);
+    setCompileResult(result);
     emit('compileIdEmit', result);
   } else {
     $q.notify({
@@ -174,12 +195,22 @@ const createModel = async () => {
   }
 };
 
+const clearDialog = () => {
+  modelName.value = '';
+  modelId.value = 0;
+  file.value = undefined;
+  fileId.value = 0;
+};
+
 const onSubmit = async () => {
   if (file.value) {
     const result = await sendModelFile(modelId.value, file.value);
     setResult(result);
     fileId.value = result;
     if (!disableCompileButton.value) compile();
+    clearDialog();
+    emit('reloadApproaches');
+    emit('closeDialog', !openDialog.value);
   } else {
     $q.notify({
       type: 'negative',
